@@ -1,0 +1,3 @@
+[submodule "Event-Backend-NestJs"]
+	path = Event-Backend-NestJs
+	url = https://github.com/RocioQuigua/Event-Backend-NestJs.git

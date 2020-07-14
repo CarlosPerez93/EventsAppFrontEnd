@@ -27,10 +27,10 @@ export const Login = () => {
 
             <LayoutMenu />
 
+            <img className="imgLogin" src={img1} />
 
-            <div className="Img1">
-                <img className="imgLogin" src={img1} />
-            </div>
+
+
 
 
 
@@ -42,35 +42,40 @@ export const Login = () => {
                 onFinish={onFinish}
                 onFinishFailed={onFinishFailed}
             >
-                <Form.Item
-                    label="Username"
+                <Form.Item className="label"
+                    label="Usuario"
                     name="username"
                     rules={[{ required: true, message: 'Please input your username!' }]}
 
                 >
-                    <Input />
-                </Form.Item>
 
-                <Form.Item
-                    label="Password"
+
+                </Form.Item>
+                <Input className="Input" />
+
+                <Form.Item className="label"
+                    label="Contraseña"
                     name="password"
                     rules={[{ required: true, message: 'Please input your password!' }]}
                 >
-                    <Input.Password />
+
                 </Form.Item>
+                <Input.Password className="Input" />
 
                 <Form.Item {...tailLayout} className="remember" name="remember" valuePropName="checked">
                     <Checkbox>Remember me</Checkbox>
-                    <a className="login-form-forgot" href="">Forgot password</a>
                 </Form.Item>
 
 
                 <Form.Item {...tailLayout}>
-                    <Button type="default" htmlType="submit">
+                    <Button type="primary" htmlType="submit">
                         Login
                         </Button> <br />
-                    <a href="">Or register now!</a>
                 </Form.Item>
+                <div className="link">
+                    <a href="">Or register now!</a>
+                    <a className="login-form-forgot" href="">Forgot password</a>
+                </div>
             </Form>
 
 

@@ -54,22 +54,7 @@ export class LayoutMenu extends React.Component {
                             </Link>
                     </Menu.Item>
 
-                    <SubMenu key="sub1"
-                        icon={< ContactsOutlined />}
-                        title="Contactos" >
-
-                        <Menu.Item key="5"
-                            icon={< FacebookOutlined />} >
-                        </Menu.Item>
-                        <Menu.Item key="6"
-                            icon={< TwitterOutlined />} >
-                        </Menu.Item>
-                        <Menu.Item key="7"
-                            icon={< WhatsAppOutlined />} > </Menu.Item>
-                        <Menu.Item key="8"
-                            icon={< MailOutlined />} > </Menu.Item>
-
-                    </SubMenu>
+                  
                     <SubMenu key="sub2"
                         icon={< AppstoreOutlined />}
                         title="Servicios" >

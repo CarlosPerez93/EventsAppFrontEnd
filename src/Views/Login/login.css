@@ -1,37 +1,73 @@
-.main {
+.mainLogin {
+    /* border: 2px black solid; */
+    background-color: rgba(163, 240, 240, 0.9);
+    display: flex ;
+    justify-content: center;
+    padding: 5%;
     width: 100%;
-    height: 1000px;
-    background-color: rgba(235, 255, 255, 0.9);
-    display: grid;
+    height: 50%;
+    position: absolute;
 }
+
+.ContainerLogin{
+    background-color: rgba(53, 90, 90, 0.055);
+    /* border: 2px black solid; */
+    display: flex !important;
+    width: 80% !important;
+    padding: 5%;
+    border-radius: 15rem;
+    margin: 0px !important;
+    position: absolute;
+}   
 
 .imgLogin {
+    /* border: 2px black solid; */
     margin: auto;
-    margin-top: 3%;
+    margin-top: 0%;
+    border-radius: 50%;
+    width: 50%;
 }
 
-.form {
-    display: grid;
-    margin-left: auto;
-    margin-right: auto;
+.formLogin {
+    /* border: 2px black solid; */
+    width: 50%;
+    margin: auto;
+    margin-top: 5%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
     justify-content: center;
     
 }
 
-.label {
-    width: 400px;
+.labelLogin {
+    /* border: 2px black solid; */
+    width: 100%;
     height: 5px;
-    display: flex;
-    padding-left: 35%;
+    display: inline-block;
+    text-align: center;
+    
 }
 
-.Input {
+.InputLogin {
+    /* border: 2px black solid; */
     display: flex;
     width: 60%;
     margin: auto;
+    margin-top: 5px;
+    border-radius: 35rem;
 }
 
 .link {
+    /* border: 2px black solid; */
     display: flex;
     justify-content: space-between;
+    width: 100%;
+    padding: 2.55%;
+}
+
+.Buton{
+    /* border: 2px black solid; */
+    width: 100%;
+
 }

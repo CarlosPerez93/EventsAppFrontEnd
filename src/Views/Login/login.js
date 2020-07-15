@@ -2,7 +2,7 @@ import React from "react";
 import { Form, Input, Button, Checkbox } from 'antd';
 import "../Login/login.css";
 import img1 from "../../Img/imgLogin.jpg";
-import { LayoutMenu } from "../LayoutMenu/layoutMenu";
+import {Link} from "react-router-dom"
 
 export const Login = () => {
     const layout = {
@@ -23,62 +23,56 @@ export const Login = () => {
     };
 
     return (
-        <div className="main">
-
-            <LayoutMenu />
-
+        <div className="mainLogin">
+            <div className="ContainerLogin">
             <img className="imgLogin" src={img1} />
 
-
-
-
-
-
-
-            <Form className="form"
+            <Form className="formLogin"
                 {...layout}
                 name="basic"
                 initialValues={{ remember: true }}
                 onFinish={onFinish}
                 onFinishFailed={onFinishFailed}
             >
-                <Form.Item className="label"
+                <Form.Item className="labelLogin"
                     label="Usuario"
                     name="username"
-                    rules={[{ required: true, message: 'Please input your username!' }]}
+                    rules={[{ required: false, message: 'Please input your username!' }]}
 
                 >
 
 
                 </Form.Item>
-                <Input className="Input" />
+                <Input className="InputLogin" />
 
-                <Form.Item className="label"
+                <Form.Item className="labelLogin"
                     label="Contraseña"
                     name="password"
-                    rules={[{ required: true, message: 'Please input your password!' }]}
+                    rules={[{ required: false, message: 'Please input your password!' }]}
                 >
 
                 </Form.Item>
-                <Input.Password className="Input" />
+                <Input.Password className="InputLogin" />
 
                 <Form.Item {...tailLayout} className="remember" name="remember" valuePropName="checked">
-                    <Checkbox>Remember me</Checkbox>
+                    <Checkbox>Recordarme</Checkbox>
                 </Form.Item>
 
 
-                <Form.Item {...tailLayout}>
-                    <Button type="primary" htmlType="submit">
-                        Login
+                <Form.Item {...tailLayout} className="Buton">
+                    <Button  type="primary" htmlType="submit">
+                        Iniciar Sesión
                         </Button> <br />
                 </Form.Item>
                 <div className="link">
-                    <a href="">Or register now!</a>
-                    <a className="login-form-forgot" href="">Forgot password</a>
+                    <Link to="/registre"> <a href="">O registrate ahora!</a></Link>
+                   <Link to="/"><a className="login-form-forgot" href="">Olvido su Contraseña?</a></Link> 
                 </div>
             </Form>
 
 
+
+            </div>
 
         </div>
     );

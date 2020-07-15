@@ -1,32 +1,58 @@
-.Main{
-    width: 100%;
-    height: 622px;
-    background-color: rgba(235, 255, 255, 0.9);
-    /* border: black 2px solid; */
+.mainRegistre{
+    background-color: rgba(163, 240, 240, 0.9);
+    display: flex ;
+    padding: 5%;
+    padding-left: 9.5%;
+    align-items: center;
+    text-align: center;
+    width: 50%;
+    height: 100%;
+    position: absolute;
 }
 
 .Container1{
-    width: 100%;
-    justify-content: space-evenly;
-    /* border: black 2px solid; */
-    display: flex;
-    margin-top: 5%;
+    background-color: rgba(53, 90, 90, 0.055);
+    /* border: 2px black solid; */
+    display: flex !important;
+    width: 80% !important;
+    padding:5%;
+    border-radius: 15rem;
+    position: fixed;
+    
+
+
 }
 
 .img{
-    /* border: black 2px solid; */
+    /* border: 2px black solid; */
     width: 50%;
-    margin-right: 5%;
-    margin-left: 5%;
+    margin: auto;
+    margin-top: 5%;
+    border-radius: 50%;
 }
 
 .Form{
-    /* border: black 2px solid; */
-    margin-right: 5%;
-    margin-top: 3%;
-    width: 50%;
-    text-align: center;
+   /* border: 2px black solid; */
+   width: 50%;
+   margin: auto;
+   margin-top: 5%;
+   display: flex;
+   flex-wrap: wrap;
+   flex-direction: column;
+   justify-content: center;
 }
+
+
+
+.Input {
+    /* border: 2px black solid; */
+    display: flex;
+    width: 60%;
+    margin: auto;
+    margin-top: 5px;
+    border-radius: 35rem;
+}
+
 .Container2{
     display: inline;
     text-align: center;

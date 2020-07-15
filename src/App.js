@@ -1,8 +1,7 @@
 import React from 'react';
 import 'antd/dist/antd.css';
+import {Rutas} from "./Views/Router/Router";
 import {Login} from "./Views/Login/login";
-import {RegistrationForm} from "./Views/Registre/Registre";
-import {Services} from "./Views/Services/Services";
 
 
 
@@ -10,11 +9,9 @@ function App() {
   return (
 
      <div>
-      
-        {/* <Login />  */}
-        {/* <RegistrationForm />  */}
-        <Services /> 
-
+        
+        <Rutas/>
+       
      </div>
 
   );

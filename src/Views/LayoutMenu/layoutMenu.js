@@ -19,7 +19,8 @@ import {
     UserAddOutlined,
     TeamOutlined,
 } from '@ant-design/icons';
-import "../LayoutMenu/menu.css"
+import "../LayoutMenu/menu.css";
+import { Link } from "react-router-dom";
 
 const { SubMenu } = Menu;
 
@@ -46,9 +47,12 @@ export class LayoutMenu extends React.Component {
                     theme="dark"
                     inlineCollapsed={this.state.collapsed} >
                     <Menu.Item key="1"
+
                         icon={< HomeFilled />} >
-                        Inicio
-                        </Menu.Item>
+                        <Link to="/home">
+                            Inicio
+                            </Link>
+                    </Menu.Item>
 
                     <SubMenu key="sub1"
                         icon={< ContactsOutlined />}
@@ -116,22 +120,28 @@ export class LayoutMenu extends React.Component {
                         </SubMenu>
 
                     </SubMenu>
+
                     <Menu.Item key="2"
                         icon={< UserAddOutlined />} >
-                        Registro
-                        </Menu.Item>
+                        <Link to="/registre">
+                            Registro
+                    </Link>
+                    </Menu.Item>
 
                     <Menu.Item key="3"
                         icon={< LoginOutlined />} >
+                            <Link to="/login">
+
                         Login
+                            </Link>
                         </Menu.Item>
 
                     <Menu.Item key="4"
                         icon={< TeamOutlined />} >
                         Sobre nosotros
                             </Menu.Item>
-                </Menu>
-            </div>
+                </Menu >
+            </div >
         );
     }
 }

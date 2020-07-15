@@ -12,7 +12,7 @@ import {
   AutoComplete,
 } from 'antd';
 import { QuestionCircleOutlined } from '@ant-design/icons';
-
+import {Link} from "react-router-dom";
 
 const { Option } = Select;
 const AutoCompleteOption = AutoComplete.Option;
@@ -110,9 +110,9 @@ export const RegistrationForm = () => {
 
   return (
 
-    <div className="Main">
+    <div className="mainRegistre">
 
-      <LayoutMenu />
+     
       <div className="Container1">
       <img className="img" src={img1} />
 
@@ -140,7 +140,7 @@ export const RegistrationForm = () => {
             }
             rules={[{ required: true, message: 'por favor ingrese nombre de usuario!', whitespace: true }]}
           >
-            <Input />
+            <Input className="Input" />
           </Form.Item>
           <Form.Item
             name="email"
@@ -156,7 +156,7 @@ export const RegistrationForm = () => {
               },
             ]}
           >
-            <Input />
+            <Input className="Input" />
           </Form.Item>
           <Form.Item
             name="password"
@@ -169,10 +169,10 @@ export const RegistrationForm = () => {
             ]}
             hasFeedback
           >
-            <Input.Password />
+            <Input.Password  className="Input"/>
           </Form.Item>
 
-          <Form.Item
+          <Form.Item 
             name="confirm"
             label="Confirmar contraseña"
             dependencies={['password']}
@@ -192,20 +192,7 @@ export const RegistrationForm = () => {
               }),
             ]}
           >
-            <Input.Password />
-          </Form.Item>
-
-
-
-
-          <Form.Item
-            name="agreement"
-            valuePropName="checked"
-            rules={[
-              { validator: (_, value) => value ? Promise.resolve() : Promise.reject('Should accept agreement') },
-            ]}
-            {...tailFormItemLayout}
-          >  
+            <Input.Password  className="Input"/>
           </Form.Item>
 
           <Form.Item {...tailFormItemLayout}  className="Button" > 
@@ -215,7 +202,7 @@ export const RegistrationForm = () => {
           </Form.Item>
           <div className="Container2">
             Tienes cuenta? 
-          <a href=""> <samp> Ingresar </samp> </a>
+         <Link to="/login"> <a href=""> <samp> Ingresar </samp> </a></Link>
           </div>
         </Form>
 

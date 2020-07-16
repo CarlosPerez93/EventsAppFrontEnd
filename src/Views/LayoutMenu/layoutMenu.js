@@ -2,14 +2,8 @@ import React from "react"
 import { Menu } from 'antd';
 import {
     AppstoreOutlined,
-
-    ContactsOutlined,
     StarFilled,
-    FacebookOutlined,
     HomeFilled,
-    TwitterOutlined,
-    WhatsAppOutlined,
-    MailOutlined,
     PictureOutlined,
     AppleOutlined,
     SoundOutlined,
@@ -21,7 +15,7 @@ import {
 } from '@ant-design/icons';
 import "../LayoutMenu/menu.css";
 import { Link } from "react-router-dom";
-
+import img1 from "../../Assests/Img/Logo.png";
 const { SubMenu } = Menu;
 
 export class LayoutMenu extends React.Component {
@@ -40,13 +34,18 @@ export class LayoutMenu extends React.Component {
             <div className="MainMenu" >
 
 
-                <Menu defaultSelectedKeys={
-                    ['1']}
-
+                <Menu
+                    className="keys"
                     mode="horizontal"
-                    theme="dark"
                     inlineCollapsed={this.state.collapsed} >
-                    <Menu.Item key="1"
+
+                    <Link to="/home">
+                        <img className="imgLogo" src={img1} />
+                    </Link>
+
+                    
+
+                    <Menu.Item key="1" className="op"
 
                         icon={< HomeFilled />} >
                         <Link to="/home">
@@ -54,10 +53,11 @@ export class LayoutMenu extends React.Component {
                             </Link>
                     </Menu.Item>
 
-                  
-                    <SubMenu key="sub2"
+
+                    <SubMenu key="sub2"  className="op"
                         icon={< AppstoreOutlined />}
                         title="Servicios" >
+
                         <SubMenu key="sub3"
                             icon={< StarFilled />}
                             title="Decoración" >
@@ -106,22 +106,22 @@ export class LayoutMenu extends React.Component {
 
                     </SubMenu>
 
-                    <Menu.Item key="2"
+                    <Menu.Item key="2" className="op"
                         icon={< UserAddOutlined />} >
                         <Link to="/registre">
                             Registro
                     </Link>
                     </Menu.Item>
 
-                    <Menu.Item key="3"
+                    <Menu.Item key="3" className="op"
                         icon={< LoginOutlined />} >
-                            <Link to="/login">
+                        <Link to="/login">
 
-                        Login
+                            Login
                             </Link>
-                        </Menu.Item>
+                    </Menu.Item>
 
-                    <Menu.Item key="4"
+                    <Menu.Item key="4" className="op"
                         icon={< TeamOutlined />} >
                         Sobre nosotros
                             </Menu.Item>

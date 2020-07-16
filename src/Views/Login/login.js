@@ -1,7 +1,7 @@
 import React from "react";
 import { Form, Input, Button, Checkbox } from 'antd';
 import "../Login/login.css";
-import img1 from "../../Img/imgLogin.jpg";
+import img1 from "../../Assests/Img/imgLogin.jpg";
 import {Link} from "react-router-dom"
 
 export const Login = () => {

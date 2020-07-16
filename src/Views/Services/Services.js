@@ -2,12 +2,12 @@ import React from "react"
 import "../Services/Services.css"
 import { Card } from 'antd';
 import { LayoutMenu } from "../LayoutMenu/layoutMenu";
-import img1 from "../../Img/arregloFloral.jpg";
-import img2 from "../../Img/Camara.png";
-import img4 from "../../Img/bufet.png";
-import img3 from "../../Img/lugares.jpg";
-import img5 from "../../Img/sonido.jpg";
-import img6 from "../../Img/animacion.png";
+import img1 from "../../Assests/Img/arregloFloral.jpg";
+import img2 from "../../Assests/Img/Camara.png";
+import img4 from "../../Assests/Img/bufet.png";
+import img3 from "../../Assests/Img/lugares.jpg";
+import img5 from "../../Assests/Img/sonido.jpg";
+import img6 from "../../Assests/Img/animacion.png";
 
 export class Services extends React.Component {
 

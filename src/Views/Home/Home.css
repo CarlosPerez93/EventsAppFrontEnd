@@ -1,0 +1,16 @@
+.Layout{
+    position: fixed;
+}
+
+.ant-carousel .slick-slide {
+
+    text-align: center;
+    height: 360px;
+    line-height: 160px;
+    background: #364e796b;
+    overflow: hidden;
+  }
+  
+  .ant-carousel .slick-slide h3 {
+    color: #fff;
+  }

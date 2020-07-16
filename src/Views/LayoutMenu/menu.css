@@ -1,0 +1,15 @@
+
+
+.imgLogo{
+    width:  10%;
+    margin-left: 15%;
+}
+
+.keys{
+    background-color: rgba(163, 240, 240, 0);
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+

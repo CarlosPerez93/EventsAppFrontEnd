@@ -2,7 +2,7 @@ import React, { useState } from "react"
 
 import { LayoutMenu } from "../LayoutMenu/layoutMenu";
 import "../Registre/Registre.css"
-import img1 from "../../Img/fiesta.png";
+import img1 from "../../Assests/Img/fiesta.png";
 import {
   Form,
   Input,

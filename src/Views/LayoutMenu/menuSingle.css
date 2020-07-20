@@ -1,0 +1,17 @@
+
+.MainMenuSingle{
+    width: 100%;
+    height: 10%;
+    background-color: #00152942;
+    /* border: 2px black solid; */
+    display: flex;
+
+    
+}
+
+.imgLogo1{
+    width:  8%;
+    margin-left: 15%;
+    margin-top: 1%;
+}
+

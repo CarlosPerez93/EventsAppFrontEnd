@@ -1,43 +1,65 @@
 .mainLogin {
     /* border: 2px black solid; */
-    background-color: rgba(163, 240, 240, 0.9);
-    display: flex ;
+    background-image: url("https://noticiasvideojuegos.com/wp-content/uploads/2019/12/Fortnite-New-Years-Event.jpg");
     justify-content: center;
-    padding: 5%;
+    flex-direction: column;
     width: 100%;
-    height: 50%;
-    position: absolute;
+    height: 720px;
+    position: relative;
 }
 
 .ContainerLogin{
-    background-color: rgba(53, 90, 90, 0.055);
+    position: absolute;
+    background-color: #00152942;
     /* border: 2px black solid; */
     display: flex !important;
     width: 80% !important;
     padding: 5%;
-    border-radius: 15rem;
-    margin: 0px !important;
-    position: absolute;
-}   
+    border-radius: 50%;
+    margin: auto;
+    margin-top: 2%;
+    margin-left: 10%;
+
+}
+
+.cont1{
+    /* border: 2px black solid; */
+    margin: auto;
+    width: 50%;
+    height: 400px;
+    display: flex;
+}
+.cont2{
+    /* border: 2px black solid; */
+    /* background-color: rgba(53, 90, 90, 0.055); */
+    margin: auto;
+    width: 50%;
+    height: 400px;
+    display: flex;
+    text-align: center;
+}
+
 
 .imgLogin {
     /* border: 2px black solid; */
     margin: auto;
-    margin-top: 0%;
+    margin-top: 0;
     border-radius: 50%;
-    width: 50%;
+    width: 100%;
 }
 
 .formLogin {
     /* border: 2px black solid; */
-    width: 50%;
+    width: 60%;
+    height: 100%;
     margin: auto;
-    margin-top: 5%;
-    display: flex;
-    flex-wrap: wrap;
+    padding-top: 5%;
+    display: inline-flex;
     flex-direction: column;
-    justify-content: center;
-    
+
+
+
+
 }
 
 .labelLogin {
@@ -46,16 +68,52 @@
     height: 5px;
     display: inline-block;
     text-align: center;
-    
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 20px;
 }
 
 .InputLogin {
     /* border: 2px black solid; */
+    background-color: rgba(255, 255, 255, 0.377) ;
+    color: transparent; 
     display: flex;
-    width: 60%;
     margin: auto;
     margin-top: 5px;
     border-radius: 35rem;
+}
+
+.remember1{
+    /* border: 2px black solid; */
+    position: absolute;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    color: black;
+}
+
+.fromItem{
+    /* border: 2px black solid; */
+    display: flex;
+    width: 80%;
+    
+}
+
+.Buton{
+    /* border: 2px black solid; */
+    display: inline-flex;
+    justify-content: center;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.377) ;
+    border: transparent;
+    color: black;
+    
+}
+
+.Buton:hover{
+    background-color: rgba(255, 255, 255, 0.575) ;
+    border: transparent;
+    color: black;
+
 }
 
 .link {
@@ -64,10 +122,16 @@
     justify-content: space-between;
     width: 100%;
     padding: 2.55%;
-}
-
-.Buton{
-    /* border: 2px black solid; */
-    width: 100%;
+    
 
 }
+
+a{
+    color: black;
+}
+
+a:hover{
+    color: rgb(255, 255, 255) ;
+}
+
+

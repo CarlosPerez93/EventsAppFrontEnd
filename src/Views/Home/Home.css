@@ -1,16 +1,44 @@
-.Layout{
-    position: fixed;
+.mainHome{
+  background: #ffffff;
 }
+
+
 
 .ant-carousel .slick-slide {
 
     text-align: center;
-    height: 360px;
-    line-height: 160px;
-    background: #364e796b;
+    height: auto;
     overflow: hidden;
-  }
+    /* border: black  2px solid; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
   
-  .ant-carousel .slick-slide h3 {
-    color: #fff;
   }
+
+  .imgs{
+    width: 100%;
+    height: 560px;
+  }
+
+  .site-card-wrapper {
+    padding: 0px;
+    width: 80%;
+    margin-left: 10%;
+   
+  }
+
+
+.Card{
+  display: flex ;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.contImgcard{
+  border: 2px black solid;
+  width: 80px;
+  height: 50px;
+  border-radius: 50%;
+  text-align: center;
+}

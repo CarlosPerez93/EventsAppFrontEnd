@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 
-import { LayoutMenu } from "../LayoutMenu/layoutMenu";
+import { LayoutMenu } from "../LayoutMenu/layoutSingle";
 import "../Registre/Registre.css"
 import img1 from "../../Assests/Img/fiesta.png";
 import {
@@ -12,7 +12,7 @@ import {
   AutoComplete,
 } from 'antd';
 import { QuestionCircleOutlined } from '@ant-design/icons';
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const { Option } = Select;
 const AutoCompleteOption = AutoComplete.Option;
@@ -111,104 +111,104 @@ export const RegistrationForm = () => {
   return (
 
     <div className="mainRegistre">
+      <LayoutMenu />
 
-     
+
       <div className="Container1">
-      <img className="img" src={img1} />
+        <div className="container1-1"><img className="img" src={img1} /></div>
 
 
-        <Form className="Form"
-          {...formItemLayout}
-          form={form}
-          name="register"
-          onFinish={onFinish}
-          initialValues={{
-            residence: ['zhejiang', 'hangzhou', 'xihu'],
-            prefix: '86',
-          }}
-          scrollToFirstError
-        >
-          <Form.Item
-            name="nickname"
-            label={
-              <span>
-                Usuario&nbsp;
+        <div className="container1-2">
+          <Form className="Form"
+            {...formItemLayout}
+            form={form}
+            name="register"
+            onFinish={onFinish}
+            initialValues={{
+              residence: ['zhejiang', 'hangzhou', 'xihu'],
+              prefix: '86',
+            }}
+            scrollToFirstError
+          >
+            <Form.Item
+              name="nickname"
+              label={
+                <span >
+                  Usuario&nbsp;
             <Tooltip title="Como quieres que te llamen tus amigos?">
-                  <QuestionCircleOutlined />
-                </Tooltip>
-              </span>
-            }
-            rules={[{ required: true, message: 'por favor ingrese nombre de usuario!', whitespace: true }]}
-          >
-            <Input className="Input" />
-          </Form.Item>
-          <Form.Item
-            name="email"
-            label="E-mail"
-            rules={[
-              {
-                type: 'email',
-                message: 'Tipo de correo iconrrecto!',
-              },
-              {
-                required: true,
-                message: 'Por favor ingrese un correo',
-              },
-            ]}
-          >
-            <Input className="Input" />
-          </Form.Item>
-          <Form.Item
-            name="password"
-            label="Contraseña"
-            rules={[
-              {
-                required: true,
-                message: 'Por favor ingrese contraseña!',
-              },
-            ]}
-            hasFeedback
-          >
-            <Input.Password  className="Input"/>
-          </Form.Item>
-
-          <Form.Item 
-            name="confirm"
-            label="Confirmar contraseña"
-            dependencies={['password']}
-            hasFeedback
-            rules={[
-              {
-                required: true,
-                message: 'Por favor confirme contraseña!',
-              },
-              ({ getFieldValue }) => ({
-                validator(rule, value) {
-                  if (!value || getFieldValue('password') === value) {
-                    return Promise.resolve();
-                  }
-                  return Promise.reject('Las dos contraseñas que ingresaste no coinciden!');
+                    <QuestionCircleOutlined />
+                  </Tooltip>
+                </span>
+              }
+              rules={[{ required: true, message: 'por favor ingrese nombre de usuario!', whitespace: true }]}
+            >
+              <Input className="Input" />
+            </Form.Item>
+            <Form.Item
+              name="email"
+              label="E-mail"
+              rules={[
+                {
+                  type: 'email',
+                  message: 'Tipo de correo iconrrecto!',
                 },
-              }),
-            ]}
-          >
-            <Input.Password  className="Input"/>
-          </Form.Item>
+                {
+                  required: true,
+                  message: 'Por favor ingrese un correo',
+                },
+              ]}
+            >
+              <Input className="Input" />
+            </Form.Item>
+            <Form.Item
+              name="password"
+              label="Contraseña"
+              rules={[
+                {
+                  required: true,
+                  message: 'Por favor ingrese contraseña!',
+                },
+              ]}
+              hasFeedback
+            >
+              <Input.Password className="Input" />
+            </Form.Item>
 
-          <Form.Item {...tailFormItemLayout}  className="Button" > 
-            <Button type="primary" htmlType="submit">
-              Registrarme
+            <Form.Item
+              name="confirm"
+              label="Confirmar contraseña"
+              dependencies={['password']}
+              hasFeedback
+              rules={[
+                {
+                  required: true,
+                  message: 'Por favor confirme contraseña!',
+                },
+                ({ getFieldValue }) => ({
+                  validator(rule, value) {
+                    if (!value || getFieldValue('password') === value) {
+                      return Promise.resolve();
+                    }
+                    return Promise.reject('Las dos contraseñas que ingresaste no coinciden!');
+                  },
+                }),
+              ]}
+            >
+              <Input.Password className="Input" />
+            </Form.Item>
+
+            <Form.Item {...tailFormItemLayout}  >
+              <Button type="primary" htmlType="submit" className="Button">
+                Registrarme
         </Button>
-          </Form.Item>
-          <div className="Container2">
-            Tienes cuenta? 
+            </Form.Item>
+            <div className="label">
+              Tienes cuenta?
          <Link to="/login"> <a href=""> <samp> Ingresar </samp> </a></Link>
-          </div>
-        </Form>
+            </div>
+          </Form>
 
-
-
-
+        </div>
 
       </div>
     </div>

@@ -33,28 +33,22 @@ export class LayoutMenu extends React.Component {
         return (
             <div className="MainMenu" >
 
-
+                <Link to="/home" className="imgLogo">
+                    <img className="imgLogo2" src={img1} />
+                </Link>
                 <Menu
+                    theme="dark"
                     className="keys"
                     mode="horizontal"
                     inlineCollapsed={this.state.collapsed} >
 
-                    <Link to="/home">
-                        <img className="imgLogo" src={img1} />
-                    </Link>
-
-                    
-
-                    <Menu.Item key="1" className="op"
-
-                        icon={< HomeFilled />} >
-                        <Link to="/home">
-                            Inicio
-                            </Link>
-                    </Menu.Item>
+                    <Menu.Item key="4" className="op"
+                        icon={< TeamOutlined />} >
+                        Sobre nosotros
+                            </Menu.Item>
 
 
-                    <SubMenu key="sub2"  className="op"
+                    <SubMenu key="sub2" className="op"
                         icon={< AppstoreOutlined />}
                         title="Servicios" >
 
@@ -121,10 +115,7 @@ export class LayoutMenu extends React.Component {
                             </Link>
                     </Menu.Item>
 
-                    <Menu.Item key="4" className="op"
-                        icon={< TeamOutlined />} >
-                        Sobre nosotros
-                            </Menu.Item>
+
                 </Menu >
             </div >
         );

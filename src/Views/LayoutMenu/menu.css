@@ -1,15 +1,36 @@
 
+.MainMenu{
+    background-color: #00152942;
+    /* border: 2px black solid; */
+    width: 100%;
+    height: 100%;
+    display: flex; 
 
-.imgLogo{
-    width:  10%;
-    margin-left: 15%;
+}
+
+
+
+.imgLogo {
+    /* border: black 2px solid; */
+    background-color: #001529fd;
+    width: 50%;
+    height: 50px;
+
+}
+
+.imgLogo2{
+    height: 100%;
+    margin-left: 10%;
 }
 
 .keys{
-    background-color: rgba(163, 240, 240, 0);
-    margin: auto;
+    /* border: black 2px solid; */
+    background-color: #00152942;
+    width: 50%;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
+    align-items: center;
 }
+
 
 

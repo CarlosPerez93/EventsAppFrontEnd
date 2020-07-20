@@ -1,50 +1,45 @@
-import React, { useState } from "react"
+import React, { useState } from "react";
 
 import { LayoutMenu } from "../LayoutMenu/layoutSingle";
-import "../Registre/Registre.css"
+import "../Registre/Registre.css";
 import img1 from "../../Assests/Img/fiesta.png";
-import {
-  Form,
-  Input,
-  Tooltip,
-  Select,
-  Button,
-  AutoComplete,
-} from 'antd';
-import { QuestionCircleOutlined } from '@ant-design/icons';
+import { Form, Input, Tooltip, Select, Button, AutoComplete, Row, Col, message } from "antd";
+import { QuestionCircleOutlined } from "@ant-design/icons";
 import { Link } from "react-router-dom";
+import api from "../../api/api";
+import { useHistory } from 'react-router-dom';
 
 const { Option } = Select;
 const AutoCompleteOption = AutoComplete.Option;
 
 const residences = [
   {
-    value: 'zhejiang',
-    label: 'Zhejiang',
+    value: "zhejiang",
+    label: "Zhejiang",
     children: [
       {
-        value: 'hangzhou',
-        label: 'Hangzhou',
+        value: "hangzhou",
+        label: "Hangzhou",
         children: [
           {
-            value: 'xihu',
-            label: 'West Lake',
+            value: "xihu",
+            label: "West Lake",
           },
         ],
       },
     ],
   },
   {
-    value: 'jiangsu',
-    label: 'Jiangsu',
+    value: "jiangsu",
+    label: "Jiangsu",
     children: [
       {
-        value: 'nanjing',
-        label: 'Nanjing',
+        value: "nanjing",
+        label: "Nanjing",
         children: [
           {
-            value: 'zhonghuamen',
-            label: 'Zhong Hua Men',
+            value: "zhonghuamen",
+            label: "Zhong Hua Men",
           },
         ],
       },
@@ -77,10 +72,19 @@ const tailFormItemLayout = {
 
 export const RegistrationForm = () => {
   const [form] = Form.useForm();
+  const history = useHistory();
 
-  const onFinish = values => {
-    console.log('Received values of form: ', values);
+  const onFinish = async ({ user }) => {
+    const respu = await api.post("auth/register", user);
+    console.log(respu);
+    if (respu.status === 201) {
+      message.success("Se ha registrado correctamente");
+      history.push("/login");
+    } else {
+      message.error("No se logro registrar correctamente");
+    }
   };
+
 
   const prefixSelector = (
     <Form.Item name="prefix" noStyle>
@@ -93,80 +97,85 @@ export const RegistrationForm = () => {
 
   const [autoCompleteResult, setAutoCompleteResult] = useState([]);
 
-  const onWebsiteChange = value => {
+  const onWebsiteChange = (value) => {
     if (!value) {
       setAutoCompleteResult([]);
     } else {
-      setAutoCompleteResult(['.com', '.org', '.net'].map(domain => `${value}${domain}`));
+      setAutoCompleteResult(
+        [".com", ".org", ".net"].map((domain) => `${value}${domain}`)
+      );
     }
   };
 
-  const websiteOptions = autoCompleteResult.map(website => ({
+  const websiteOptions = autoCompleteResult.map((website) => ({
     label: website,
     value: website,
   }));
 
-
-
   return (
-
     <div className="mainRegistre">
       <LayoutMenu />
 
-
-      <div className="Container1">
-        <div className="container1-1"><img className="img" src={img1} /></div>
-
-
-        <div className="container1-2">
-          <Form className="Form"
+      <Row>
+        <Col lg={{ span: 10, offset: 1 }} xs={{ span: 22, offset: 1 }}>
+          <img className="img" src={img1} />
+        </Col>
+        <Col lg={{ span: 10, offset: 1 }} xs={{ span: 22, offset: 1 }}>
+          <Form
+            className="Form"
             {...formItemLayout}
             form={form}
             name="register"
             onFinish={onFinish}
             initialValues={{
-              residence: ['zhejiang', 'hangzhou', 'xihu'],
-              prefix: '86',
+              residence: ["zhejiang", "hangzhou", "xihu"],
+              prefix: "86",
             }}
             scrollToFirstError
           >
+
+            <Form.Item name={["user", "firstName"]} label="Primer nombre">
+              <Input className="Input" />
+            </Form.Item>
+            <Form.Item name={["user", "secondName"]} label="Segundo Nombre">
+              <Input className="Input" />
+            </Form.Item>
+            <Form.Item name={["user", "firstSurname"]} label="Primer apellido">
+              <Input className="Input" />
+            </Form.Item>
+            <Form.Item name={["user", "secondSurname"]} label="Segundo apellido">
+              <Input className="Input" />
+            </Form.Item>
+            <Form.Item name={["user", "email"]} label="E-mail">
+              <Input className="Input" />
+            </Form.Item>
             <Form.Item
-              name="nickname"
+              name={["user", "username"]}
               label={
-                <span >
+                <span>
                   Usuario&nbsp;
-            <Tooltip title="Como quieres que te llamen tus amigos?">
+                  <Tooltip title="Como quieres que te llamen tus amigos?">
                     <QuestionCircleOutlined />
                   </Tooltip>
                 </span>
               }
-              rules={[{ required: true, message: 'por favor ingrese nombre de usuario!', whitespace: true }]}
-            >
-              <Input className="Input" />
-            </Form.Item>
-            <Form.Item
-              name="email"
-              label="E-mail"
               rules={[
                 {
-                  type: 'email',
-                  message: 'Tipo de correo iconrrecto!',
-                },
-                {
                   required: true,
-                  message: 'Por favor ingrese un correo',
+                  message: "por favor ingrese nombre de usuario!",
+                  whitespace: true,
                 },
               ]}
             >
               <Input className="Input" />
             </Form.Item>
             <Form.Item
-              name="password"
+              name={["user", "password"]}
               label="Contraseña"
               rules={[
                 {
                   required: true,
-                  message: 'Por favor ingrese contraseña!',
+                  message: "Por favor ingrese contraseña!",
                 },
               ]}
               hasFeedback
@@ -177,45 +186,48 @@ export const RegistrationForm = () => {
             <Form.Item
               name="confirm"
               label="Confirmar contraseña"
-              dependencies={['password']}
+              dependencies={["password"]}
               hasFeedback
-              rules={[
-                {
-                  required: true,
-                  message: 'Por favor confirme contraseña!',
-                },
-                ({ getFieldValue }) => ({
-                  validator(rule, value) {
-                    if (!value || getFieldValue('password') === value) {
-                      return Promise.resolve();
-                    }
-                    return Promise.reject('Las dos contraseñas que ingresaste no coinciden!');
-                  },
-                }),
-              ]}
+            /* rules={[
+               {
+                 required: true,
+                 message: "Por favor confirme contraseña!",
+               },
+               ({ getFieldValue }) => ({
+                 validator(rule, value) {
+                   if (!value || getFieldValue("password") === value) {
+                     return Promise.resolve();
+                   }
+                   return Promise.reject(
+                     "Las dos contraseñas que ingresaste no coinciden!"
+                   );
+                 },
+               }),
+             ]}*/
             >
               <Input.Password className="Input" />
             </Form.Item>
 
-            <Form.Item {...tailFormItemLayout}  >
+            <Form.Item {...tailFormItemLayout}>
               <Button type="primary" htmlType="submit" className="Button">
                 Registrarme
-        </Button>
+              </Button>
             </Form.Item>
             <div className="label">
               Tienes cuenta?
-         <Link to="/login"> <a href=""> <samp> Ingresar </samp> </a></Link>
+              <Link to="/login">
+                {" "}
+                <a href="">
+                  {" "}
+                  <samp> Ingresar </samp>{" "}
+                </a>
+              </Link>
             </div>
           </Form>
-
-        </div>
-
-      </div>
+        </Col>
+      </Row>
     </div>
+  );
+};
 
-  )
-}
-
-
-
-    // ReactDOM.render(<RegistrationForm />, mountNode);
+// ReactDOM.render(<RegistrationForm />, mountNode);

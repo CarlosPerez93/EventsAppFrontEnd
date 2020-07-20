@@ -1,11 +1,13 @@
 import React from "react";
-import { Form, Input, Button, Checkbox } from 'antd';
+import { Form, Input, Button, Checkbox, message } from 'antd';
 import "../Login/login.css";
 import img1 from "../../Assests/Img/imgLogin.jpg";
-import { Link } from "react-router-dom"
+import { Link, useHistory } from "react-router-dom"
 import { LayoutMenu } from "../LayoutMenu/layoutSingle"
+import api from "../../api/api";
 
 export const Login = () => {
+    const history = useHistory();
     const layout = {
         labelCol: { span: 8 },
         wrapperCol: { span: 16 },
@@ -15,9 +17,17 @@ export const Login = () => {
     };
 
 
-    const onFinish = values => {
-        console.log('Success:', values);
-    };
+    const onFinish = async ({ user }) => {
+        const respu = await api.post("auth/login", user);
+        console.log(respu);
+        if (respu.status === 201) {
+           localStorage.setItem("token", respu.data.token);
+           // estaAuth  === token  si no token === null
+           history.push("/profile");
+        } else {
+          message.error("Usuario y/o contraseña incorrectos");
+        }
+      };    
 
     const onFinishFailed = errorInfo => {
         console.log('Failed:', errorInfo);
@@ -42,23 +52,21 @@ export const Login = () => {
                     >
                         <Form.Item className="labelLogin"
                             label="Usuario"
-                            name="username"
+                            name={["user", "username"]}
                             rules={[{ required: false, message: 'Please input your username!' }]}
 
                         >
-
-
-                        </Form.Item>
                         <Input className="InputLogin" />
+                        </Form.Item>
 
                         <Form.Item className="labelLogin"
                             label="Contraseña"
-                            name="password"
+                            name={["user", "password"]}
+
                             rules={[{ required: false, message: 'Please input your password!' }]}
                         >
-
-                        </Form.Item>
                         <Input.Password className="InputLogin" />
+                        </Form.Item>
 
                         <Form.Item {...tailLayout}  name="remember" valuePropName="checked" >
                             <Checkbox className="remember1">Recordarme</Checkbox>

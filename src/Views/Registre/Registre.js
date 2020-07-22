@@ -133,93 +133,107 @@ export const RegistrationForm = () => {
             }}
             scrollToFirstError
           >
+            <div className="intems">
+            
+              <Form.Item name={["user", "firstName"]} label="Pri. Nombre">
+                <Input className="Input" />
+              </Form.Item>
+              <Form.Item name={["user", "secondName"]} label="Seg. Nombre">
+                <Input className="Input" />
+              </Form.Item>
 
-            <Form.Item name={["user", "firstName"]} label="Primer nombre">
-              <Input className="Input" />
-            </Form.Item>
-            <Form.Item name={["user", "secondName"]} label="Segundo Nombre">
-              <Input className="Input" />
-            </Form.Item>
-            <Form.Item name={["user", "firstSurname"]} label="Primer apellido">
-              <Input className="Input" />
-            </Form.Item>
-            <Form.Item name={["user", "secondSurname"]} label="Segundo apellido">
-              <Input className="Input" />
-            </Form.Item>
-            <Form.Item name={["user", "email"]} label="E-mail">
-              <Input className="Input" />
-            </Form.Item>
-            <Form.Item
-              name={["user", "username"]}
-              label={
-                <span>
-                  Usuario&nbsp;
+            </div>
+            <div className="intems">
+
+              <Form.Item name={["user", "firstSurname"]} label="Pri. Apellido">
+                <Input className="Input" />
+              </Form.Item>
+              <Form.Item name={["user", "secondSurname"]} label="Seg. Apellido">
+                <Input className="Input" />
+              </Form.Item>
+            </div>
+
+            <div className="intems">
+              <Form.Item name={["user", "email"]} label="E-mail">
+                <Input className="Input" />
+              </Form.Item>
+              <Form.Item
+                name={["user", "username"]}
+
+                label={
+                  <span>
+                    Usuario&nbsp;
                   <Tooltip title="Como quieres que te llamen tus amigos?">
-                    <QuestionCircleOutlined />
-                  </Tooltip>
-                </span>
-              }
-              rules={[
+                      <QuestionCircleOutlined />
+                    </Tooltip>
+                  </span>
+                }
+                rules={[
+                  {
+                    required: true,
+                    message: "por favor ingrese nombre de usuario!",
+                    whitespace: true,
+                  },
+                ]}
+              >
+                <Input className="Input" />
+              </Form.Item>
+            </div>
+
+            <div className="intems">
+
+              <Form.Item
+                name={["user", "password"]}
+                label="Contraseña"
+                rules={[
+                  {
+                    required: true,
+                    message: "Por favor ingrese contraseña!",
+                  },
+                ]}
+                hasFeedback
+              >
+                <Input.Password className="Input" />
+              </Form.Item>
+
+              <Form.Item
+                name="confirm"
+                label="Confirmar contraseña"
+                dependencies={["password"]}
+                hasFeedback
+              /* rules={[
                 {
                   required: true,
-                  message: "por favor ingrese nombre de usuario!",
-                  whitespace: true,
+                  message: "Por favor confirme contraseña!",
                 },
-              ]}
-            >
-              <Input className="Input" />
-            </Form.Item>
-            <Form.Item
-              name={["user", "password"]}
-              label="Contraseña"
-              rules={[
-                {
-                  required: true,
-                  message: "Por favor ingrese contraseña!",
-                },
-              ]}
-              hasFeedback
-            >
-              <Input.Password className="Input" />
-            </Form.Item>
+                ({ getFieldValue }) => ({
+                  validator(rule, value) {
+                    if (!value || getFieldValue("password") === value) {
+                      return Promise.resolve();
+                    }
+                    return Promise.reject(
+                      "Las dos contraseñas que ingresaste no coinciden!"
+                      );
+                    },
+                  }),
+                ]}*/
+              >
+                <Input.Password className="Input" />
+              </Form.Item>
+            </div>
 
-            <Form.Item
-              name="confirm"
-              label="Confirmar contraseña"
-              dependencies={["password"]}
-              hasFeedback
-            /* rules={[
-               {
-                 required: true,
-                 message: "Por favor confirme contraseña!",
-               },
-               ({ getFieldValue }) => ({
-                 validator(rule, value) {
-                   if (!value || getFieldValue("password") === value) {
-                     return Promise.resolve();
-                   }
-                   return Promise.reject(
-                     "Las dos contraseñas que ingresaste no coinciden!"
-                   );
-                 },
-               }),
-             ]}*/
-            >
-              <Input.Password className="Input" />
-            </Form.Item>
-
-            <Form.Item {...tailFormItemLayout}>
+            <Form.Item {...tailFormItemLayout} className="butonCont">
               <Button type="primary" htmlType="submit" className="Button">
                 Registrarme
               </Button>
             </Form.Item>
-            <div className="label">
+            <div className="Label">
               Tienes cuenta?
               <Link to="/login">
                 {" "}
                 <a href="">
                   {" "}
-                  <samp> Ingresar </samp>{" "}
+                  <samp className="a"> Ingresar </samp>{" "}
                 </a>
               </Link>
             </div>

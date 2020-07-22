@@ -68,12 +68,12 @@ export const Login = () => {
                         <Input.Password className="InputLogin" />
                         </Form.Item>
 
-                        <Form.Item {...tailLayout}  name="remember" valuePropName="checked" >
+                        <Form.Item {...tailLayout}  name="remember" valuePropName="checked" className="remember">
                             <Checkbox className="remember1">Recordarme</Checkbox>
                         </Form.Item>
 
 
-                        <Form.Item {...tailLayout} className="fromItem">
+                        <Form.Item {...tailLayout} className="butonCont">
                             <Button type="primary" htmlType="submit" className="Buton">
                                 Iniciar Sesión
                         </Button> <br />

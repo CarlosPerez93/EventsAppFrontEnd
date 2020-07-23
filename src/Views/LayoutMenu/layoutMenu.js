@@ -44,7 +44,7 @@ export class LayoutMenu extends React.Component {
 
                     <Menu.Item key="4" className="op"
                         icon={< TeamOutlined />} >
-                        Sobre nosotros
+                        <Link to="/">Sobre nosotros</Link>
                             </Menu.Item>
 
 
@@ -52,51 +52,41 @@ export class LayoutMenu extends React.Component {
                         icon={< AppstoreOutlined />}
                         title="Servicios" >
 
-                        <SubMenu key="sub3"
+                        <Menu.Item key="sub3"
                             icon={< StarFilled />}
                             title="Decoración" >
-                            <Menu.Item key="9" > * </Menu.Item> <Menu.Item key="10" > * </Menu.Item> <Menu.Item key="11" > * </Menu.Item>
-                            <Menu.Item key="12" > * </Menu.Item> <Menu.Item key="13" > * </Menu.Item> </SubMenu>
-                        <SubMenu key="sub4"
+                                <Link to="/" >Decoracion</Link>
+                            </Menu.Item>
+                        <Menu.Item key="sub4"
                             icon={< PictureOutlined />}
                             title="Lugares " >
-                            <Menu.Item key="9" > * </Menu.Item>
-                            <Menu.Item key="10" > * </Menu.Item>
-                            <Menu.Item key="11" > * </Menu.Item>
-                            <Menu.Item key="12" > * </Menu.Item>
-                        </SubMenu>
-                        <SubMenu key="sub5"
+                                
+                            <Link to="/">Lugares</Link>
+                        </Menu.Item>
+                        <Menu.Item key="sub5"
                             icon={< AppleOutlined />}
                             title="Bufet" >
-                            <Menu.Item key="9" > * </Menu.Item>
-                            <Menu.Item key="10" > * </Menu.Item>
-                            <Menu.Item key="11" > * </Menu.Item>
-                            <Menu.Item key="12" > * </Menu.Item>
-                        </SubMenu>
-                        <SubMenu key="sub6"
+                            <Link to="/">Bufet</Link>
+                        </Menu.Item>
+                        <Menu.Item key="sub6"
                             icon={< SoundOutlined />}
                             title="Sonido" >
-                            <Menu.Item key="9" > * </Menu.Item>
-                            <Menu.Item key="10" > * </Menu.Item>
-                            <Menu.Item key="11" > * </Menu.Item>
-                            <Menu.Item key="12" > * </Menu.Item>
-                        </SubMenu>
-                        <SubMenu key="sub7"
+                            <Link to="/">Sonido</Link>
+                        </Menu.Item>
+                        <Menu.Item key="sub7"
                             icon={< CameraOutlined />}
                             title="Fotografia" >
-                            <Menu.Item key="9" > * </Menu.Item>
-                            <Menu.Item key="10" > * </Menu.Item>
-                            <Menu.Item key="11" > * </Menu.Item>
-                            <Menu.Item key="12" > * </Menu.Item>
-                        </SubMenu>
-                        <SubMenu key="sub8"
+                            <Link to="/">Fotografia</Link>
+                            
+                        </Menu.Item>
+                        <Menu.Item key="sub8"
                             icon={< SmileOutlined />}
                             title="Animacón" >
-                            <Menu.Item key="9" > * </Menu.Item>
-                            <Menu.Item key="10" > * </Menu.Item>
-                            <Menu.Item key="11" > * </Menu.Item>
-                            <Menu.Item key="12" > * </Menu.Item>
-                        </SubMenu>
+                                <Link to="/">
+                                Animación
+
+                                </Link>
+                        </Menu.Item>
 
                     </SubMenu>
 

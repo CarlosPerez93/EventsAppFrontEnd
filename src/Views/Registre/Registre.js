@@ -3,8 +3,8 @@ import React, { useState } from "react";
 import { LayoutMenu } from "../LayoutMenu/layoutSingle";
 import "../Registre/Registre.css";
 import img1 from "../../Assests/Img/fiesta.png";
-import { Form, Input, Tooltip, Select, Button, AutoComplete, Row, Col, message } from "antd";
-import { QuestionCircleOutlined } from "@ant-design/icons";
+import { Form, Input, Tooltip, Select, Button, AutoComplete, Row, Col, message, Avatar } from "antd";
+import { UserOutlined } from '@ant-design/icons';
 import { Link } from "react-router-dom";
 import api from "../../api/api";
 import { useHistory } from 'react-router-dom';
@@ -116,92 +116,80 @@ export const RegistrationForm = () => {
     <div className="mainRegistre">
       <LayoutMenu />
 
-      <Row>
-        <Col lg={{ span: 10, offset: 1 }} xs={{ span: 22, offset: 1 }}>
-          <img className="img" src={img1} />
-        </Col>
-        <Col lg={{ span: 10, offset: 1 }} xs={{ span: 22, offset: 1 }}>
-          <Form
-            className="Form"
-            {...formItemLayout}
-            form={form}
-            name="register"
-            onFinish={onFinish}
-            initialValues={{
-              residence: ["zhejiang", "hangzhou", "xihu"],
-              prefix: "86",
-            }}
-            scrollToFirstError
-          >
-            <div className="intems">
-            
-              <Form.Item name={["user", "firstName"]} label="Pri. Nombre">
-                <Input className="Input" />
-              </Form.Item>
-              <Form.Item name={["user", "secondName"]} label="Seg. Nombre">
-                <Input className="Input" />
-              </Form.Item>
+      <div className="container">
 
-            </div>
-            <div className="intems">
+        <img className="img" src={img1} />
 
-              <Form.Item name={["user", "firstSurname"]} label="Pri. Apellido">
-                <Input className="Input" />
-              </Form.Item>
-              <Form.Item name={["user", "secondSurname"]} label="Seg. Apellido">
-                <Input className="Input" />
-              </Form.Item>
-            </div>
 
-            <div className="intems">
-              <Form.Item name={["user", "email"]} label="E-mail">
-                <Input className="Input" />
-              </Form.Item>
-              <Form.Item
-                name={["user", "username"]}
+        <Form
+          className="Form"
+          {...formItemLayout}
+          form={form}
+          name="register"
+          onFinish={onFinish}
+          initialValues={{
+            residence: ["zhejiang", "hangzhou", "xihu"],
+            prefix: "86",
+          }}
+          scrollToFirstError
+        >
+          
+          <Avatar size={84} icon={<UserOutlined  />} className="avatar" />
+          <div className="intems">
 
-                label={
-                  <span>
-                    Usuario&nbsp;
-                  <Tooltip title="Como quieres que te llamen tus amigos?">
-                      <QuestionCircleOutlined />
-                    </Tooltip>
-                  </span>
-                }
-                rules={[
-                  {
-                    required: true,
-                    message: "por favor ingrese nombre de usuario!",
-                    whitespace: true,
-                  },
-                ]}
-              >
-                <Input className="Input" />
-              </Form.Item>
-            </div>
+            <Form.Item name={["user", "firstName"]}>
+              <Input className="Input"  placeholder="Primer Nombre"/>
+            </Form.Item>
+            <Form.Item name={["user", "secondName"]}>
+              <Input className="Input" placeholder="Segundo Nombre"/>
+            </Form.Item>
 
-            <div className="intems">
+          </div>
+          <div className="intems">
 
-              <Form.Item
-                name={["user", "password"]}
-                label="Contraseña"
-                rules={[
-                  {
-                    required: true,
-                    message: "Por favor ingrese contraseña!",
-                  },
-                ]}
-                hasFeedback
-              >
-                <Input.Password className="Input" />
-              </Form.Item>
+            <Form.Item name={["user", "firstSurname"]} >
+              <Input className="Input" placeholder="Primer Apellido"/>
+            </Form.Item>
+            <Form.Item name={["user", "secondSurname"]}>
+              <Input className="Input" placeholder="Segundo Apellido"/>
+            </Form.Item>
+          </div>
 
-              <Form.Item
-                name="confirm"
-                label="Confirmar contraseña"
-                dependencies={["password"]}
-                hasFeedback
-              /* rules={[
+          <div className="intems">
+            <Form.Item name={["user", "email"]}>
+              <Input className="Input" placeholder="E-mail"/>
+            </Form.Item>
+            <Form.Item
+              name={["user", "username"]}
+
+
+              rules={[
+                {
+                  required: true,
+                  message: "por favor ingrese nombre de usuario!",
+                  whitespace: true,
+                },
+              ]}
+            >
+              <Input className="Input" placeholder="Usuario"/>
+            </Form.Item>
+          </div>
+
+          <div className="intems">
+
+            <Form.Item
+              name={["user", "password"]}
+              hasFeedback
+            >
+              <Input.Password className="Input" placeholder="Contraseña"/>
+            </Form.Item>
+
+            <Form.Item
+              name="confirm"
+
+              dependencies={["password"]}
+              hasFeedback
+              rules={[
                 {
                   required: true,
                   message: "Por favor confirme contraseña!",
@@ -213,34 +201,34 @@ export const RegistrationForm = () => {
                     }
                     return Promise.reject(
                       "Las dos contraseñas que ingresaste no coinciden!"
-                      );
-                    },
-                  }),
-                ]}*/
-              >
-                <Input.Password className="Input" />
-              </Form.Item>
-            </div>
-
-            <Form.Item {...tailFormItemLayout} className="butonCont">
-              <Button type="primary" htmlType="submit" className="Button">
-                Registrarme
-              </Button>
+                    );
+                  },
+                }),
+              ]}
+            >
+              <Input.Password className="Input" placeholder="Confirmar contraseña"/>
             </Form.Item>
-            <div className="Label">
-              Tienes cuenta?
-              <Link to="/login">
+          </div>
+
+          <Form.Item {...tailFormItemLayout} className="butonCont">
+            <Button type="primary" htmlType="submit" className="Button">
+              Registrarme
+     </Button>
+          </Form.Item>
+          <div className="Label">
+            Tienes cuenta?
+     <Link to="/login">
+              {" "}
+              <a href="">
                 {" "}
-                <a href="">
-                  {" "}
-                  <samp className="a"> Ingresar </samp>{" "}
-                </a>
-              </Link>
-            </div>
-          </Form>
-        </Col>
-      </Row>
+                <samp className="a"> Ingresar </samp>{" "}
+              </a>
+            </Link>
+          </div>
+        </Form>
+
     </div>
+      </div>
   );
 };
 

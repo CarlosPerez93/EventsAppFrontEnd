@@ -2,10 +2,10 @@ import React from 'react';
 import { LayoutMenu } from "../LayoutMenu/layoutMenu";
 import { Carousel, Card, Col, Row } from 'antd';
 import "../Home/Home.css"
-import img1 from "../../Assests/Img/sitios.jpg"
-import img2 from "../../Assests/Img/sonido1.jpg"
-import img3 from "../../Assests/Img/buffet.jpg"
-import img4 from "../../Assests/Img/fotografia.jpg"
+import img1 from "../../Assests/Img/1.png"
+import img2 from "../../Assests/Img/2.png"
+import img3 from "../../Assests/Img/3.png"
+import img4 from "../../Assests/Img/4.png"
 import img5 from "../../Assests/Img/animacion.jpg"
 
 

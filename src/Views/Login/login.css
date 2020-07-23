@@ -1,6 +1,6 @@
 .mainLogin {
-    /* border:k 2px black solid; */
-    background-image: url("https://noticiasvideojuegos.com/wp-content/uploads/2019/12/Fortnite-New-Years-Event.jpg");
+    background-color: rgba(255, 235, 205, 0.411);
+    background-image: url("../../Assests/Img/serpentina.png");
     justify-content: center;
     width: 100%;
     height: 100%;
@@ -8,22 +8,22 @@
 }
 
 .imgLogin {
-    /* border: 2px black solid; */
+    /* border: 10px rgba(129, 251, 255, 0.274) solid;
+    border: 2px rgba(3, 25, 26, 0.219) solid; */
     /* margin: auto; */
     border-radius: 50%;
-    width: 500px;
+    width: 50%;
+    height: 50%;
+  
+    
 }
 
 .ContainerLogin{
     /* border: 2px black solid; */
     display: flex ;
-    width: 100% ;
-    padding: 6% ;
-    padding-right: 10%;
+    width: 80% ;
     margin: auto;
-    /* padding-top: 5%; */
-    /* margin-left: 10%; */
-
+    margin-top: 3%;
 }
 
 
@@ -31,47 +31,56 @@
 
 .formLogin {
     /* border: 2px black solid; */
-    width: 500px;
-    height: 400px;
-    padding-top: 10%;
-    padding-right: 15%;
+    background-color:  rgba(3, 25, 26, 0.377);
+    width: 50%;
+    height: 100%;
+    padding: 3%;
+    padding-top: 5%;
     display: flex;
     flex-direction: column;
-    
+    justify-content: center;
+    border-radius: 5%;
+    box-shadow: 11px 11px 59px -10px rgba(0,0,0,0.61);
+
+
+}
+
+.avatar{
+    /* border: 2px black solid; */
+    margin: auto;
+    background-color: rgba(251, 255, 0, 0.76);
 }
 
 .labelLogin {
     /* border: 2px black solid; */
     width: 100%;
-
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    font-family: Georgia, 'Times New Roman', Times, serif;
     font-size: 20px;
+    margin-top: 5%;
+    
 }
 
 .InputLogin {
-    /* border: 2px black solid; */
-    /* background-color: rgba(255, 255, 255, 0.377) ; */
-
-    display: flex;
-    /* margin: auto; */
-    margin-top: 10%;
+    /* width: 0%; */
+    margin-top: 1%;
     border-radius: 25rem;
 }
 
 .remember1{
     /* border: 2px black solid; */
-    /* position: absolute; */
     width: 50%;
     display: flex;
     justify-content: center;
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    color: white
-    
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: rgb(0, 0, 0);
+
 }
 
 .remember{
     /* border: 2px black solid; */
-    padding-left: 350px;
+    /* padding-left: 350px; */
     width: 100%;
     display: flex;
 }
@@ -81,24 +90,25 @@
     display: flex;
     justify-content: center;
     padding-right: 10%;
+    
 }
 .Buton{
-    /* border: 2px black solid; */
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    border: 2px black solid;
+    font-family: Georgia, 'Times New Roman', Times, serif;
     width: 50%;
-    background-color: rgba(8, 147, 240, 0.534) ;
+    background-color: rgba(251, 255, 0, 0.76) ;
     border: transparent;
-    color: rgba(0, 0, 0, 0.822);
+    color: rgb(0, 0, 0);
     text-align: center;
     display: flex;
     justify-content: center;
-    
+
 }
 
-.Button:hover{
-    background-color: rgb(61, 61, 185) ;
+.Buton:hover{
+    background-color: rgba(251, 255, 0, 0.986) ;
     border: transparent;
-    color: black;
+    color: rgb(0, 0, 0);
 }
 
 .link {
@@ -106,21 +116,28 @@
     display: flex;
     justify-content: space-between;
     width: 100%;
-    padding: 2.55%;
+    padding-left: 20%;
+    padding-right: 20%;
 
-    
+
+
 
 }
 
 a{
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    color: rgb(105, 103, 103);
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: rgb(0, 0, 0);
     font-size: 15px;
 }
 
 a:hover{
     font-size: 16px;
-    color: rgb(255, 255, 255) ;
+    color: rgb(0, 0, 0);
 }
 
+
+.ant-checkbox-checked .ant-checkbox-inner {
+    background-color: rgba(23, 24, 8, 0.473);
+    /* border-color: #1890ff; */
+}
 

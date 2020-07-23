@@ -1,7 +1,8 @@
 import React from "react";
-import { Form, Input, Button, Checkbox, message } from 'antd';
+import { Form, Input, Button, Checkbox, message, Avatar } from 'antd';
+import { UserOutlined } from '@ant-design/icons';
 import "../Login/login.css";
-import img1 from "../../Assests/Img/imgLogin.jpg";
+import img1 from "../../Assests/Img/login.png";
 import { Link, useHistory } from "react-router-dom"
 import { LayoutMenu } from "../LayoutMenu/layoutSingle"
 import api from "../../api/api";
@@ -22,7 +23,7 @@ export const Login = () => {
         console.log(respu);
         if (respu.status === 201) {
            localStorage.setItem("token", respu.data.token);
-           // estaAuth  === token  si no token === null
+        //    estaAuth  === token  si no token === null
            history.push("/profile");
         } else {
           message.error("Usuario y/o contraseña incorrectos");
@@ -38,11 +39,11 @@ export const Login = () => {
             <LayoutMenu  />
 
             <div className="ContainerLogin">
-                <div className="cont1">
+     
                     <img className="imgLogin" src={img1} />
 
-                </div>
-                <div className="cont2">
+         
+            
                     <Form className="formLogin"
                         {...layout}
                         name="basic"
@@ -50,22 +51,19 @@ export const Login = () => {
                         onFinish={onFinish}
                         onFinishFailed={onFinishFailed}
                     >
+                         <Avatar size={84} icon={<UserOutlined  />} className="avatar" />
                         <Form.Item className="labelLogin"
-                            label="Usuario"
                             name={["user", "username"]}
-                            rules={[{ required: false, message: 'Please input your username!' }]}
-
+                            rules={[{ required: true, message: 'Please input your username!' }]}
                         >
-                        <Input className="InputLogin" />
+                        <Input className="InputLogin" placeholder="Usuario" />
                         </Form.Item>
 
                         <Form.Item className="labelLogin"
-                            label="Contraseña"
                             name={["user", "password"]}
-
-                            rules={[{ required: false, message: 'Please input your password!' }]}
+                            rules={[{ required: true, message: 'Please input your password!' }]}
                         >
-                        <Input.Password className="InputLogin" />
+                        <Input.Password className="InputLogin" placeholder="Contraseña" />
                         </Form.Item>
 
                         <Form.Item {...tailLayout}  name="remember" valuePropName="checked" className="remember">
@@ -83,7 +81,7 @@ export const Login = () => {
                             <Link to="/"><a className="login-form-forgot" href="">Olvido su Contraseña?</a></Link>
                         </div>
                     </Form>
-                </div>
+           
 
             </div>
 

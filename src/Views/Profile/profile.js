@@ -27,6 +27,7 @@ export const Profile = () => {
   });
 
   if (user !== null) {
+
     return (
       <div className="MainProfile">
         <Nav />
@@ -56,7 +57,7 @@ export const Profile = () => {
             icon={<FacebookFilled />}
             type="primary"
             size="large"
-          />
+          /> 
           <Button
             shape="circle"
             icon={<InstagramOutlined />}

@@ -1,5 +1,7 @@
 .MainProfile{
     background-color: rgba(161, 216, 248, 0.178);
+    background-image: url("../../Assests/Img/serpentina1.png");
+
     /* border: black solid 2px; */
     width: 100%;
     height: 100%;
@@ -15,7 +17,7 @@
     height: 200px;
     border-radius: 50%;
     margin-left: 43%;
-    margin-top: 3%;
+    margin-top: 1%;
 }
 
 .menu-tap {
@@ -25,6 +27,7 @@
     justify-content: center;
     background-color: rgba(161, 216, 248, 0);
     margin-bottom: 4vh;
+    ;
 }
 
 .menu-tap a{

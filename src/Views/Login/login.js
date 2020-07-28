@@ -1,6 +1,6 @@
 import React from "react";
 import { Form, Input, Button, Checkbox, message, Avatar } from 'antd';
-import { UserOutlined } from '@ant-design/icons';
+import { UserOutlined, FontColorsOutlined } from '@ant-design/icons';
 import "../Login/login.css";
 import img1 from "../../Assests/Img/login.png";
 import { Link, useHistory } from "react-router-dom"
@@ -54,14 +54,14 @@ export const Login = () => {
                          <Avatar size={84} icon={<UserOutlined  />} className="avatar" />
                         <Form.Item className="labelLogin"
                             name={["user", "username"]}
-                            rules={[{ required: true, message: 'Please input your username!' }]}
+                            rules={[{ required: true, message: 'Por favor ingrese su nombre de usuario!' }]}
                         >
                         <Input className="InputLogin" placeholder="Usuario" />
                         </Form.Item>
 
                         <Form.Item className="labelLogin"
                             name={["user", "password"]}
-                            rules={[{ required: true, message: 'Please input your password!' }]}
+                            rules={[{ required: true, message: 'Porfavor ingrese su contraseña!' } ] }
                         >
                         <Input.Password className="InputLogin" placeholder="Contraseña" />
                         </Form.Item>

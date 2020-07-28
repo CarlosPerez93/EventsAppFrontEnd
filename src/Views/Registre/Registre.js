@@ -3,7 +3,10 @@ import React, { useState } from "react";
 import { LayoutMenu } from "../LayoutMenu/layoutSingle";
 import "../Registre/Registre.css";
 import img1 from "../../Assests/Img/fiesta.png";
-import { Form, Input, Tooltip, Select, Button, AutoComplete, Row, Col, message, Avatar } from "antd";
+import Avatar1 from "../../Assests/Img/avatar2.jpeg";
+import Avatar2 from "../../Assests/Img/avatar1.jpeg";
+import Avatar3 from "../../Assests/Img/avatar3.jpeg";
+import { Form, Input, Tooltip, Select, Button, AutoComplete, Carousel, Tabs, message, Avatar } from "antd";
 import { UserOutlined } from '@ant-design/icons';
 import { Link } from "react-router-dom";
 import api from "../../api/api";
@@ -11,6 +14,11 @@ import { useHistory } from 'react-router-dom';
 
 const { Option } = Select;
 const AutoCompleteOption = AutoComplete.Option;
+const { TabPane } = Tabs;
+
+function callback(key) {
+  console.log(key);
+}
 
 const residences = [
   {
@@ -116,119 +124,280 @@ export const RegistrationForm = () => {
     <div className="mainRegistre">
       <LayoutMenu />
 
-      <div className="container">
-
-        <img className="img" src={img1} />
 
 
-        <Form
-          className="Form"
-          {...formItemLayout}
-          form={form}
-          name="register"
-          onFinish={onFinish}
-          initialValues={{
-            residence: ["zhejiang", "hangzhou", "xihu"],
-            prefix: "86",
-          }}
-          scrollToFirstError
-        >
-          
-          <Avatar size={84} icon={<UserOutlined  />} className="avatar" />
-          <div className="intems">
+      <Tabs  defaultActiveKey="1" onChange={callback}  >
+        <TabPane tab="Cliente" key="1" className="container">
+          <Form
+            className="FormR"
+            {...formItemLayout}
+            form={form}
+            name="register"
+            onFinish={onFinish}
+            initialValues={{
+              residence: ["zhejiang", "hangzhou", "xihu"],
+              prefix: "86",
+            }}
+            scrollToFirstError
+          >
 
-            <Form.Item name={["user", "firstName"]}>
-              <Input className="Input"  placeholder="Primer Nombre"/>
-            </Form.Item>
-            <Form.Item name={["user", "secondName"]}>
-              <Input className="Input" placeholder="Segundo Nombre"/>
-            </Form.Item>
+            <Avatar src={Avatar1} size={86} className="avatar" />
+            <div className="intems">
 
-          </div>
-          <div className="intems">
+              <Form.Item className="contItem" name={["user", "firstName"]}>
+                <Input className="Input" placeholder="Primer Nombre" />
+              </Form.Item>
+              <Form.Item className="contItem" name={["user", "secondName"]}>
+                <Input className="Input" placeholder="Segundo Nombre" />
+              </Form.Item>
 
-            <Form.Item name={["user", "firstSurname"]} >
-              <Input className="Input" placeholder="Primer Apellido"/>
-            </Form.Item>
-            <Form.Item name={["user", "secondSurname"]}>
-              <Input className="Input" placeholder="Segundo Apellido"/>
-            </Form.Item>
-          </div>
+            </div>
+            <div className="intems">
 
-          <div className="intems">
-            <Form.Item name={["user", "email"]}>
-              <Input className="Input" placeholder="E-mail"/>
-            </Form.Item>
-            <Form.Item
-              name={["user", "username"]}
+              <Form.Item className="contItem" name={["user", "firstSurname"]} >
+                <Input className="Input" placeholder="Primer Apellido" />
+              </Form.Item>
+              <Form.Item className="contItem" name={["user", "secondSurname"]}>
+                <Input className="Input" placeholder="Segundo Apellido" />
+              </Form.Item>
+            </div>
+
+            <div className="intems">
+              <Form.Item className="contItem" name={["user", "email"]} className="contItem">
+                <Input className="Input" placeholder="E-mail" />
+              </Form.Item>
+              <Form.Item className="contItem"
+                name={["user", "username"]}
 
 
-              rules={[
-                {
-                  required: true,
-                  message: "por favor ingrese nombre de usuario!",
-                  whitespace: true,
-                },
-              ]}
-            >
-              <Input className="Input" placeholder="Usuario"/>
-            </Form.Item>
-          </div>
-
-          <div className="intems">
-
-            <Form.Item
-              name={["user", "password"]}
-              hasFeedback
-            >
-              <Input.Password className="Input" placeholder="Contraseña"/>
-            </Form.Item>
-
-            <Form.Item
-              name="confirm"
-
-              dependencies={["password"]}
-              hasFeedback
-              rules={[
-                {
-                  required: true,
-                  message: "Por favor confirme contraseña!",
-                },
-                ({ getFieldValue }) => ({
-                  validator(rule, value) {
-                    if (!value || getFieldValue("password") === value) {
-                      return Promise.resolve();
-                    }
-                    return Promise.reject(
-                      "Las dos contraseñas que ingresaste no coinciden!"
-                    );
+                rules={[
+                  {
+                    required: true,
+                    message: "por favor ingrese nombre de usuario!",
+                    whitespace: true,
                   },
-                }),
-              ]}
-            >
-              <Input.Password className="Input" placeholder="Confirmar contraseña"/>
-            </Form.Item>
-          </div>
+                ]}
+              >
+                <Input className="Input" placeholder="Usuario" />
+              </Form.Item>
+            </div>
 
-          <Form.Item {...tailFormItemLayout} className="butonCont">
-            <Button type="primary" htmlType="submit" className="Button">
-              Registrarme
-     </Button>
-          </Form.Item>
-          <div className="Label">
-            Tienes cuenta?
-     <Link to="/login">
-              {" "}
-              <a href="">
+            <div className="intems">
+
+              <Form.Item className="contItem"
+                name={["user", "password"]}
+                hasFeedback
+              >
+                <Input.Password className="Input" placeholder="Contraseña" />
+              </Form.Item>
+
+              <Form.Item className="contItem"
+                name="confirm"
+
+                dependencies={["password"]}
+                hasFeedback
+                rules={[
+                  {
+                    required: true,
+                    message: "Por favor confirme contraseña!",
+                  },
+                  ({ getFieldValue }) => ({
+                    validator(rule, value) {
+                      if (!value || getFieldValue("password") === value) {
+                        return Promise.reject(
+                          "Las dos contraseñas que ingresaste no coinciden!"
+                        );
+                      }
+                      return Promise.resolve();
+                    },
+                  }),
+                ]}
+              >
+                <Input.Password className="Input" placeholder="Confirmar contraseña" />
+              </Form.Item>
+            </div>
+
+            <Form.Item {...tailFormItemLayout} className="butonCont">
+              <Button type="primary" htmlType="submit" className="ButtonC">
+                Registrarme
+       </Button>
+            </Form.Item>
+            <div className="Label">
+              Tienes cuenta?
+        <Link to="/login">
                 {" "}
-                <samp className="a"> Ingresar </samp>{" "}
-              </a>
-            </Link>
+                <a href="">
+                  {" "}
+                  <samp className="a"> Ingresar </samp>{" "}
+                </a>
+              </Link>
+            </div>
+          </Form>
+          <div className="contCarousel">
+            <img className="img" src={img1} />
+            {/* <Carousel >
+            <div>
+              <img className="img" src={img1} />
+
+            </div>
+            <div>
+              <img className="img" src={img1} />
+
+            </div>
+            <div>
+              <img className="img" src={img1} />
+
+            </div>
+
+          </Carousel> */}
+            <h3>Confia en nosotros para todos tus eventos!</h3>
           </div>
-        </Form>
+        </TabPane>
+        <TabPane tab="Empresario" key="2" className="container1">
+          <Form
+            className="FormR"
+            {...formItemLayout}
+            form={form}
+            name="register"
+            onFinish={onFinish}
+            initialValues={{
+              residence: ["zhejiang", "hangzhou", "xihu"],
+              prefix: "86",
+            }}
+            scrollToFirstError
+          >
+
+            <Avatar src={Avatar2} size={86} className="avatar" />
+            <div className="intems">
+
+              <Form.Item className="contItem" name={["user", "firstName"]}>
+                <Input className="Input" placeholder="Primer Nombre" />
+              </Form.Item>
+              <Form.Item className="contItem" name={["user", "secondName"]}>
+                <Input className="Input" placeholder="Segundo Nombre" />
+              </Form.Item>
+
+            </div>
+            <div className="intems">
+
+              <Form.Item className="contItem" name={["user", "firstSurname"]} >
+                <Input className="Input" placeholder="Primer Apellido" />
+              </Form.Item>
+              <Form.Item className="contItem" name={["user", "secondSurname"]}>
+                <Input className="Input" placeholder="Segundo Apellido" />
+              </Form.Item>
+            </div>
+
+            <div className="intems">
+              <Form.Item className="contItem" name={["user", "email"]} className="contItem">
+                <Input className="Input" placeholder="E-mail" />
+              </Form.Item>
+              <Form.Item className="contItem"
+                name={["user", "username"]}
+
+
+                rules={[
+                  {
+                    required: true,
+                    message: "por favor ingrese nombre de usuario!",
+                    whitespace: true,
+                  },
+                ]}
+              >
+                <Input className="Input" placeholder="Usuario" />
+              </Form.Item>
+            </div>
+
+            <div className="intems">
+
+              <Form.Item className="contItem"
+                name={["user", "password"]}
+                hasFeedback
+              >
+                <Input.Password className="Input" placeholder="Contraseña" />
+              </Form.Item>
+
+              <Form.Item className="contItem"
+                name="confirm"
+
+                dependencies={["password"]}
+                hasFeedback
+                rules={[
+                  {
+                    required: true,
+                    message: "Por favor confirme contraseña!",
+                  },
+                  ({ getFieldValue }) => ({
+                    validator(rule, value) {
+                      if (!value || getFieldValue("password") === value) {
+                        return Promise.reject(
+                          "Las dos contraseñas que ingresaste no coinciden!"
+                        );
+                      }
+                      return Promise.resolve();
+                    },
+                  }),
+                ]}
+              >
+                <Input.Password className="Input" placeholder="Confirmar contraseña" />
+              </Form.Item>
+              <Form.Item className="contItem"
+                name={["user", "usercod"]}
+
+
+                rules={[
+                  {
+                    required: true,
+                    message: "por favor ingrese codigo de usuario!",
+                    whitespace: true,
+                  },
+                ]}
+              >
+                <Input className="Input" placeholder="codigo" />
+              </Form.Item>
+
+              
+            </div>
+
+            <Form.Item {...tailFormItemLayout} className="btnR">
+              <Button type="primary" htmlType="submit" className="ButtonE">
+                Registrarme
+       </Button>
+            </Form.Item>
+            <div className="Label">
+              Tienes cuenta?
+        <Link to="/login">
+                {" "}
+                <a href="">
+                  {" "}
+                  <samp className="a"> Ingresar </samp>{" "}
+                </a>
+              </Link>
+            </div>
+          </Form>
+          <div className="contCarousel">
+            <img className="img" src={img1} />
+            {/* <Carousel >
+            <div>
+              <img className="img" src={img1} />
+
+            </div>
+            <div>
+              <img className="img" src={img1} />
+
+            </div>
+            <div>
+              <img className="img" src={img1} />
+
+            </div>
+
+          </Carousel> */}
+            <h3>Confia en nosotros para todos tus eventos!</h3>
+          </div>
+        </TabPane>
+      </Tabs>
 
     </div>
-      </div>
   );
 };
 

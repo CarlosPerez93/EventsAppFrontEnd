@@ -1,62 +1,167 @@
 .mainRegistre{
-    background-color: rgba(205, 255, 218, 0.61);
-
-    /* background-color: rgba(255, 235, 205, 0.411); */
-
-    background-image: url("../../Assests/Img/serpentina.png");
+    background-color: rgba(161, 216, 248, 0.178);
+    /* background-image: url("../../Assests/Img/serpentina1.png"); */
     display: flex;
     flex-direction: column;
     width: 100%;
     height: 100%;
-    position: absolute;
-    
+    position: fixed;
+
+}
+
+.ant-tabs > .ant-tabs-nav, .ant-tabs > div > .ant-tabs-nav {
+    /* border: 2px solid black; */
+    /* position: relative; */
+    margin: 0%;
+    display: flex;
+    padding-left: 50%;
+    color: black;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+
+    /* width: 80%; */
+
 }
 .container{
     /* border: 2px black solid; */
     display: flex;
-    margin: auto;
-    /* width: 80%; */
-    position: relative;
-    padding-right: 5%;
+    margin-left: 10%;
+    margin-top: 3%;
+    /* margin-left: 100%; */
+    width: 80%;
+    padding:  5%;
+    padding-top: 0%;
+    padding-right: 0%;
+    /* position: absolute; */
+    /* padding-top: 5%; */
 }
-.avatar{
+.container1{
     /* border: 2px black solid; */
-    margin-left: 42%;
-    background-color: rgba(60, 255, 0, 0.5);
+    display: flex;
+    margin-left: 20%;
+    margin-top: 3%;
+    /* margin-left: 100%; */
+    width: 80%;
+    padding:  5%;
+    padding-top: 0%;
+    padding-right: 0%;
+    /* position: absolute; */
+    /* padding-top: 5%; */
+}
+.container2{
+    /* border: 2px black solid; */
+    display: flex;
+    margin-left: 20%;
+    margin-top: 3%;
+    /* margin-left: 100%; */
+    width: 80%;
+    padding:  5%;
+    padding-top: 0%;
+    padding-right: 0%;
+    /* position: absolute; */
+    /* padding-top: 5%; */
 }
 
-.Form{
+.avatar{
+    /* border: 2px black solid; */
+    margin-left: 38%;
+    background-color: rgba(205, 253, 255, 0.61);
+   
+}
+
+.avatar:hover{
+
+    background-color: rgba(205, 253, 255, 0.932);
+
+}
+
+
+.FormR{
     /* border: 2px black solid; */
     background-color:  rgba(3, 25, 26, 0.377);
     box-shadow: 11px 11px 59px -10px rgba(0,0,0,0.61);
-    width: 50%;
+    width: 40%;
+    height: 100%;
     border-radius: 5%;
-    padding-top: 1%;
-    position: relative;
-}
-.img{
-    /* border: 2px black solid;     */
-    /* box-shadow: 11px 11px 59px -10px rgba(0,0,0,0.61); */
-    border-radius: 50%;
-    width: 50%;
-    height: 50%;
+    padding: 1%;
     margin: auto;
-    /* margin-left: 1%;
-    margin-right: 1%; */
+    margin-left: 0%; 
+    position: relative;
 
 }
 
+.ant-form-item-control-input-content {
+  
+    /* flex: auto; */
+    max-width: 100%;
+}
 
 .intems{
     /* border: 2px black solid; */
     width: 100%;
     display: flex;
     justify-content: space-between;
+    margin: 0%;
     padding-left: 10%;
     padding-right: 10%;
     /* margin-top: % ; */
-    
+
 }
+
+
+.contItem{
+    /* border: 2px black solid; */
+    margin: 0%;
+    margin-top: 0%;
+    height: 100%;
+}
+
+.Input {
+    /* border: 2px black solid; */
+/* background-color: rgba(255, 255, 255, 0.377) ; */
+width: 130%;
+margin: auto;
+display: flex;
+margin-top:20%;
+border-radius: 25rem;
+font-family: Georgia, 'Times New Roman', Times, serif;
+
+}
+
+.ButtonC{
+
+    /* border: 2px black solid; */
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    /* width: 100px;   */
+    background-color: rgba(205, 253, 255, 0.61);
+    border: transparent;
+    color: rgb(0, 0, 0);
+    margin-left: 15%;
+    margin-top: 5%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+.ButtonE{
+
+    /* border: 2px black solid; */
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    /* width: 100px;   */
+    background-color: rgba(205, 253, 255, 0.61);
+    border: transparent;
+    color: rgb(0, 0, 0);
+    margin-left: 5%;
+    margin-top: 5%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+
+.Button:hover{
+    background-color: rgba(205, 253, 255, 0.897);
+    border: transparent;
+    color: rgb(0, 0, 0);
+}
+
 
 
 .Label{
@@ -65,62 +170,8 @@
     font-size: 20px;
     display: flex;
     justify-content: center;
-    color: white;
+    color: black     ;
 }
-/* .la{
-    border: solid 2px black;
-    display: flex;
-    text-align: center;
-    height: 100%;
-} */
-
-    
-.Input {
-    /* border: 2px black solid; */
-/* background-color: rgba(255, 255, 255, 0.377) ; */
-width: 200px;
-margin: auto;
-display: flex;
-margin-top:25%;
-border-radius: 25rem;
-font-family: Georgia, 'Times New Roman', Times, serif;
-
-}
-
-
-    
-
-
-.butonCont{
-    /* border: black 2px solid; */
-    display: flex;
-    justify-content: center;
-    padding-left: 10%;
-}
-
-.Button{
-    
-    /* border: 2px black solid; */
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    width: 50%;
-    background-color: rgba(60, 255, 0, 0.5);
-    border: transparent;
-    color: rgb(0, 0, 0);
-    text-align: center;
-    display: flex;
-    justify-content: center;
- 
-
-}
-
-.Button:hover{
-    background-color: rgba(60, 255, 0, 0.781);
-    border: transparent;
-    color: rgb(0, 0, 0);
-}
-
-
-
 
 
 .a{
@@ -131,5 +182,29 @@ font-family: Georgia, 'Times New Roman', Times, serif;
     padding-left: 20%;
     padding-right: 20%;
     color: black;
+    font-size: 20px;
 
+}
+
+.img{
+    /* border: black 2px solid; */
+    width: 100%;
+    height: 400px;
+}
+
+.contCarousel{
+    /* border: 2px black solid; */
+    width: 40%;
+
+    /* margin-right: 10%; */
+}
+
+.contCarousel h3{
+    /* border: 2px black solid; */
+    font-size: 20px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: black;
+    display: flex;
+    justify-content: center;
+    margin: 0%;
 }

@@ -33,7 +33,7 @@ export class LayoutMenu extends React.Component {
         return (
             <div className="MainMenu" >
 
-                <Link to="/home" className="imgLogo">
+                <Link to="/login" className="imgLogo">
                     <img className="imgLogo2" src={img1} />
                 </Link>
                 <Menu

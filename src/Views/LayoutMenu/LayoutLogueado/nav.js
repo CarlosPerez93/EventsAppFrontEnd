@@ -20,7 +20,7 @@ export const Nav = () => {
     return (
         <div className="MainNav" >
 
-            <Link to="/home">
+            <Link to="/login">
                 <img className="Logo1" src={img1} />
             </Link>
 

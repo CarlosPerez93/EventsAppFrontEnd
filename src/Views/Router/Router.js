@@ -11,7 +11,7 @@ export const Rutas =()=>{
         
                 <Router>
                     <Switch>    
-                        <Route exact path="/"  component={Login}/>
+                        <Route exact path="/"  component={Home}/>
                         <Route path="/home" component={Home}/>
                         <Route path="/login" component={Login}/> 
                         <Route path="/registre" component={RegistrationForm}/> 

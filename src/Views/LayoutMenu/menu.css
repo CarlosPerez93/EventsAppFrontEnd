@@ -1,36 +1,84 @@
 
 .MainMenu{
-    background-color: #7904ff;
-    /* border: 2px black solid; */
+    background-color: #6243B8;
     width: 100%;
-    height: 100%;
+    height: 80px;
     display: flex; 
-
+    justify-content: space-between;
+    /* position: fixed; */
+    z-index: 1 !important;
+    
+}
+.ant-menu.ant-menu-dark, .ant-menu-dark .ant-menu-sub, .ant-menu.ant-menu-dark .ant-menu-sub {
+    /* border: 2px black solid; */
+    color: rgba(255, 255, 255, 0.65);
+    background: #6243B8;
+    
+}
+.ant-menu-dark .ant-menu-item, .ant-menu-dark .ant-menu-item-group-title, .ant-menu-dark .ant-menu-item > a, .ant-menu-dark .ant-menu-item > span > a {
+    /* border: 2px black solid; */
+    /* width: 20%; */
+    color: rgba(255, 255, 255, 0.65);
+    font-size: 20px;
 }
 
+.ant-menu-item .anticon + span, .ant-menu-submenu-title .anticon + span {
+    /* border: 2px black solid; */
+    opacity: 1;
+    font-size: 20px;
+    -webkit-transition: opacity 0.3s cubic-bezier(0.645, 0.045, 0.355, 1), width 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+    transition: opacity 0.3s cubic-bezier(0.645, 0.045, 0.355, 1), width 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+.ant-menu-dark.ant-menu-horizontal > .ant-menu-item, .ant-menu-dark.ant-menu-horizontal > .ant-menu-submenu {
+    /* border: 2px black solid; */
+    top: 0;
+    margin-left: 0;
+    margin-top: 0;
+    border-color: #001529;
+    border-bottom: 0;
+    font-size: 20px;
+}
 
 
 .imgLogo {
     /* border: black 2px solid; */
-    background-color: #001529fd;
-    width: 50%;
-    height: 50px;
-
+    background-color: #6243B8;
+    height: 100%;
+    padding: 0.2%;   
+    margin-left: 8%;
 }
 
 .imgLogo2{
+    /* border: 2px black solid; */
     height: 100%;
-    margin-left: 10%;
+}
+
+.Buscador{
+    /* border: 2px solid black; */
+    width: 20%;
+    height: 50%;
+    margin: auto;
+    border-radius: 25rem;
 }
 
 .keys{
     /* border: black 2px solid; */
-    background-color: #00152942;
+    background-color: transparent;
     width: 50%;
     display: flex;
     justify-content: space-around;
     align-items: center;
+    
 }
+
+
+.iconAvatar{
+    /* border: black 2px solid; */
+    font-size: 100% !important;
+}
+
+
 
 
 

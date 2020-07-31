@@ -1,5 +1,5 @@
 .mainLogin {
-    background-color: rgba(161, 216, 248, 0.178);
+
     /* background-image: url("../../Assests/Img/serpentina1.png"); */
     justify-content: center;
     width: 100%;
@@ -22,11 +22,12 @@
     width: 80% ;
     margin: auto;
     margin-top: 3%;
+  
 }
 
 .formLogin {
     /* border: 2px black solid; */
-    background-color:  rgba(3, 25, 26, 0.377);
+    background: #6243b85b;
     width: 40%;
     height: 100%;
     margin: auto;

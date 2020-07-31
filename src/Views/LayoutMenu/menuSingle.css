@@ -2,6 +2,7 @@
 .MainMenuSingle{
     width: 100%;
     height: 10%;
+    background-color: #6243B8;
     /* background-color: #00152942; */
     /* border: 2px black solid; */
     display: flex;

@@ -7,6 +7,7 @@ import { Link, useHistory } from "react-router-dom"
 import { LayoutMenu } from "../LayoutMenu/layoutSingle"
 import api from "../../api/api";
 
+
 export const Login = () => {
     const history = useHistory();
     const layout = {
@@ -24,7 +25,7 @@ export const Login = () => {
         if (respu.status === 201) {
            localStorage.setItem("token", respu.data.token);
         //    estaAuth  === token  si no token === null
-           history.push("/profile");
+           history.push("/home");
         } else {
           message.error("Usuario y/o contraseña incorrectos");
         }

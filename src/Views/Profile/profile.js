@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link, useHistory } from "react-router-dom";
-import { Nav } from "../LayoutMenu/LayoutLogueado/nav";
+import { LayoutClient} from "../LayoutMenu/LayoutClient"
 import "./profile.css";
 import img1 from "../../Assests/Img/imgPerfil.jpg";
 import { Menu, Row, Button } from "antd";
@@ -10,7 +10,7 @@ import {
   InstagramOutlined,
   WhatsAppOutlined,
 } from "@ant-design/icons";
-import Api from "../../api/api";
+
 import api from "../../api/api";
 import token from "../../localstorage/token";
 
@@ -30,7 +30,7 @@ export const Profile = () => {
 
     return (
       <div className="MainProfile">
-        <Nav />
+      <LayoutClient/>
         <img className="imgProfile" src="user.png" alt="img-user" />
         <h1 style={{ fontSize: "2em", fontWeight: "bold" }}>
           {user.firstName} {user.secondName} {user.firstSurname}{" "}

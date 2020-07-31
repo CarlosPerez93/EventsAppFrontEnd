@@ -1,7 +1,7 @@
 import React from "react"
 import "../LayoutMenu/menuSingle.css";
 import { Link } from "react-router-dom";
-import img1 from "../../Assests/Img/Logo.png";
+import img1 from "../../Assests/Img/LogoLR.png";
 
 export class LayoutMenu extends React.Component {
   

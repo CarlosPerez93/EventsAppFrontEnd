@@ -1,15 +1,14 @@
 import React, { useState } from "react";
 
-import { LayoutMenu } from "../LayoutMenu/layoutSingle";
+import { LayoutMenu } from "../../LayoutMenu/layoutSingle";
 import "../Registre/Registre.css";
-import img1 from "../../Assests/Img/fiesta.png";
-import Avatar1 from "../../Assests/Img/avatar2.jpeg";
-import Avatar2 from "../../Assests/Img/avatar1.jpeg";
-import Avatar3 from "../../Assests/Img/avatar3.jpeg";
+import img1 from "../../../Assests/Img/fiesta.png";
+import Avatar1 from "../../../Assests/Img/avatar2.jpeg";
+import Avatar2 from "../../../Assests/Img/avatar1.jpeg";
+import Avatar3 from "../../../Assests/Img/avatar3.jpeg";
 import { Form, Input, Tooltip, Select, Button, AutoComplete, Carousel, Tabs, message, Avatar } from "antd";
-import { UserOutlined } from '@ant-design/icons';
-import { Link } from "react-router-dom";
-import api from "../../api/api";
+ import { Link } from "react-router-dom";
+import api from "../../../common/api/api";
 import { useHistory } from 'react-router-dom';
 
 const { Option } = Select;

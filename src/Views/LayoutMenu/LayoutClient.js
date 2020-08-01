@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Menu, Avatar, Input,Divider } from 'antd';
-import api from "../../api/api";
+import api from "../../common/api/api";
 import token from "../../localstorage/token";
 import {
     AppstoreOutlined,
@@ -32,8 +32,8 @@ export const LayoutClient = () => {
     const [user, setUser] = useState(null);
 
     const dataApi = async () => {
-        const result = await api.get("user/profile", { id: token.decodeJWT().id });
-        setUser(result.data);
+      //  const result = await api.get("user/profile", { id: token.decodeJWT().id });
+       // setUser(result.data);
     };
 
     const useEffect = (() => {

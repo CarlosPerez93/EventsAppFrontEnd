@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { Link, useHistory } from "react-router-dom";
-import { LayoutClient} from "../LayoutMenu/LayoutClient"
+import { LayoutClient} from "../../LayoutMenu/LayoutClient"
 import "./profile.css";
-import img1 from "../../Assests/Img/imgPerfil.jpg";
+import img1 from "../../../Assests/Img/imgPerfil.jpg";
 import { Menu, Row, Button } from "antd";
 import {
   MessageOutlined,
@@ -11,8 +11,8 @@ import {
   WhatsAppOutlined,
 } from "@ant-design/icons";
 
-import api from "../../api/api";
-import token from "../../localstorage/token";
+import api from "../../../common/api/api";
+import token from "../../../localstorage/token";
 
 export const Profile = () => {
   const [user, setUser] = useState(null);

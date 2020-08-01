@@ -1,20 +1,18 @@
-import React from 'react';
-import 'antd/dist/antd.css';
-import {Rutas} from "./Views/Router/Router";
-
-
-
+import React, { useState, useEffect } from "react";
+import "antd/dist/antd.css";
+import token from "./localstorage/token";
+import RoutesPrivate from "./Views/Private/RoutesPrivate";
+import RoutesPublic from "./Views/Public/RoutesPublic";
+import { BrowserRouter as Router } from "react-router-dom";
 
 function App() {
-  return (
+  const [auth, setAuth] = useState(false);
 
-     <div>
-        
-        <Rutas/>
-       
-     </div>
+  useEffect(() => {
+    setAuth(token.getToken() !== null);
+  }, [setAuth]);
 
-  );
+  return <Router>{auth ? <RoutesPrivate setAuth={setAuth} /> : <RoutesPublic setAuth={setAuth}/>}</Router>;
 }
 
 export default App;

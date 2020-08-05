@@ -1,4 +1,5 @@
 .mainLogin {
+    background-color: rgba(161, 216, 248, 0.178);
 
     /* background-image: url("../../Assests/Img/serpentina1.png"); */
     justify-content: center;
@@ -91,9 +92,9 @@
 .Buton{
     /* border: 2px black solid !important; */
     font-family: Georgia, 'Times New Roman', Times, serif;
-    background-color: #b7dbddcb ;
+    background-color: #6243B8;
     border: transparent;
-    color: rgb(0, 0, 0);
+    color: white;
     text-align: center;
     margin-left: 30%;
     display: flex;
@@ -112,9 +113,9 @@
 
 .Buton:hover{
     /* border: 2px black solid; */
-    background-color: #bcf1ee;
+    background-color: #8c70d8;
     border: transparent;
-    color: rgb(0, 0, 0);
+    color: white;
 }
 
 .link {

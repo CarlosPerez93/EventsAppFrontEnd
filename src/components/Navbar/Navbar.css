@@ -1,0 +1,50 @@
+.menu{
+    width: 100%;
+   display: flex;
+    /* border: solid 2px black; */
+    background-color: #6243B8;
+    /* position: fixed; */
+    z-index: 1;
+}
+
+.imgLogo2{
+    /* border: solid 2px black; */
+    width: 120px;
+ 
+}
+
+
+
+
+.ant-menu-horizontal > .ant-menu-item a {
+    color: white;
+}
+
+
+
+
+.ant-menu {
+    color: white;
+    font-size: 14px;
+
+    text-align: left;
+    list-style: none;
+    outline: none;
+    -webkit-box-shadow: 0 3px 6px -4px rgba(0, 0, 0, 0.12), 0 6px 16px 0 rgba(0, 0, 0, 0.08), 0 9px 28px 8px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 3px 6px -4px rgba(182, 174, 174, 0.12), 0 6px 16px 0 rgba(0, 0, 0, 0.08), 0 9px 28px 8px rgba(0, 0, 0, 0.05);
+    -webkit-transition: background 0.3s, width 0.3s cubic-bezier(0.2, 0, 0, 1) 0s;
+    transition: background 0.3s, width 0.3s cubic-bezier(0.2, 0, 0, 1) 0s;
+}
+
+.anticon {
+    display: inline-block;
+    color:white;
+    font-style: normal;
+    line-height: 0;
+    text-align: center;
+    text-transform: none;
+    vertical-align: -0.125em;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}

@@ -1,7 +1,7 @@
 import React from "react"
 import "../Services/Services.css"
 import { Card } from 'antd';
-import { LayoutMenu } from "../LayoutMenu/layoutMenu";
+
 import img1 from "../../Assests/Img/arregloFloral.jpg";
 import img2 from "../../Assests/Img/Camara.png";
 import img4 from "../../Assests/Img/bufet.png";
@@ -17,7 +17,7 @@ export class Services extends React.Component {
             <div className="mainServices">
                 <div className="layaout">
 
-                <LayoutMenu />
+            
                 </div>
                 <div className="ContainerServices">
 

@@ -30,7 +30,7 @@ export const Profile = () => {
 
     return (
       <div className="MainProfile">
-      <LayoutClient/>
+    
         <img className="imgProfile" src="user.png" alt="img-user" />
         <h1 style={{ fontSize: "2em", fontWeight: "bold" }}>
           {user.firstName} {user.secondName} {user.firstSurname}{" "}

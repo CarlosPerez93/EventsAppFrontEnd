@@ -1,0 +1,10 @@
+.mainGEvento{
+    border: 2px black solid;
+    width: 80%;
+    background-color: #6243b818;
+    height: 600px;
+    margin: auto;
+    margin-top: 2%;
+    display: flex;
+    
+}

@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { LayoutMenu } from "../../LayoutMenu/layoutMenu"; 
 import api from "../../../common/api/api";
 import token from "../../../localstorage/token";
-
-import { Carousel, Divider } from "antd";
+import { Carousel, Divider, Tabs } from "antd";
 import { Link } from "react-router-dom";
 import "./Home.css";
 import img1 from "../../../Assests/Img/1.png";
@@ -24,17 +22,20 @@ const Home = () => {
   const [user, setUser] = useState(null);
 
   const dataApi = async () => {
-//  const result = await api.get("user/profile", { id: token.decodeJWT().id });
-  //  setUser(result.data);
+    //  const result = await api.get("user/profile", { id: token.decodeJWT().id });
+    //  setUser(result.data);
   };
-
+  function callback(key) {
+    console.log(key);
+  }
   useEffect(() => {
     dataApi();
   });
+  const { TabPane } = Tabs;
 
   return (
     <div className="mainHome">
-      <LayoutMenu className="barra" />
+
       {/* <LayoutClient className="barra" /> */}
       {/* <LayoutEmpre className="barra" /> */}
       <Carousel autoplay className="carrousel">
@@ -61,28 +62,77 @@ const Home = () => {
           <img className="imgs" src={img13} />
         </div>
       </Carousel>
-      ,
+
+
+
+
       <div className="containerAvatars">
-        <Link to="/">
-          <img className="Avatars" src={img10} />
-        </Link>
-        <Link to="/">
-          <img className="Avatars" src={img6} />
-        </Link>
-        <Link to="/">
-          <img className="Avatars" src={img7} />
-        </Link>
-        <Link to="/">
-          <img className="Avatars" src={img8} />
-        </Link>
-        <Link to="/">
-          <img className="Avatars" src={img9} />
-        </Link>
-        <Link to="/">
-          <img className="Avatars" src={img11} />
-        </Link>
+        <Tabs onChange={callback} className="tab">
+
+          <TabPane key="1" tab="decoracion" className="tab1" >
+           
+            <Carousel autoplay className="carrousel">
+              <div className="cont">
+                <img className="imgs" src={img1} />
+              </div>
+
+              <div className="cont">
+                <img className="imgs" src={img2} />
+              </div>
+              <div className="cont">
+                <img className="imgs" src={img3} />
+              </div>
+              <div className="cont">
+                <img className="imgs" src={img4} />
+              </div>
+              <div className="cont">
+                <img className="imgs" src={img5} />
+              </div>
+              <div className="cont">
+                <img className="imgs" src={img12} />
+              </div>
+              <div className="cont">
+                <img className="imgs" src={img13} />
+              </div>
+            </Carousel>
+          </TabPane>
+
+          <TabPane key="2" tab="Lugares" className="tab1">
+
+            <Link to="/">
+              <img className="Avatars" src={img6} />
+            </Link>
+          </TabPane >
+          <TabPane key="3" tab="Buffet" className="tab1">
+            <Link to="/">
+              <img className="Avatars" src={img7} />
+            </Link>
+
+          </TabPane>
+          <TabPane key="4" tab="Sonido" className="tab1">
+            <Link to="/">
+              <img className="Avatars" src={img8} />
+            </Link>
+
+          </TabPane>
+          <TabPane key="5" tab="Fotografia" className="tab1">
+            <Link to="/">
+              <img className="Avatars" src={img9} />
+            </Link>
+
+          </TabPane>
+          <TabPane key="6" tab="Animación" className="tab1">
+            <Link to="/">
+              <img className="Avatars" src={img11} />
+            </Link>
+
+          </TabPane>
+
+        </Tabs>
       </div>
-      <h1>Nuestros Servicios</h1>
+      <h1 className="h11">Nuestros Servicios</h1>
+      <br />
+      <br />
       <Divider dashed />
       <div className="ContainerSomos">
         <div className="Mision">
@@ -113,7 +163,7 @@ const Home = () => {
           </p>
         </div>
       </div>
-      <h1>Quienes Somos</h1>
+      <h1 className="h12">Quienes Somos</h1>
       <Divider dashed />
     </div>
   );

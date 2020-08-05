@@ -4,8 +4,10 @@ import { Profile } from "./Profile/profile";
 import Navbar from "./../../components/Navbar/Navbar";
 import token from "../../localstorage/token";
 import HomeCliente from "./Cliente/Home/HomeClient";
+import CrearEventos from "./Cliente/Eventos/CrearEvento/CrearEventos.jsx";
 import ListaEventos from "./Cliente/Eventos/ListaEventos/ListaEventos";
-
+import AgregarServicio from "./Cliente/Servicios/AgregarServicio/AgregarServicio.jsx";
+import ListadoServicio from "./Cliente/Servicios/ListaServicios/ListaServicios.jsx";
 function RoutesPrivate({ setAuth }) {
   const [role, setRole] = useState(0);
 
@@ -24,14 +26,34 @@ function RoutesPrivate({ setAuth }) {
           <Route path="/" exact>
             <HomeCliente />
           </Route>
-          <Route path="/gestionarEventos" exact>
-            <h1>Gestionar Eventos</h1>
+          <Route path="/home" exact>
+            <HomeCliente />
+          </Route>
+
+          <Route path="/gestionarEvento" exact>
+            <CrearEventos />
+          </Route>
+          <Route path="/ListadoEventos" exact>
+            <ListaEventos />
+          </Route>
+
+          <Route path="/gestionarServicio" exact>
+            <AgregarServicio/>
+          </Route>
+        
+
+          <Route path="/ListadoServicio" exact>
+            <ListadoServicio />
+          </Route>
+
+          <Route path="/QuienesSomos" exact>
+            <h1>QuienesSomos</h1>
             <ListaEventos />
           </Route>
         </>
       ) : role === 2 ? (
         <>
-          <Route path="/" exact>
+          <Route path="/home" exact>
             <h1>Home Empresario</h1>
           </Route>
           <Route path="/profile" exact>

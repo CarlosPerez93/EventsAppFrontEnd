@@ -1,6 +1,6 @@
 .mainHome {
-  background: white;
   /* border: 2px black solid; */
+  background: white;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -14,17 +14,17 @@
   background: #6243b85b;
   box-shadow: 11px 11px 59px -10px rgba(0, 0, 0, 0.61);
   border-radius: 20px;
-
-  }
-
+}
 
 .imgs {
+  /* border: 2px solid black; */
   width: 98%;
   height: 550px;
   border-radius: 20px;
   margin: auto;
 }
-.ant-tabs > .ant-tabs-nav, .ant-tabs > div > .ant-tabs-nav {
+.ant-tabs > .ant-tabs-nav,
+.ant-tabs > div > .ant-tabs-nav {
   /* border: 2px solid black; */
   color: #6243b8;
   display: flex;
@@ -33,52 +33,49 @@
 }
 
 .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
-  color:  #6243b8;
+  /* border: 2px solid black; */
+  color: #6243b8;
   font-weight: 500;
 }
 
-.tab1{
+.tab1 {
   /* border: 2px solid black; */
   display: flex;
   flex-direction: column;
- 
   justify-content: center;
 }
 
 .containerAvatars {
   /* border: black 2px solid; */
-  /* border: black 2px solid; */
   margin-top: 3%;
   width: 70%;
 }
 
-.Avatars {
+.mainHome h1 {
   /* border: black 2px solid; */
-  width: 100px;
-  height: 100px;
-}
-
-h1 {
   color: #6243b8;
+  display: flex;
+  justify-content: center;
+  line-height: 1;
+  margin-top: 0%;
 }
 
-.h11{
-  margin: 2.5%;
-}
-
-.h12{
-  margin: 10%;
-}
-
-h2 {
+.mainHome h2 {
   font-size: 30px !important;
+  margin: auto;
+}
+
+.mainHome p{
+  margin-top: 2% !important;
 }
 
 .ContainerSomos {
   /* border: 2px black solid; */
   display: flex;
-  padding: 3%;
+  margin: 0%;
+  padding: 5%;
   padding-top: 0%;
+  box-sizing: border-box;
   font-size: 25px;
   justify-content: space-between;
 }
@@ -87,17 +84,17 @@ h2 {
   /* border: 2px black solid; */
   text-align: justify;
   width: 30%;
-  height: 300px;
+  height: auto;
 }
 .Vision {
   /* border: 2px black solid; */
   text-align: justify;
   width: 30%;
-  height: 300px;
+  height: auto;
 }
 .Valores {
   /* border: 2px black solid; */
   text-align: justify;
   width: 30%;
-  height: 300px;
+  height: auto;
 }

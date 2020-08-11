@@ -1,9 +1,12 @@
-import React from 'react'
+import React, { useState, useEffect } from "react";
 
-export default function ListaServicio() {
-    return (
-        <div>
-           <h1>Listado de servicios</h1>
-        </div>
-    )
+
+export default function ServiciosAdquiridos() {
+
+
+  return (
+    <div >  
+        <h1>lista Servicios</h1>
+    </div>
+  );
 }

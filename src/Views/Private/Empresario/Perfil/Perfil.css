@@ -1,0 +1,83 @@
+.mainPerfil{
+    /* border: black solid 2px; */
+    width: 100%;
+    height: auto;
+    margin-top: 1%;
+    padding: 3%;
+    padding-top: 0%;
+}
+
+.contendorMainPerfil{
+    /* border: black solid 2px; */
+    display: flex;
+    width: 90%;
+    height: auto;
+    margin: auto;
+    justify-content: space-between;
+}
+
+.contenedor1Perfil{
+    /* border: black solid 2px; */
+    width: 49%;
+    height: auto;
+    box-shadow: 10px 6px 7px -4px rgba(0,0,0,0.75);
+    margin: auto;
+    margin-top: 3%;
+    box-sizing: border-box;
+}
+
+.mainPerfil h2{
+    /* border: black solid 2px; */
+    width: 100%;
+    font-size: 30px;
+    color: rgba(0, 0, 0, 0.493);
+    margin-top: .5% !important;
+}
+
+.contenedor2Perfil{
+    /* border: black solid 2px; */
+    background-color: rgba(0, 0, 0, 0.034);
+    width: 49%;
+    box-shadow: 10px 6px 7px -4px rgba(0,0,0,0.75);
+    margin-top: 3%;
+    box-sizing: border-box;
+}
+
+.contenedorDatosPerfil{
+    /* border: black solid 2px; */
+    width: 100%;
+    height: auto;
+    display: flex;
+}
+
+.contenedorDatosPerfil1{
+    /* border: black solid 2px; */
+    background-color: rgba(0, 0, 0, 0.034);
+    width: 100%;
+    height: auto;
+    padding: 2%;
+    box-sizing: border-box;
+}
+.contenedorDatosPerfil2{
+    /* border: black solid 2px; */
+    width: 100%;
+    height: auto;
+    padding: 2%;
+    box-sizing: border-box;
+}
+.contenedorDatosPerfil p{
+    /* border: black solid 2px; */
+    display: flex;
+    justify-content: left;
+    margin: auto;
+    margin-top: 20% !important;
+}
+
+.btnsPerfil{
+    /* border: black solid 2px; */
+    width: 60%;
+    display: flex;
+    justify-content: space-evenly;
+    margin: auto;
+    margin-top: 2%;
+}

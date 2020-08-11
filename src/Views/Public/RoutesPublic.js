@@ -3,7 +3,7 @@ import { Switch, Route } from "react-router-dom";
 import Home from "./Home/Home";
 import Login from "./Login/login";
 import { RegistrationForm } from "./Registre/Registre";
-import { Services } from "../Services/Services";
+
 import Navbar from './../../components/Navbar/Navbar';
 
 function RoutesPublic({setAuth}) {
@@ -18,7 +18,6 @@ function RoutesPublic({setAuth}) {
        <Login setAuth={setAuth}/>
         </Route>
       <Route path="/register" component={RegistrationForm} />
-      <Route path="/services" component={Services} />
       <Route path="/about">
         <h1>Quienes somos</h1>
       </Route>

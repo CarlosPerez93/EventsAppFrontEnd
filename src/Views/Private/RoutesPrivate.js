@@ -1,13 +1,18 @@
 import React, { useEffect, useState } from "react";
-import { Switch, Route } from "react-router-dom";
-import { Profile } from "./Profile/profile";
+import { Route } from "react-router-dom";
+import HomeEmpresario from "../Private/Empresario/Home/Home.jsx";
+import PerfilEmpresario from "../Private/Empresario/Perfil/Perfil.jsx";
+import AgregarServicioEmpresario from "../Private/Empresario/Servicios/CrearServicio/CrearServicio.jsx";
+import EventosAsignadosEmpresario from "../Private/Empresario/Eventos/EventosAsignados/EventosAsignados.jsx";
 import Navbar from "./../../components/Navbar/Navbar";
 import token from "../../localstorage/token";
 import HomeCliente from "./Cliente/Home/HomeClient";
-import CrearEventos from "./Cliente/Eventos/CrearEvento/CrearEventos.jsx";
-import ListaEventos from "./Cliente/Eventos/ListaEventos/ListaEventos";
-import AgregarServicio from "./Cliente/Servicios/AgregarServicio/AgregarServicio.jsx";
-import ListadoServicio from "./Cliente/Servicios/ListaServicios/ListaServicios.jsx";
+import CrearEventosCliente from "./Cliente/Eventos/CrearEvento/CrearEventos.jsx";
+import ListaEventosCliente from "./Cliente/Eventos/ListaEventos/ListaEventos";
+import ServiciosCliente from "./Cliente/Servicios/Servicios/Servicios.jsx";
+import AgregarServicioCliente from "./Cliente/Servicios/AgregarServicio/AgregarServicio.jsx";
+import ListadoServicioCliente from "./Cliente/Servicios/ListaServicios/ListaServicios.jsx";
+
 function RoutesPrivate({ setAuth }) {
   const [role, setRole] = useState(0);
 
@@ -31,45 +36,55 @@ function RoutesPrivate({ setAuth }) {
           </Route>
 
           <Route path="/gestionarEvento" exact>
-            <CrearEventos />
+            <CrearEventosCliente />
           </Route>
           <Route path="/ListadoEventos" exact>
-            <ListaEventos />
+            <ListaEventosCliente />
           </Route>
 
+          <Route path="/servicios" exact>
+            <ServiciosCliente />
+          </Route>
           <Route path="/gestionarServicio" exact>
-            <AgregarServicio/>
-          </Route>
-        
-
-          <Route path="/ListadoServicio" exact>
-            <ListadoServicio />
+            <AgregarServicioCliente />
           </Route>
 
-          <Route path="/QuienesSomos" exact>
-            <h1>QuienesSomos</h1>
-            <ListaEventos />
+
+          <Route path="/servicioAdquiridos" exact>
+            <ListadoServicioCliente />
           </Route>
+
         </>
       ) : role === 2 ? (
         <>
+          <Route path="/" exact>
+            <HomeEmpresario />
+          </Route>
           <Route path="/home" exact>
-            <h1>Home Empresario</h1>
+            <HomeEmpresario />
           </Route>
-          <Route path="/profile" exact>
-            <Profile />
+          <Route path="/perfil" exact>
+            <PerfilEmpresario />
           </Route>
-          <Route path="/services" exact>
-            <h1>Servicios</h1>
+          <Route path="/servicios" exact>
+            <ServiciosCliente />
+          </Route>
+          <Route path="/agregarServicios" exact>
+            <AgregarServicioEmpresario />
+          </Route>
+        
+          <Route path="/eventosAsignados" exact>
+            <EventosAsignadosEmpresario />
+
           </Route>
         </>
       ) : (
-        <>
-        <Route path="/" exact>
-          <h1>Admin Home</h1>
-        </Route>
-        </>
-      )}
+            <>
+              <Route path="/" exact>
+                <h1>Admin Home</h1>
+              </Route>
+            </>
+          )}
     </>
   );
 }

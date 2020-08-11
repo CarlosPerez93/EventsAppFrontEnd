@@ -1,6 +1,4 @@
 import React, { useState, useEffect } from "react";
-
-import { LayoutMenu } from "../../LayoutMenu/layoutSingle";
 import "../Registre/Registre.css";
 import img1 from "../../../Assests/Img/fiesta.png";
 import Avatar1 from "../../../Assests/Img/avatar2.jpeg";
@@ -216,6 +214,7 @@ export const RegistrationForm = () => {
               
             </div>
             <div className="intemsCheck">
+              
             <Form.Item name={["user", "role"]} className="check">
                   <Select placeholder="tipo usuario" className="select">
                       {
@@ -223,11 +222,20 @@ export const RegistrationForm = () => {
                          <>
                             {
                                roles.map((role, index)=>{
-                                return(
-                                  <Select.Option value={role.id} key={index}>
-                                    {role.name}
-                                  </Select.Option>
-                                )
+                                 if(role.id!==3){
+
+                                   return(
+   
+                                     <Select.Option value={role.id} key={index}>
+                                       {role.name}
+                                     </Select.Option>
+                                   )
+                                 }else{
+                                   return(
+
+                                     <></>
+                                   )
+                                 }
                             })
                             }
                          </>

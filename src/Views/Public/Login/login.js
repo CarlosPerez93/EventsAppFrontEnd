@@ -24,7 +24,7 @@ export default function Login({setAuth}){
         token.setToken(respu.data.token); 
       //    estaAuth  === token  si no token === null
       setAuth(true);
-      history.push("/profile");
+      history.push("/");
     } else {
       message.error("Usuario y/o contraseña incorrectos");
     }
@@ -84,7 +84,7 @@ export default function Login({setAuth}){
           <Form.Item {...tailLayout} className="butonCont">
             <Button type="primary" htmlType="submit" className="Buton">
               Iniciar Sesión
-            </Button>{" "}
+            </Button>
             <br />
           </Form.Item>
           <div className="link">

@@ -1,0 +1,90 @@
+.MainServicios {
+  /* border: 2px solid black; */
+  width: 100%;
+  height: auto;
+  margin: auto;
+
+  box-sizing: border-box;
+}
+
+h1,
+h2 {
+  /* border : 2px solid black; */
+  width: 100%;
+  padding: 0%;
+  line-height: 1;
+  font-size: 40px;
+  display: flex;
+  justify-content: center;
+}
+
+h2 {
+  /* border : 2px solid black; */
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  margin: auto !important;
+  color: #6243b8fd;
+}
+
+p {
+  /* border: 2px solid black; */
+  width: 100%;
+  line-height: 1;
+  font-size: 20px;
+  display: flex;
+  margin: 0% !important;
+  padding-top: 0%;
+  justify-content: center;
+  color: rgb(90, 89, 89);
+}
+
+.contenedorServicios {
+  /* border: 2px solid black; */
+  background-color: rgba(255, 255, 255, 0.39);
+  margin: auto;
+  width: 100%;
+  height: auto;
+  padding: 0% !important;
+  box-sizing: border-box;
+}
+
+.contenedorCards {
+  /* border: 2px solid black; */
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: space-between;
+  margin: auto;
+}
+
+.cardServicios {
+  /* border: 2px solid black; */
+  background-color: #6243b823;
+  width: 30% !important;
+  height: 300px;
+  margin: auto;
+  margin-top: 5%;
+  padding: 2%;
+  box-sizing: border-box;
+  border-radius: 10px;
+  box-shadow: 10px 9px 5px -8px rgba(0, 0, 0, 0.75);
+}
+
+.card p {
+  /* border: 2px solid black; */
+  width: 90%;
+
+  padding: 0.1%;
+  color: rgb(90, 89, 89);
+  box-sizing: border-box;
+  text-justify: distribute;
+  font-size: 18px;
+}
+
+.cardServicios img {
+  /* border: 2px solid black; */
+  border-radius: 2px !important;
+  width: 100%;
+  height: 50%;
+}

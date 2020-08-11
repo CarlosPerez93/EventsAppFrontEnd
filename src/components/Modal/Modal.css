@@ -1,0 +1,31 @@
+.botonModal{
+    /* border: solid 2px black; */
+    width: 100%;
+    height: 10px;
+    line-height: 0;
+    background-color: transparent;
+    border-color: transparent;
+    font-size: 10px;
+}
+
+.botonModal:hover{
+    background-color: transparent;
+    border-color: transparent;
+}
+
+.pModal{
+    /* border: solid 2px black; */
+    width: 100%;
+    display: flex;
+    justify-content: left;
+    text-emphasis-color: black;
+    color: black !important;
+}
+
+.contenedorModal{
+    /* border: solid 2px black; */
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}

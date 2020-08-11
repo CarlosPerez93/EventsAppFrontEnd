@@ -1,0 +1,8 @@
+.SelectEventosAsignados{
+    /* border: 2px black solid; */
+    display: flex;
+    width: 80% !important;
+    margin: auto;
+    margin-top: 3%;
+    margin-left: 20%;
+}

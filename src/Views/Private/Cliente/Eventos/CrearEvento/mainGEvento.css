@@ -1,10 +1,109 @@
 .mainGEvento{
-    border: 2px black solid;
-    width: 80%;
-    background-color: #6243b818;
-    height: 600px;
+    /* border: 2px black solid; */
+    width: 90%;
+    background-color: #6243b883;
+    height: auto;
     margin: auto;
-    margin-top: 2%;
+    margin-top: 1%;
+    box-sizing: border-box;
+    border-radius: 2rem;
+}
+
+.logoGEvento{
+    /* border: 2px black solid; */
+    width: 15%;
     display: flex;
+    margin: auto;
+    box-sizing: border-box;
     
+}
+
+.subMainEvento{
+    /* border: 2px black solid; */
+    display: flex;
+    justify-content: space-between;
+    padding: 2%;
+    box-sizing: border-box;
+}
+
+.contEvento{
+    /* border: 2px black solid; */
+    background-color: rgba(255, 255, 255, 0.39);
+    width: 49%;
+    height: auto;
+    padding: 2%;
+    padding-right: 1%;
+    border-radius: 2rem;
+    box-sizing: border-box;
+    
+}
+
+
+
+
+.subMainEvento label{
+    /* border: 2px black solid; */
+    display: flex;
+    width: 100%;
+    font-size: 15px;
+    font-weight: bold;
+    text-align: center !important;
+    margin: auto;
+}
+
+.AreaText{
+    /* border: 2px black solid; */
+    margin: auto;
+    margin-top: 5%;
+    width: 150% !important;
+}
+
+.ImgVideo{
+    /* border: 2px black solid; */
+    width: 100%;
+    display: flex;
+    height: auto;
+    padding: 5%;
+    box-sizing: border-box;
+}
+
+.contEventoItem{
+  /* border: 2px black solid; */
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: space-between;
+}
+
+.subMainEvento .ant-select-single:not(.ant-select-customize-input) .ant-select-selector {
+    position: relative;
+    background-color: #fff;
+    border: 1px solid #d9d9d9;
+    border-radius: 0rem !important;
+    transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+    width: 100%;
+    height: 32px;
+    margin-top: 5%;
+    /* border: 1px solid black !important; */
+}
+
+.subMainEvento .contTime{
+    /* border: 1px solid black; */
+    margin: auto;
+    margin-top: 5%;
+    width: 100%;
+    text-align: center;
+    
+}
+.But{
+    /* border: 2px solid black !important; */
+    margin: auto;
+
+    background-color: #6243b8;
+    border: transparent;
+}
+
+.But:hover{
+    background-color: #6243b8a6;
+    border: transparent;
 }

@@ -17,6 +17,7 @@ import {
   ContactsOutlined,
   HomeOutlined,
   AudioOutlined,
+  StarTwoTone
 } from "@ant-design/icons";
 const { SubMenu } = Menu;
 const { Search } = Input;
@@ -27,7 +28,7 @@ export default function Navbar({ role, setAuth }) {
   const logout = () => {
     localStorage.clear();
     setAuth(false);
-    history.push("/home");
+    history.push("/");
   };
 
   const options = () => {
@@ -38,9 +39,9 @@ export default function Navbar({ role, setAuth }) {
             <Menu mode="horizontal" className="menu">
               <Link to="/" className="imgLogo">
                 <img className="imgLogo2" src={img1} />
-              </Link> 
+              </Link>
 
-               <Search
+              <Search
                 placeholder="Buscar"
                 onSearch={(value) => console.log(value)}
                 className="Buscador"
@@ -49,8 +50,11 @@ export default function Navbar({ role, setAuth }) {
               <Menu.Item icon={<HomeOutlined />}>
                 <Link to="/">Inicio</Link>
               </Menu.Item>
-
+            
               <SubMenu icon={<AppstoreOutlined />} title="Servicios">
+              <Link to="/servicios" >
+                <StarTwoTone/>
+              </Link>
                 <Menu.Item icon={<StarFilled />} title="Decoración">
                   <Link to="/">Decoracion</Link>
                 </Menu.Item>
@@ -84,9 +88,9 @@ export default function Navbar({ role, setAuth }) {
                 <Menu.Item>
                   <Link to="/gestionarEvento">Gestionar mi Evento</Link>
                 </Menu.Item>
-                
+
                 <Menu.Item>
-                  <Link to="/ListadoEventos"> Listado de mis Eventos</Link>
+                  <Link to="/ListadoEventos">Eventos Adquiridos</Link>
                 </Menu.Item>
 
                 <Menu.Item>
@@ -94,7 +98,7 @@ export default function Navbar({ role, setAuth }) {
                 </Menu.Item>
 
                 <Menu.Item>
-                  <Link to="/ListadoServicio"> Listado de mis Servicios</Link>
+                  <Link to="/servicioAdquiridos">Servicios Adquiridos</Link>
                 </Menu.Item>
 
                 <Menu.Item onClick={logout}>
@@ -111,27 +115,43 @@ export default function Navbar({ role, setAuth }) {
               <Link to="/home" className="imgLogo">
                 <img className="imgLogo2" src={img1} />
               </Link>
-
-              <Menu.Item icon={<HomeOutlined />}>
+              <Search
+                placeholder="Buscar"
+                onSearch={(value) => console.log(value)}
+                className="Buscador"
+              />
+              <Menu.Item icon={<HomeOutlined />} className="menuItem">
                 <Link to="/">Inicio</Link>
               </Menu.Item>
 
-              <SubMenu title={"@" + token.decodeJWT().username}>
-                
+              <Menu.Item icon={<ContactsOutlined />}>
+                <Link to="/">Quienes Somos</Link>
+              </Menu.Item>
+
+              <SubMenu
+                title={"@" + token.decodeJWT().username}
+                className="menuItem"
+              >
+
                 <Menu.Item>
-                  <Link to="/profile">Mi perfil</Link>
+                  <Link to="/agregarServicios">Agregar Servicios</Link>
                 </Menu.Item>
 
-                <Divider/>
                 <Menu.Item>
-                  <Link to="/profile">Mis Servicios</Link>
+                  <Link to="/eventosAsignados">Mis eventos asignados</Link>
                 </Menu.Item>
-             
-                <Divider/>
+
+                <Divider />
                 <Menu.Item>
-                  <Link to="/" onClick={logout}>Cerrar sesion</Link>
+                  <Link to="/perfil">Mi Perfil</Link>
                 </Menu.Item>
-              
+
+                <Divider />
+                <Menu.Item>
+                  <Link to="/" onClick={logout}>
+                    Cerrar sesion
+                  </Link>
+                </Menu.Item>
               </SubMenu>
             </Menu>
           </div>

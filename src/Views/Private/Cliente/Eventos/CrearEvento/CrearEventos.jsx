@@ -195,42 +195,16 @@ export default function CrearEventos() {
           scrollToFirstError
         >
           <div className="contEvento">
-            <Form.Item name={["user", "user"]}>
-              <label>Director del Evento</label>
-              <Input
-                placeholder="Ingrese Nombre del Director"
-                className="AreaText"
-              />
-            </Form.Item>
 
-            <Form.Item name={["user", "description"]}>
-              <label>Descripción</label>
-              <TextArea
-                rows={4}
-                placeholder="Describe tu evento aquí"
-                className="AreaText"
-              />
-            </Form.Item>
+            <div className="contEveto1">
 
-            <Form.Item name={["user"]}>
-              {/* //importante*} */}
-              <label>Imagenes/Videos</label>
-              <ImgCrop rotate>
-                <Upload
-                 className="ImgVideo"
-                  action=""
-                  listType="picture-card"
-                  fileList={fileList}
-                  onChange={onChange}
-                  onPreview={onPreview}
-                >
-                  {fileList.length < 5 && "+ Upload"}
-                </Upload>
-              </ImgCrop>
-            </Form.Item>
-          </div>
-          <div className="contEvento">
-            <div className="contEventoItem">
+              <Form.Item name={["user", "user"]}>
+                <label>Director del Evento</label>
+                <Input
+                  placeholder="Ingrese Nombre del Director"
+                  className="AreaText"
+                />
+              </Form.Item>
               <Form.Item className="contEventoItemSolo">
                 <label>N° Participantes</label>
                 <div>
@@ -239,7 +213,7 @@ export default function CrearEventos() {
                     max={10}
                     defaultValue={3}
                     onChange={onChange1}
-                    className="contTime"
+                    className="AreaText"
                   />
                 </div>
               </Form.Item>
@@ -263,53 +237,84 @@ export default function CrearEventos() {
                         })}
                       </>
                     ) : (
-                      <></>
-                    )}
+                        <></>
+                      )}
                   </Select>
                 </Form.Item>
               </div>
             </div>
-            <Divider />
+            <div className="contEveto2">
 
-            <Form.Item name={["user", "startDate"]} className="contEventoItem">
-              <div>
-                <label>Fechas </label>
-                <RangePicker
-                  disabledDate={disabledDate}
-                  onCalendarChange={(value) => {
-                    setDates(value);
-                  }}
+              <Form.Item name={["user", "description"]}>
+                <label>Descripción</label>
+                <TextArea
+                  rows={8}
+                  placeholder="Describe tu evento aquí"
+                  className="AreaText"
                 />
-              </div>
-            </Form.Item>
-            <div className="contEventoItem">
-              <Form.Item className="contTime" name={["user", ""]}>
-                <label> Hora inicial </label>
-                <Space>
-                  <PickerWithType
-                    type={type}
-                    onChange2={(value) => console.log(value)}
-                    placeholder="Seleccionar Hora"
-                  />
-                </Space>
               </Form.Item>
-              <Form.Item className="contTime" name={["user", ""]}>
-                <label> Hora Final </label>
-                <Space placeholder="Seleccionar Hora">
-                  <PickerWithType
-                    type={type}
-                    onChange2={(value) => console.log(value)}
-                  />
-                </Space>
-              </Form.Item>
+             
+           
+            
             </div>
-            <Divider />
-            <Form.Item {...tailFormItemLayout} >
-              <Button type="primary" htmlType="submit" className="But">
-                Confirmar Evento
-              </Button>
+            <Divider/>
+            <Form.Item name={["user", "startDate"]} className="contEventoItemF">
+                <div>
+                  <label>Fechas </label>
+                  <RangePicker
+                    disabledDate={disabledDate}
+                    onCalendarChange={(value) => {
+                      setDates(value);
+                    }}
+                  />
+                </div>
+              </Form.Item>
+              <div className="contEventoItem">
+                <Form.Item className="contTime" name={["user", ""]}>
+                  <label> Hora inicial </label>
+                  <Space>
+                    <PickerWithType
+                      type={type}
+                      onChange2={(value) => console.log(value)}
+                   
+                    />
+                  </Space>
+                </Form.Item>
+                <Form.Item className="contTime" name={["user", ""]}>
+                  <label> Hora Final </label>
+                  <Space >
+                    <PickerWithType
+                      type={type}
+                      onChange2={(value) => console.log(value)}
+                    />
+                  </Space>
+                </Form.Item>
+              </div>
+
+              <Divider/>
+            <Form.Item name={["user"]}>
+              {/* //importante*} */}
+              <label>Imagenes/Videos</label>
+              <ImgCrop rotate>
+                <Upload
+                  className="ImgVideo"
+                  action=""
+                  listType="picture-card"
+                  fileList={fileList}
+                  onChange={onChange}
+                  onPreview={onPreview}
+                >
+                  {fileList.length < 5 && "+ Upload"}
+                </Upload>
+              </ImgCrop>
             </Form.Item>
+          <Form.Item {...tailFormItemLayout} >
+                <Button type="primary" htmlType="submit" className="But">
+                  Confirmar Evento
+              </Button>
+              </Form.Item>
           </div>
+    
         </Form>
       </div>
     </div>

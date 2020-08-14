@@ -1,6 +1,6 @@
 .mainGEvento{
     /* border: 2px black solid; */
-    width: 90%;
+    width: 70%;
     background-color: #6243b883;
     height: auto;
     margin: auto;
@@ -29,7 +29,7 @@
 .contEvento{
     /* border: 2px black solid; */
     background-color: rgba(255, 255, 255, 0.39);
-    width: 49%;
+    width: 100%;
     height: auto;
     padding: 2%;
     padding-right: 1%;
@@ -39,42 +39,56 @@
 }
 
 
-
+.contEveto1{
+    /* border: 2px black solid; */
+    display: flex;
+    justify-content: space-evenly;
+}
+.contEveto2{
+    /* border: 2px black solid; */
+    padding-left: 25%;
+}
 
 .subMainEvento label{
     /* border: 2px black solid; */
     display: flex;
-    width: 100%;
+    width: 200px;
     font-size: 15px;
     font-weight: bold;
-    text-align: center !important;
-    margin: auto;
-}
+    text-align: center;
+    
+    }
 
-.AreaText{
-    /* border: 2px black solid; */
-    margin: auto;
-    margin-top: 5%;
-    width: 150% !important;
-}
+
 
 .ImgVideo{
     /* border: 2px black solid; */
-    width: 100%;
+    width: 90%;
     display: flex;
     height: auto;
+    justify-content: center;
+    margin: auto;
+    margin: auto;
+    margin-left: 30%;
     padding: 5%;
     box-sizing: border-box;
 }
 
 .contEventoItem{
   /* border: 2px black solid; */
-  width: 100%;
+  width: 100% !important;
   height: auto;
+  margin: auto;
   display: flex;
   justify-content: space-between;
 }
-
+.contEventoItemF{
+    /* border: 2px black solid; */
+    width: 50%;
+    display: flex;
+    margin: auto;
+    padding-left: 14%;
+}
 .subMainEvento .ant-select-single:not(.ant-select-customize-input) .ant-select-selector {
     position: relative;
     background-color: #fff;
@@ -91,14 +105,17 @@
     /* border: 1px solid black; */
     margin: auto;
     margin-top: 5%;
-    width: 100%;
+    width: 30%;
     text-align: center;
     
 }
 .But{
     /* border: 2px solid black !important; */
+    width: 50%;
+    display: flex;
     margin: auto;
-
+    margin-right: 50%;
+    justify-content: center;
     background-color: #6243b8;
     border: transparent;
 }

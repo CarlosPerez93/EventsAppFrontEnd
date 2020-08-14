@@ -16,7 +16,7 @@ import {
   UserAddOutlined,
   ContactsOutlined,
   HomeOutlined,
-  AudioOutlined,
+ 
   StarTwoTone
 } from "@ant-design/icons";
 const { SubMenu } = Menu;
@@ -38,7 +38,7 @@ export default function Navbar({ role, setAuth }) {
           <div>
             <Menu mode="horizontal" className="menu">
               <Link to="/" className="imgLogo">
-                <img className="imgLogo2" src={img1} />
+                <img className="imgLogo2" src={img1} alt=""/>
               </Link>
 
               <Search
@@ -155,12 +155,47 @@ export default function Navbar({ role, setAuth }) {
               </SubMenu>
             </Menu>
           </div>
+        ); case 3:
+        return (
+          <div>
+            <Menu mode="horizontal" className="menu">
+              <Link to="/home" className="imgLogo">
+                <img className="imgLogo2" src={img1} />
+              </Link>
+              <Search
+                placeholder="Buscar"
+                onSearch={(value) => console.log(value)}
+                className="Buscador"
+              />
+              <Menu.Item icon={<HomeOutlined />} className="menuItem">
+                <Link to="/">Inicio Administrador</Link>
+              </Menu.Item>
+
+              <SubMenu
+                title={"@" + token.decodeJWT().username}
+                className="menuItem"
+              >
+                <Divider />
+
+                <Menu.Item>
+                  <Link to="/agregarServicios">Gestionar</Link>
+                </Menu.Item>
+
+                <Divider />
+                <Menu.Item>
+                  <Link to="/" onClick={logout}>
+                    Cerrar sesion
+                  </Link>
+                </Menu.Item>
+              </SubMenu>
+            </Menu>
+          </div>
         );
       default:
         return (
           <div>
             <Menu mode="horizontal" className="menu">
-              <Link to="/home" className="imgLogo">
+              <Link to="/" className="imgLogo">
                 <img className="imgLogo2" src={img1} />
               </Link>
 
@@ -171,7 +206,7 @@ export default function Navbar({ role, setAuth }) {
               />
 
               <Menu.Item icon={<HomeOutlined />}>
-                <Link to="/home">Inicio</Link>
+                <Link to="/">Inicio</Link>
               </Menu.Item>
               <SubMenu icon={<AppstoreOutlined />} title="Servicios">
                 <Menu.Item icon={<StarFilled />} title="Decoración">

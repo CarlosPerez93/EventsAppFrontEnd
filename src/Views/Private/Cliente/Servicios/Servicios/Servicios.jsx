@@ -22,26 +22,26 @@ export default function Servicios() {
             <p>Es muy importante contar con un toque de belleza y armonía.</p>
           </Link>
           <Link to="/" className="cardServicios">
-            <img src={img2} />
+            <img src={img3} />
             <h2>Sitios</h2>
             <p>
               Para que sea único e inolvidable, tenemos los espacios ideales.
             </p>
           </Link>
           <Link to="/" className="cardServicios">
-            <img src={img3} />
+            <img src={img4} />
             <h2>Buffet</h2>
             <p>Sabores que cautivan, los más exquisitos y variados platos. </p>
           </Link>
         </div>
         <div className="contenedorCards">
           <Link to="/" className="cardServicios">
-            <img src={img4} />
+            <img src={img5} />
             <h2>Sonido</h2>
             <p>Impresiona al mundo con el mejor sonido en tus eventos. </p>
           </Link>
           <Link to="/" className="cardServicios">
-            <img src={img5} />
+            <img src={img2} />
             <h2>Fotografía</h2>
             <p>Capturamos en el momento justo para que revivas aquel día.</p>
           </Link>

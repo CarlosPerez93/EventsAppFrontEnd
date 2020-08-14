@@ -117,51 +117,54 @@ export default function CrearServicio() {
   );
   return (
     <div className="contMainCrearServicio">
-         <img className="logoModal" src={img1} />
-         <h2>Agregar Servicio</h2>
-      <Form
-        className="mainCrearservicio"
-        {...formItemLayout}
-        form={form}
-        name="service-create"
-        onFinish={onFinish}
-        initialValues={{
-          residences: ["zhejiang", "hangzhou", "xihu"],
-          prefix: "86",
-        }}
-        scrollToFirstError
-      >
-        <Form.Item name={["user", "title"]} className="NombreCrearServicio">
-          <Input  placeholder="Nombre del servicio " />
-        </Form.Item>
+      <img className="logoModal" src={img1} />
+      <h2>Agregar Servicio</h2>
+      <div className="contCrearServicio">
+        <Form
+          className="mainFormCrearservicio"
+          {...formItemLayout}
+          form={form}
+          name="service-create"
+          onFinish={onFinish}
+          initialValues={{
+            residences: ["zhejiang", "hangzhou", "xihu"],
+            prefix: "86",
+          }}
+          scrollToFirstError
+        >
+          <Form.Item name={["user", "title"]} className="NombreCrearServicio">
+            <Input placeholder="Nombre del servicio " />
+          </Form.Item>
 
-        <Form.Item name={["user", "description"]}  className="DescrptionCrearServicio">
-          <TextArea
-           
-            placeholder="Describa aqui su nuevo servicio"
-          />
-        </Form.Item>
-        <Form.Item name={["user", "imagen"]}  className="imagenCrearServicio">
-          <ImgCrop rotate>
-            <Upload
-             
-              action=""
-              listType="picture-card"
-              fileList={fileList}
-              onChange={onChange}
-              onPreview={onPreview}
-            >
-              {fileList.length < 5 && "+ Upload"}
-            </Upload>
-          </ImgCrop>
-        </Form.Item>
+          <Form.Item name={["user", "description"]} className="DescrptionCrearServicio">
+            <TextArea
 
-        <Form.Item {...tailFormItemLayout} className="contBtnCrearServicio">
-          <Button type="default" htmlType="submit" className="btnCrearServicio" >
-            Agregar Servicio
+              placeholder="Describa aqui su nuevo servicio"
+            />
+          </Form.Item>
+          <Form.Item name={["user", "imagen"]} className="imagenCrearServicio">
+            <ImgCrop rotate >
+              <Upload
+
+                action=""
+                listType="picture-card"
+                fileList={fileList}
+                onChange={onChange}
+                onPreview={onPreview}
+              >
+                {fileList.length < 5 && "+ Upload"}
+              </Upload>
+            </ImgCrop>
+          </Form.Item>
+
+          <Form.Item {...tailFormItemLayout} className="contBtnCrearServicio">
+            <Button type="default" htmlType="submit" className="btnCrearServicio" >
+              Agregar Servicio
           </Button>
-        </Form.Item>
-      </Form>
+          </Form.Item>
+        </Form>
+        <img src="https://images.pexels.com/photos/382297/pexels-photo-382297.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="" className="imgCrearServicio" />
+      </div>
     </div>
   );
 }

@@ -2,48 +2,14 @@ import React, { useState, useEffect } from "react";
 import "../Registre/Registre.css";
 import img1 from "../../../Assests/Img/fiesta.png";
 import Avatar1 from "../../../Assests/Img/avatar2.jpeg";
-import { Form, Input,  Select, Button, AutoComplete, Carousel,  message, Avatar } from "antd";
+import { Form, Input,  Select, Button, AutoComplete,   message, Avatar } from "antd";
 import { Link } from "react-router-dom";
 import api from "../../../common/api/api";
 import { useHistory } from 'react-router-dom';
 
 const { Option } = Select;
-const AutoCompleteOption = AutoComplete.Option;
 
-const residences = [
-  {
-    value: "zhejiang",
-    label: "Zhejiang",
-    children: [
-      {
-        value: "hangzhou",
-        label: "Hangzhou",
-        children: [
-          {
-            value: "xihu",
-            label: "West Lake",
-          },
-        ],
-      },
-    ],
-  },
-  {
-    value: "jiangsu",
-    label: "Jiangsu",
-    children: [
-      {
-        value: "nanjing",
-        label: "Nanjing",
-        children: [
-          {
-            value: "zhonghuamen",
-            label: "Zhong Hua Men",
-          },
-        ],
-      },
-    ],
-  },
-];
+
 
 const formItemLayout = {
   labelCol: {
@@ -94,31 +60,11 @@ export const RegistrationForm = () => {
   };
 
 
-  const prefixSelector = (
-    <Form.Item name="prefix" noStyle>
-      <Select style={{ width: 70 }}>
-        <Option value="86">+86</Option>
-        <Option value="87">+87</Option>
-      </Select>
-    </Form.Item>
-  );
 
   const [autoCompleteResult, setAutoCompleteResult] = useState([]);
 
-  const onWebsiteChange = (value) => {
-    if (!value) {
-      setAutoCompleteResult([]);
-    } else {
-      setAutoCompleteResult(
-        [".com", ".org", ".net"].map((domain) => `${value}${domain}`)
-      );
-    }
-  };
 
-  const websiteOptions = autoCompleteResult.map((website) => ({
-    label: website,
-    value: website,
-  }));
+
 
   return (
     <div className="mainRegistre">
@@ -222,7 +168,7 @@ export const RegistrationForm = () => {
                          <>
                             {
                                roles.map((role, index)=>{
-                                 if(role.id!==3){
+                                 if(role.id!==3 && role.id!==4){
 
                                    return(
    
@@ -265,21 +211,7 @@ export const RegistrationForm = () => {
           </Form>
           <div className="contCarousel">
             <img className="img" src={img1} />
-            {/* <Carousel >
-            <div>
-              <img className="img" src={img1} />
-
-            </div>
-            <div>
-              <img className="img" src={img1} />
-
-            </div>
-            <div>
-              <img className="img" src={img1} />
-
-            </div>
-
-          </Carousel> */}
+        
             <h3>Confia en nosotros para todos tus eventos!</h3>
           </div>
         </div>

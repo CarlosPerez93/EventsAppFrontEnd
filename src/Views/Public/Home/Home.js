@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
-import api from "../../../common/api/api";
-import token from "../../../localstorage/token";
-import { Carousel, Divider, Tabs } from "antd";
-import { Link } from "react-router-dom";
+// import api from "../../../common/api/api";
+// import token from "../../../localstorage/token";
+import { Carousel, Tabs } from "antd";
+// import { Link } from "react-router-dom";
 import "./Home.css";
 import img1 from "../../../Assests/Img/1.png";
 import img2 from "../../../Assests/Img/2.png";
@@ -24,9 +24,10 @@ import img17 from "../../../Assests/Img/Fotografia/Fotog1.jpg";
 import img18 from "../../../Assests/Img/Fotografia/Fotog2.jpg";
 import img19 from "../../../Assests/Img/Fotografia/Fotog3.jpg";
 import img20 from "../../../Assests/Img/Animacion/Animacio1.png";
+import Search from "antd/lib/input/Search";
 
 const Home = () => {
-  const [user, setUser] = useState(null);
+  // const [user, setUser] = useState(null);
 
   const dataApi = async () => {
     //  const result = await api.get("user/profile", { id: token.decodeJWT().id });
@@ -43,30 +44,33 @@ const Home = () => {
   return (
     <div className="mainHome">
 
-      {/* <LayoutClient className="barra" /> */}
-      {/* <LayoutEmpre className="barra" /> */}
+      <Search
+        placeholder="Buscar"
+        onSearch={(value) => console.log(value)}
+        style={{width:"50%"}}
+      />
       <Carousel autoplay className="carrousel">
         <div className="cont">
-          <img className="imgs" src={img1} />
+          <img className="imgs" src={img1} alt=" " />
         </div>
 
         <div className="cont">
-          <img className="imgs" src={img2} />
+          <img className="imgs" src={img2} alt=" " />
         </div>
         <div className="cont">
-          <img className="imgs" src={img3} />
+          <img className="imgs" src={img3} alt=" " />
         </div>
         <div className="cont">
-          <img className="imgs" src={img4} />
+          <img className="imgs" src={img4} alt=" " />
         </div>
         <div className="cont">
-          <img className="imgs" src={img5} />
+          <img className="imgs" src={img5} alt=" " />
         </div>
         <div className="cont">
-          <img className="imgs" src={img6} />
+          <img className="imgs" src={img6} alt=" " />
         </div>
         <div className="cont">
-          <img className="imgs" src={img7} />
+          <img className="imgs" src={img7} alt=" " />
         </div>
       </Carousel>
 
@@ -77,101 +81,101 @@ const Home = () => {
         <Tabs onChange={callback} className="tab">
 
           <TabPane key="1" tab="decoracion" className="tab1" >
-           
+
             <Carousel autoplay className="carrousel">
               <div className="cont">
-                <img className="imgs" src={img8} />
+                <img className="imgs" src={img8} alt=" " />
               </div>
 
               <div className="cont">
-                <img className="imgs" src={img9} />
+                <img className="imgs" src={img9} alt=" " />
               </div>
               <div className="cont">
-                <img className="imgs" src={img10} />
+                <img className="imgs" src={img10} alt=" " />
               </div>
-            
+
             </Carousel>
           </TabPane>
 
           <TabPane key="2" tab="Lugares" className="tab1">
 
-          <Carousel autoplay className="carrousel">
+            <Carousel autoplay className="carrousel">
               <div className="cont">
-                <img className="imgs" src={img11} />
+                <img className="imgs" src={img11} alt=" " />
               </div>
 
               <div className="cont">
-                <img className="imgs" src={img12} />
+                <img className="imgs" src={img12} alt=" " />
               </div>
               <div className="cont">
-                <img className="imgs" src={img13} />
+                <img className="imgs" src={img13} alt=" " />
               </div>
-            
+
             </Carousel>
           </TabPane >
           <TabPane key="3" tab="Buffet" className="tab1">
-          <Carousel autoplay className="carrousel">
+            <Carousel autoplay className="carrousel">
               <div className="cont">
-                <img className="imgs" src={img14} />
+                <img className="imgs" src={img14} alt=" " />
               </div>
 
               <div className="cont">
-                <img className="imgs" src={img2} />
+                <img className="imgs" src={img2} alt=" " />
               </div>
               <div className="cont">
-                <img className="imgs" src={img3} />
+                <img className="imgs" src={img3} alt=" " />
               </div>
-            
+
             </Carousel>
 
           </TabPane>
           <TabPane key="4" tab="Sonido" className="tab1">
-          <Carousel autoplay className="carrousel">
+            <Carousel autoplay className="carrousel">
               <div className="cont">
-                <img className="imgs" src={img1} />
+                <img className="imgs" src={img1} alt=" " />
               </div>
 
               <div className="cont">
-                <img className="imgs" src={img2} />
+                <img className="imgs" src={img2} alt=" " />
               </div>
               <div className="cont">
-                <img className="imgs" src={img3} />
+                <img className="imgs" src={img3} alt=" " />
               </div>
-            
+
             </Carousel>
 
           </TabPane>
           <TabPane key="5" tab="Fotografia" className="tab1">
-          <Carousel autoplay className="carrousel">
+            <Carousel autoplay className="carrousel">
               <div className="cont">
-                <img className="imgs" src={img17} />
+                <img className="imgs" src={img17} alt=" " />
               </div>
 
               <div className="cont">
-                <img className="imgs" src={img18} />
+                <img className="imgs" src={img18} alt=" " />
               </div>
               <div className="cont">
-                <img className="imgs" src={img19} />
+                <img className="imgs" src={img19} alt=" " />
               </div>
-           
-           
+
+
             </Carousel>
 
           </TabPane>
           <TabPane key="6" tab="Animación" className="tab1">
-          <Carousel autoplay className="carrousel">
+            <Carousel autoplay className="carrousel">
               <div className="cont">
-                <img className="imgs" src={img20} />
+                <img className="imgs" src={img20} alt=" " />
               </div>
 
               <div className="cont">
-                <img className="imgs" src={img2} />
+                <img className="imgs" src={img2} alt=" " />
               </div>
               <div className="cont">
-                <img className="imgs" src={img3} />
+                <img className="imgs" src={img3} alt=" " />
               </div>
-             
-            
+
+
             </Carousel>
 
           </TabPane>
@@ -211,7 +215,7 @@ const Home = () => {
           </p>
         </div>
       </div>
-      <h1 >Quienes Somos</h1> 
+      <h1 >Quienes Somos</h1>
 
     </div>
   );

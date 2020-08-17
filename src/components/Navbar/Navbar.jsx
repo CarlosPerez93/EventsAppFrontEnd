@@ -35,20 +35,16 @@ export default function Navbar({ role, setAuth }) {
     switch (role) {
       case 1:
         return (
-          <div>
-            <Menu mode="horizontal" className="menu">
+          <div className="mainMenu">
               <Link to="/" className="imgLogo">
-                <img className="imgLogo2" src={img1} alt=""/>
+                <img className="imgLogo2" src={img1} alt="a"/>
               </Link>
+            <Menu mode="horizontal" className="menu">
 
-              <Search
-                placeholder="Buscar"
-                onSearch={(value) => console.log(value)}
-                className="Buscador"
-              />
+       
 
               <Menu.Item icon={<HomeOutlined />}>
-                <Link to="/">Inicio</Link>
+                <Link to="/home">Inicio</Link>
               </Menu.Item>
             
               <SubMenu icon={<AppstoreOutlined />} title="Servicios">
@@ -80,27 +76,11 @@ export default function Navbar({ role, setAuth }) {
                 </Menu.Item>
               </SubMenu>
 
-              <Menu.Item icon={<ContactsOutlined />}>
-                <Link to="/">Quienes Somos</Link>
-              </Menu.Item>
-
               <SubMenu title={"@" + token.decodeJWT().username}>
-                <Menu.Item>
-                  <Link to="/gestionarEvento">Gestionar mi Evento</Link>
+              <Menu.Item>
+                  <Link to="/misEventos">Mis Eventos</Link>
                 </Menu.Item>
-
-                <Menu.Item>
-                  <Link to="/ListadoEventos">Eventos Adquiridos</Link>
-                </Menu.Item>
-
-                <Menu.Item>
-                  <Link to="/gestionarServicio">Gestionar mi Servicio</Link>
-                </Menu.Item>
-
-                <Menu.Item>
-                  <Link to="/servicioAdquiridos">Servicios Adquiridos</Link>
-                </Menu.Item>
-
+                <Divider/>
                 <Menu.Item onClick={logout}>
                   <Link to="/">Cerrar Sesion</Link>
                 </Menu.Item>
@@ -110,16 +90,12 @@ export default function Navbar({ role, setAuth }) {
         );
       case 2:
         return (
-          <div>
+          <div className="mainMenu">
+          <Link to="/" className="imgLogo">
+            <img className="imgLogo2" src={img1} alt="a"/>
+          </Link>
             <Menu mode="horizontal" className="menu">
-              <Link to="/home" className="imgLogo">
-                <img className="imgLogo2" src={img1} />
-              </Link>
-              <Search
-                placeholder="Buscar"
-                onSearch={(value) => console.log(value)}
-                className="Buscador"
-              />
+             
               <Menu.Item icon={<HomeOutlined />} className="menuItem">
                 <Link to="/">Inicio</Link>
               </Menu.Item>
@@ -157,16 +133,12 @@ export default function Navbar({ role, setAuth }) {
           </div>
         ); case 3:
         return (
-          <div>
+          <div className="mainMenu">
+          <Link to="/" className="imgLogo">
+            <img className="imgLogo2" src={img1} alt="a"/>
+          </Link>
             <Menu mode="horizontal" className="menu">
-              <Link to="/home" className="imgLogo">
-                <img className="imgLogo2" src={img1} />
-              </Link>
-              <Search
-                placeholder="Buscar"
-                onSearch={(value) => console.log(value)}
-                className="Buscador"
-              />
+            
               <Menu.Item icon={<HomeOutlined />} className="menuItem">
                 <Link to="/">Inicio Administrador</Link>
               </Menu.Item>
@@ -193,17 +165,11 @@ export default function Navbar({ role, setAuth }) {
         );
       default:
         return (
-          <div>
+          <div className="mainMenu">
+          <Link to="/" className="imgLogo">
+            <img className="imgLogo2" src={img1} alt="a"/>
+          </Link>
             <Menu mode="horizontal" className="menu">
-              <Link to="/" className="imgLogo">
-                <img className="imgLogo2" src={img1} />
-              </Link>
-
-              <Search
-                placeholder="Buscar"
-                onSearch={(value) => console.log(value)}
-                className="Buscador"
-              />
 
               <Menu.Item icon={<HomeOutlined />}>
                 <Link to="/">Inicio</Link>

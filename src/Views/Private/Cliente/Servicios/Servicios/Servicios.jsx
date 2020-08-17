@@ -8,8 +8,9 @@ import img3 from "../../../../../Assests/Img/lugares.jpg";
 import img5 from "../../../../../Assests/Img/sonido.jpg";
 import img6 from "../../../../../Assests/Img/animacion.png";
 import { Card } from "antd";
+
 export default function Servicios() {
-  const { Meta } = Card;
+
   return (
     <div className="MainServicios">
       <h1>Servicios</h1>

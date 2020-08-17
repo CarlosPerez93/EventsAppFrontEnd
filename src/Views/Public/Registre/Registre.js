@@ -2,13 +2,13 @@ import React, { useState, useEffect } from "react";
 import "../Registre/Registre.css";
 import img1 from "../../../Assests/Img/fiesta.png";
 import Avatar1 from "../../../Assests/Img/avatar2.jpeg";
-import { Form, Input,  Select, Button, AutoComplete,   message, Avatar } from "antd";
+import { Form, Input,  Select, Button,   message, Avatar } from "antd";
 import { Link } from "react-router-dom";
 import api from "../../../common/api/api";
 import { useHistory } from 'react-router-dom';
 
-const { Option } = Select;
 
+ 
 
 
 const formItemLayout = {
@@ -61,7 +61,7 @@ export const RegistrationForm = () => {
 
 
 
-  const [autoCompleteResult, setAutoCompleteResult] = useState([]);
+
 
 
 

@@ -8,11 +8,11 @@ import Navbar from "./../../components/Navbar/Navbar";
 import token from "../../localstorage/token";
 import HomeCliente from "./Cliente/Home/HomeClient";
 import CrearEventosCliente from "./Cliente/Eventos/CrearEvento/CrearEventos.jsx";
-import ListaEventosCliente from "./Cliente/Eventos/ListaEventos/ListaEventos";
+import MisEventos from "./Cliente/Eventos/MisEventos/MisEventos";
 import ServiciosCliente from "./Cliente/Servicios/Servicios/Servicios.jsx";
-import AgregarServicioCliente from "./Cliente/Servicios/AgregarServicio/AgregarServicio.jsx";
-import ListadoServicioCliente from "./Cliente/Servicios/ListaServicios/ListaServicios.jsx";
-
+import CardMisEventos from "./Cliente/Eventos/InfEvento/InfEvento.jsx";
+import PerfilInfo from "../Private/Cliente/PerfilInfo/PerfilInfo";
+import SinEventos from "./Cliente/Eventos/MisEventos/SinEventos/SinEventos.jsx"
 function RoutesPrivate({ setAuth }) {
   const [role, setRole] = useState(0);
 
@@ -35,24 +35,31 @@ function RoutesPrivate({ setAuth }) {
             <HomeCliente />
           </Route>
 
+          <Route path="/misEventos" exact>
+            <MisEventos />
+          </Route>
+
           <Route path="/gestionarEvento" exact>
             <CrearEventosCliente />
           </Route>
-          <Route path="/ListadoEventos" exact>
-            <ListaEventosCliente />
+          <Route path="/informacionEventos" exact>
+            <CardMisEventos />
           </Route>
+          <Route path="/sinEventos" exact>
+            <SinEventos />
+          </Route>
+        
 
           <Route path="/servicios" exact>
             <ServiciosCliente />
           </Route>
-          <Route path="/gestionarServicio" exact>
-            <AgregarServicioCliente />
+    
+          <Route path="/infoEmpresario" exact>
+            <PerfilInfo />
           </Route>
+         
 
 
-          <Route path="/servicioAdquiridos" exact>
-            <ListadoServicioCliente />
-          </Route>
 
         </>
       ) : role === 2 ? (

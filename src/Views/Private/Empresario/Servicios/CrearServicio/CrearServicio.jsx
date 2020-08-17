@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import "./CrearServicio.css";
 import { Form, Input, Select, message, Upload, Button } from "antd";
 import ImgCrop from "antd-img-crop";
@@ -48,40 +48,7 @@ export default function CrearServicio() {
       message.error("No se ha registro el servicio ");
     }
   };
-  const residences = [
-    {
-      value: "zhejiang",
-      label: "Zhejiang",
-      children: [
-        {
-          value: "hangzhou",
-          label: "Hangzhou",
-          children: [
-            {
-              value: "xihu",
-              label: "West Lake",
-            },
-          ],
-        },
-      ],
-    },
-    {
-      value: "jiangsu",
-      label: "Jiangsu",
-      children: [
-        {
-          value: "nanjing",
-          label: "Nanjing",
-          children: [
-            {
-              value: "zhonghuamen",
-              label: "Zhong Hua Men",
-            },
-          ],
-        },
-      ],
-    },
-  ];
+  
 
   const formItemLayout = {
     labelCol: {
@@ -107,14 +74,7 @@ export default function CrearServicio() {
     },
   };
 
-  const prefixSelector = (
-    <Form.Item name="prefix" noStyle>
-      <Select style={{ width: 70 }}>
-        <Option value="86">+86</Option>
-        <Option value="87">+87</Option>
-      </Select>
-    </Form.Item>
-  );
+ 
   return (
     <div className="contMainCrearServicio">
       <img className="logoModal" src={img1} />
@@ -163,7 +123,7 @@ export default function CrearServicio() {
           </Button>
           </Form.Item>
         </Form>
-        <img src="https://images.pexels.com/photos/382297/pexels-photo-382297.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="" className="imgCrearServicio" />
+        <img src="https://images.pexels.com/photos/382297/pexels-photo-382297.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt=" s" className="imgCrearServicio" />
       </div>
     </div>
   );

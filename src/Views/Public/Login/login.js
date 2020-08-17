@@ -6,7 +6,6 @@ import img1 from "../../../Assests/Img/login.png";
 import { Link, useHistory } from "react-router-dom"; 
 import api from "../../../common/api/api";
 import token from "../../../localstorage/token";
-
 export default function Login({setAuth}){
   const history = useHistory();
   const layout = {
@@ -38,7 +37,7 @@ export default function Login({setAuth}){
     <div className="mainLogin">
 
       <div className="ContainerLogin">
-        <img className="imgLogin" src={img1} />
+        <img className="imgLogin" src={img1} al=" a" />
 
         <Form
           className="formLogin"

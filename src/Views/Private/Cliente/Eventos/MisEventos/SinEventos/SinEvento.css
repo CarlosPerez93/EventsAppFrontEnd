@@ -1,0 +1,9 @@
+.SinEvento h1{
+    color: #8063FF;
+}
+.SinEvento h2{
+    color: rgba(0, 0, 0, 0.452);
+    font-size: 20px;
+    width: auto;
+    margin-top: 3% !important;
+}

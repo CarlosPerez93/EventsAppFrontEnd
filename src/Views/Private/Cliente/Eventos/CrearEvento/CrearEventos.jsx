@@ -1,130 +1,22 @@
-import React, { useState, useEffect } from "react";
-import "./mainGEvento.css";
-import {
-  Input,
-  Upload,
-  Select,
-  Divider,
-  Form,
-  DatePicker,
-  TimePicker,
-  InputNumber,
-  Space,
-  Button,
-  message,
-} from "antd";
-import ImgCrop from "antd-img-crop";
-import img1 from "../../../../../Assests/Img/Logo.png";
+import React, { useState, useEffect } from 'react'
+import { Col, Row, Button, Input, Divider, InputNumber, Select, DatePicker, TimePicker, Form, message } from 'antd'
+import "./mainGEvento.css"
+import { useHistory } from 'react-router-dom';
 import api from "../../../../../common/api/api";
-import { useHistory } from "react-router-dom";
-
+import moment from 'moment';
 export default function CrearEventos() {
-  const { RangePicker } = DatePicker;
   const { TextArea } = Input;
-  const { Option } = Select;
-  const history = useHistory();
+  const format = 'HH:mm';
   const [form] = Form.useForm();
-  const [fileList, setFileList] = useState([
-    {
-      uid: "-1",
-      name: "image.png",
-      status: "done",
-      url:
-        "https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png",
-    },
-  ]);
-
-  const onChange = ({ fileList: newFileList }) => {
-    setFileList(newFileList);
-  };
-
-  const onPreview = async (file) => {
-    let src = file.url;
-    if (!src) {
-      src = await new Promise((resolve) => {
-        const reader = new FileReader();
-        reader.readAsDataURL(file.originFileObj);
-        reader.onload = () => resolve(reader.result);
-      });
-    }
-    const image = new Image();
-    image.src = src;
-    const imgWindow = window.open(src);
-    imgWindow.document.write(image.outerHTML);
-  };
-
-  const [dates, setDates] = useState([]);
-  const disabledDate = (current) => {
-    if (!dates || dates.length === 0) {
-      return false;
-    }
-    const tooLate = dates[0] && current.diff(dates[0], "days") > 7;
-    const tooEarly = dates[1] && dates[1].diff(current, "days") > 7;
-    return tooEarly || tooLate;
-  };
-
-  function onChange1(value) {
-    console.log("changed", value);
+  const history = useHistory();
+  const [roles, setRoles] = useState(null);
+  function onChange(value) {
+    console.log('changed', value);
   }
 
-  const [tipoEvento, setTipoEvento] = useState(null);
-  useEffect(() => {
-    const apidata = async () => {
-      const resultado = await api.get("event/types");
-      setTipoEvento(resultado.data);
-      console.log(resultado);
-    };
-    apidata();
-  }, []);
-
-  function PickerWithType({ onChange2 }) {
-    return <TimePicker onChange2={onChange2} />;
+  function onChangeDate(date, dateString) {
+    console.log(date, dateString);
   }
-
-  const onFinish = async ({ user }) => {
-    const resultado = await api.post("event/event-create", user);
-    console.log(resultado);
-    if (resultado === 201) {
-      message.success("se ha creado el evento!");
-      history.pushState("/");
-    } else {
-      message.error("No se registro el evento ");
-    }
-  };
-  const residences = [
-    {
-      value: "zhejiang",
-      label: "Zhejiang",
-      children: [
-        {
-          value: "hangzhou",
-          label: "Hangzhou",
-          children: [
-            {
-              value: "xihu",
-              label: "West Lake",
-            },
-          ],
-        },
-      ],
-    },
-    {
-      value: "jiangsu",
-      label: "Jiangsu",
-      children: [
-        {
-          value: "nanjing",
-          label: "Nanjing",
-          children: [
-            {
-              value: "zhonghuamen",
-              label: "Zhong Hua Men",
-            },
-          ],
-        },
-      ],
-    },
-  ];
 
   const formItemLayout = {
     labelCol: {
@@ -150,173 +42,140 @@ export default function CrearEventos() {
     },
   };
 
-  const prefixSelector = (
-    <Form.Item name="prefix" noStyle>
-      <Select style={{ width: 70 }}>
-        <Option value="86">+86</Option>
-        <Option value="87">+87</Option>
-      </Select>
-    </Form.Item>
-  );
+  useEffect(() => {
+    const apidata = async () => {
+      const resultado = await api.get("role/all");
+      setRoles(resultado.data);
+    }
+    apidata();
+  }, [])
 
-  const [autoCompleteResult, setAutoCompleteResult] = useState([]);
-
-  const onWebsiteChange = (value) => {
-    if (!value) {
-      setAutoCompleteResult([]);
+  const onFinish = async ({ user }) => {
+    const respu = await api.post("auth/register", user);
+    console.log(respu);
+    if (respu.status === 201) {
+      message.success("Se ha registrado correctamente");
+      history.push("gestionarEvento");
     } else {
-      setAutoCompleteResult(
-        [".com", ".org", ".net"].map((domain) => `${value}${domain}`)
-      );
+      message.error("No se logro registrar correctamente");
     }
   };
 
-  const websiteOptions = autoCompleteResult.map((website) => ({
-    label: website,
-    value: website,
-  }));
-
-  const [type, setType] = useState("time");
-
   return (
-    <div>
-      <div className="mainGEvento">
-        <img className="logoGEvento" src={img1} />
-        <Form
-          className="subMainEvento"
-          {...formItemLayout}
-          form={form}
-          name="event-create"
-          onFinish={onFinish}
-          initialValues={{
-            residences: ["zhejiang", "hangzhou", "xihu"],
-            prefix: "86",
-          }}
-          scrollToFirstError
-        >
-          <div className="contEvento">
+    <Col lg={{ span: 16, offset: 4 }} style={{ marginTop: "3%" }} className="CrearEventoCliente">
+      <Form
+        {...formItemLayout}
+        form={form}
+        name="register"
+        onFinish={onFinish}
+        initialValues={{
+          residence: ["zhejiang", "hangzhou", "xihu"],
+          prefix: "86",
+        }}
+        scrollToFirstError>
+        <h1>Nuevo Evento</h1>
+        <Row style={{marginTop:"5%"}}>
+          <Col lg={{ span: 12, offset: 0 }} xs={{ span: 10, offset: 1 }}>
+            <label ><strong>Nombre</strong></label>
+            <Form.Item name={["", ""]}>
+              <Input lg={{ span: 15, offset: 2 }} />
+            </Form.Item>
+            <Divider />
+            <label ><strong>Descripción</strong></label>
+            <Form.Item name={["", ""]}>
+              <TextArea rows={8} />
+            </Form.Item>
+          </Col>
+          <Col lg={{ span: 12, offset: 0 }} xs={{ span: 10, offset: 1 }}>
+            <Row>
+              <Col lg={{ span: 12, offset: 0 }} xs={{ span: 10, offset: 1 }}>
+                <label ><strong>N° Participantes</strong> </label>
+                <Form.Item name={["user", ""]}>
+                  <InputNumber min={0} max={50} defaultValue={2} onChange={onChange} style={{ width: "85%" }} />
+                </Form.Item>
+              </Col>
+              <Col lg={{ span: 12, offset: 0 }} xs={{ span: 10, offset: 1 }}>
+                <label ><strong>Tipo de Evento</strong> </label>
+                <Form.Item name={["event", ""]}>
+                  <Select style={{ width: "100%" }} >
+                    {
+                      roles !== null ? (
+                        <>
+                          {
+                            roles.map((role, index) => {
+                              if (role.id !== 3 && role.id !== 4) {
 
-            <div className="contEveto1">
+                                return (
 
-              <Form.Item name={["user", "user"]}>
-                <label>Director del Evento</label>
-                <Input
-                  placeholder="Ingrese Nombre del Director"
-                  className="AreaText"
-                />
-              </Form.Item>
-              <Form.Item className="contEventoItemSolo">
-                <label>N° Participantes</label>
-                <div>
-                  <InputNumber
-                    min={1}
-                    max={10}
-                    defaultValue={3}
-                    onChange={onChange1}
-                    className="AreaText"
-                  />
-                </div>
-              </Form.Item>
-              <div>
-                <div>
-                  <label>Tipo de Evento</label>
-                </div>
-                <Form.Item name={["user", "tipoEvento"]}>
-                  <Select
-                    placeholder="Seleccione Tipo de evento"
-                    className="tEvent"
-                  >
-                    {tipoEvento !== null ? (
-                      <>
-                        {tipoEvento.map((type, index) => {
-                          return (
-                            <Select.Option value={type.id} key={index}>
-                              {type.name}
-                            </Select.Option>
-                          );
-                        })}
-                      </>
-                    ) : (
-                        <></>
-                      )}
+                                  <Select.Option value={role.id} key={index}>
+                                    {role.name}
+                                  </Select.Option>
+                                )
+                              } else {
+                                return (
+
+                                  <></>
+                                )
+                              }
+                            })
+                          }
+                        </>
+                      )
+                        : <></>
+                    }
                   </Select>
                 </Form.Item>
-              </div>
-            </div>
-            <div className="contEveto2">
+              </Col>
+            </Row>
 
-              <Form.Item name={["user", "description"]}>
-                <label>Descripción</label>
-                <TextArea
-                  rows={8}
-                  placeholder="Describe tu evento aquí"
-                  className="AreaText"
-                />
-              </Form.Item>
-             
-           
-            
-            </div>
-            <Divider/>
-            <Form.Item name={["user", "startDate"]} className="contEventoItemF">
-                <div>
-                  <label>Fechas </label>
-                  <RangePicker
-                    disabledDate={disabledDate}
-                    onCalendarChange={(value) => {
-                      setDates(value);
-                    }}
-                  />
-                </div>
-              </Form.Item>
-              <div className="contEventoItem">
-                <Form.Item className="contTime" name={["user", ""]}>
-                  <label> Hora inicial </label>
-                  <Space>
-                    <PickerWithType
-                      type={type}
-                      onChange2={(value) => console.log(value)}
-                   
-                    />
-                  </Space>
-                </Form.Item>
-                <Form.Item className="contTime" name={["user", ""]}>
-                  <label> Hora Final </label>
-                  <Space >
-                    <PickerWithType
-                      type={type}
-                      onChange2={(value) => console.log(value)}
-                    />
-                  </Space>
-                </Form.Item>
-              </div>
+            <Col lg={{ span: 20, offset: 0 }} style={{ marginTop: "5%" }}>
+              <label><strong>Duración del Evento</strong></label>
+              <Divider />
+              <Row>
+                <Col lg={{ span: 11, offset: 1 }}>
+                  <label ><strong>Fecha de Inicio</strong></label>
+                  <Form.Item name={["", ""]}>
+                    <DatePicker  onChange={onChangeDate} />
+                  </Form.Item>
+                </Col>
+                <Col lg={{ span: 11, offset: 1 }}>
+                  <label ><strong>Fecha Final</strong></label>
+                  <Form.Item name={["", ""]}>
+                    <DatePicker onChange={onChangeDate} />
+                  </Form.Item>
 
-              <Divider/>
-            <Form.Item name={["user"]}>
-              {/* //importante*} */}
-              <label>Imagenes/Videos</label>
-              <ImgCrop rotate>
-                <Upload
-                  className="ImgVideo"
-                  action=""
-                  listType="picture-card"
-                  fileList={fileList}
-                  onChange={onChange}
-                  onPreview={onPreview}
-                >
-                  {fileList.length < 5 && "+ Upload"}
-                </Upload>
-              </ImgCrop>
-            </Form.Item>
-          <Form.Item {...tailFormItemLayout} >
-                <Button type="primary" htmlType="submit" className="But">
-                  Confirmar Evento
-              </Button>
-              </Form.Item>
-          </div>
-    
-        </Form>
-      </div>
-    </div>
-  );
+                </Col>
+              </Row>
+              <Row style={{ marginTop: "5%" }}>
+                <Col lg={{ span: 11, offset: 1 }}>
+                  <label ><strong>Hora de Inicio</strong></label>
+                  <Form.Item name={["", ""]}>
+                    <TimePicker format={format} />
+                  </Form.Item>
+                </Col>
+                <Col lg={{ span: 11, offset: 1 }}>
+                  <label ><strong>Hora Final</strong></label>
+                  <Form.Item name={["", ""]}>
+                    <TimePicker format={format} />
+                  </Form.Item>
+
+                </Col>
+              </Row>
+
+            </Col>
+
+          </Col>
+
+        </Row>
+        <Col lg={{ span: 20, offset: 1 }} >
+
+          <Form.Item {...tailFormItemLayout} style={{ display: "flex", marginLeft: "50%" }}>
+            <Button type="default" htmlType="submit" style={{ width: "90%", backgroundColor: "#5433e9", marginTop: "5%", marginRight: "20%",color:"white" }}>
+              Confirmar Eveneto
+         </Button>
+          </Form.Item>
+        </Col>
+      </Form>
+    </Col>
+  )
 }

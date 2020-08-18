@@ -1,26 +1,64 @@
-import React from 'react'
-import { Col, Button, Row } from 'antd'
-import { PlusOutlined } from '@ant-design/icons'
-import "./MisEventos.css"
-import CardMisEventos from './CardMisEventos/CardMisEventos'
-import { Link } from 'react-router-dom'
+import React, { useState } from "react";
+import { Col, Button, Row } from "antd";
+import { PlusOutlined } from "@ant-design/icons";
+import "./MisEventos.css";
+import CardMisEventos from "./CardMisEventos/CardMisEventos";
+import { Link } from "react-router-dom";
+import { useEffect } from "react";
+import Api from "./../../../../../common/api/api";
+import Token from "./../../../../../localstorage/token";
+
 export default function MisEventos() {
-    return (
-        <Col lg={{ span: 18, offset: 3 }} xs={{ span: 18, offset: 3 }} className="MisEventos" >
-            <h1>Mis Eventos</h1>
-            <Col lg={{ span: 4, offset: 18 }} >
-                <Link to="/gestionarEvento">
-                    <Button icon={<PlusOutlined />} type="primary" shape="round" size="large" style={{ backgroundColor: "#8063FF" }} >
-                        Nuevo Evento
-                    </Button>
-                </Link>
-            </Col>
+  const [events, setEvents] = useState(null);
 
+  useEffect(() => {
+    const apiData = async () => {
+      const result = await Api.get("event/all/user", {
+        idUser: Token.decodeJWT().id,
+      });
+      if (result.status === 200) {
+        setEvents(result.data);
+      }
+    };
+    apiData();
+  });
 
-            <Col lg={{ span: 6, offset: 2 }} xs={{ span: 6, offset: 2 }}>
-                <CardMisEventos />
-            </Col>
+  return (
+    <Col
+      lg={{ span: 18, offset: 3 }}
+      xs={{ span: 18, offset: 3 }}
+      className="MisEventos"
+    >
+      <h1>Mis Eventos</h1>
+      <Col lg={{ span: 4, offset: 18 }}>
+        <Link to="/gestionarEvento">
+          <Button
+            icon={<PlusOutlined />}
+            type="primary"
+            shape="round"
+            size="large"
+            style={{ backgroundColor: "#8063FF" }}
+          >
+            Nuevo Evento
+          </Button>
+        </Link>
+      </Col>
 
-        </Col>
-    )
+       <Row>
+       
+        {events !== null ? (
+          events.map((event, index) => {
+            return (
+              <Col lg={{ span: 6, offset: 1 }} xs={{ span: 6, offset: 2 }}>
+<CardMisEventos data={event} />
+              </Col>
+            ) 
+          })
+        ) : (
+          <></>
+        )}
+      
+       </Row>
+    </Col>
+  );
 }

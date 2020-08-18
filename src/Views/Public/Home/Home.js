@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 // import api from "../../../common/api/api";
 // import token from "../../../localstorage/token";
-import { Carousel, Tabs } from "antd";
+import { Carousel, Tabs, Col, Row, Card } from "antd";
 // import { Link } from "react-router-dom";
 import "./Home.css";
-import img1 from "../../../Assests/Img/1.png";
+import img1 from "../../../Assests/Img/1.jpg";
 import img2 from "../../../Assests/Img/2.png";
 import img3 from "../../../Assests/Img/3.png";
 import img4 from "../../../Assests/Img/4.png";
@@ -43,15 +43,19 @@ const Home = () => {
 
   return (
     <div className="mainHome">
-
       <Search
         placeholder="Buscar"
         onSearch={(value) => console.log(value)}
-        style={{width:"50%"}}
+        style={{ width: "50%" }}
       />
-      <Carousel autoplay className="carrousel">
+      <Carousel autoplay>
         <div className="cont">
-          <img className="imgs" src={img1} alt=" " />
+          <img
+            className="imgs"
+            src={img1}
+            style={{ resize: "cover" }}
+            alt=" "
+          />
         </div>
 
         <div className="cont">
@@ -74,14 +78,9 @@ const Home = () => {
         </div>
       </Carousel>
 
-
-
-
       <div className="containerAvatars">
         <Tabs onChange={callback} className="tab">
-
-          <TabPane key="1" tab="decoracion" className="tab1" >
-
+          <TabPane key="1" tab="decoracion" className="tab1">
             <Carousel autoplay className="carrousel">
               <div className="cont">
                 <img className="imgs" src={img8} alt=" " />
@@ -93,12 +92,10 @@ const Home = () => {
               <div className="cont">
                 <img className="imgs" src={img10} alt=" " />
               </div>
-
             </Carousel>
           </TabPane>
 
           <TabPane key="2" tab="Lugares" className="tab1">
-
             <Carousel autoplay className="carrousel">
               <div className="cont">
                 <img className="imgs" src={img11} alt=" " />
@@ -110,9 +107,8 @@ const Home = () => {
               <div className="cont">
                 <img className="imgs" src={img13} alt=" " />
               </div>
-
             </Carousel>
-          </TabPane >
+          </TabPane>
           <TabPane key="3" tab="Buffet" className="tab1">
             <Carousel autoplay className="carrousel">
               <div className="cont">
@@ -125,9 +121,7 @@ const Home = () => {
               <div className="cont">
                 <img className="imgs" src={img3} alt=" " />
               </div>
-
             </Carousel>
-
           </TabPane>
           <TabPane key="4" tab="Sonido" className="tab1">
             <Carousel autoplay className="carrousel">
@@ -141,9 +135,7 @@ const Home = () => {
               <div className="cont">
                 <img className="imgs" src={img3} alt=" " />
               </div>
-
             </Carousel>
-
           </TabPane>
           <TabPane key="5" tab="Fotografia" className="tab1">
             <Carousel autoplay className="carrousel">
@@ -157,10 +149,7 @@ const Home = () => {
               <div className="cont">
                 <img className="imgs" src={img19} alt=" " />
               </div>
-
-
             </Carousel>
-
           </TabPane>
           <TabPane key="6" tab="Animación" className="tab1">
             <Carousel autoplay className="carrousel">
@@ -174,37 +163,38 @@ const Home = () => {
               <div className="cont">
                 <img className="imgs" src={img3} alt=" " />
               </div>
-
-
             </Carousel>
-
           </TabPane>
-
         </Tabs>
       </div>
       <h1 className="h11">Nuestros Servicios</h1>
       <br />
       <br />
 
-      <div className="ContainerSomos">
-        <div className="Mision">
-          <h2>Misión</h2>
+      <Row className="about">
+        <Col lg={{ span: 6, offset: 1 }}>
+         <Card style={{borderRadius: 6}} className="card-about">
+         <h2>Misión</h2>
           <p>
             Re-BesT nace con la misión de satisfacer las necesidades de nuestros
             clientes a la hora de buscar un servicio personalizado de excelente
             calidad para la organización de todo tipo de eventos, teniendo en
             cuenta cada detalle para que sea inolvidable.
           </p>
-        </div>
-        <div className="Vision">
+         </Card>
+        </Col>
+        <Col lg={{ span: 6, offset: 1 }}>
+          <Card style={{borderRadius: 6}} className="card-about">
           <h2>Visión</h2>
           <p>
             Nuestra empresa Re-BesT, busca liderar el mercado nacional de
             empresas organizadoras de eventos, innovando nuestros servicios con
             el propósito de satisfacer las exigencias de nuestros clientes.
           </p>
-        </div>
-        <div className="Valores">
+          </Card>
+        </Col>
+        <Col lg={{ span: 6, offset: 1 }}>
+          <Card style={{borderRadius: 6}} className="card-about">
           <h2>Valores</h2>
           <p>
             Cumplimiento, respeto, calidad, creatividad, confianza, serán
@@ -213,10 +203,11 @@ const Home = () => {
             los servicios que ofrecemos, tratar a todos por igual, que nuestros
             eventos sean recordados por nuestros clientes y nos recomienden.
           </p>
-        </div>
-      </div>
-      <h1 >Quienes Somos</h1>
+          </Card>
+        </Col>
+      </Row>
 
+      <h1>Quienes Somos</h1>
     </div>
   );
 };

@@ -1,5 +1,6 @@
 .CrearEventoCliente{
    /* border: black solid; */
+   font-family: 'Roboto', sans-serif;
    width: 100%;
 }
 .CrearEventoCliente h1{
@@ -8,5 +9,6 @@
  
 }
 .CrearEventoCliente label{
+    font-weight: bold;
     color: rgba(0, 0, 0, 0.39);
 }

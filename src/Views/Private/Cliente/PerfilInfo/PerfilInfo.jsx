@@ -10,7 +10,7 @@ export default function PerfilInfo() {
 
             <Card lg={{ span: 20, offset: 2 }} style={{ display: "grid", justifyContent: "center", marginTop: "2%", textAlign: "center" }}>
 
-                <img src="./perfil1.png" alt="" />
+                <img src="./perfil1.jpg" alt="" />
 
                 <h1>Carlos Alberto Pérez Cuellar</h1>
                 <Button icon={<PlusOutlined />} type="primary" shape="round" size="large" style={{ backgroundColor: "#8063FF" }} >

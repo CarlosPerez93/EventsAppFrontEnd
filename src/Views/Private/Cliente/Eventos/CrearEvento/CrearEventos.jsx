@@ -128,17 +128,17 @@ export default function CrearEventos() {
               </Col>
             </Row>
 
-            <Col lg={{ span: 20, offset: 0 }} style={{ marginTop: "5%" }}>
+            <Col lg={{ span: 24, offset: 0 }} style={{ marginTop: "5%" }}>
               <label><strong>Duración del Evento</strong></label>
               <Divider />
               <Row>
-                <Col lg={{ span: 11, offset: 1 }}>
+                <Col lg={{ span: 12, offset: 0 }}>
                   <label ><strong>Fecha de Inicio</strong></label>
                   <Form.Item name={["", ""]}>
                     <DatePicker  onChange={onChangeDate} />
                   </Form.Item>
                 </Col>
-                <Col lg={{ span: 11, offset: 1 }}>
+                <Col lg={{ span: 12, offset: 0 }}>
                   <label ><strong>Fecha Final</strong></label>
                   <Form.Item name={["", ""]}>
                     <DatePicker onChange={onChangeDate} />
@@ -147,16 +147,16 @@ export default function CrearEventos() {
                 </Col>
               </Row>
               <Row style={{ marginTop: "5%" }}>
-                <Col lg={{ span: 11, offset: 1 }}>
+                <Col lg={{ span: 12, offset: 0 }}>
                   <label ><strong>Hora de Inicio</strong></label>
                   <Form.Item name={["", ""]}>
-                    <TimePicker format={format} />
+                    <TimePicker format={format} style={{width:"100%"}} />
                   </Form.Item>
                 </Col>
-                <Col lg={{ span: 11, offset: 1 }}>
+                <Col lg={{ span: 12, offset: 0 }}>
                   <label ><strong>Hora Final</strong></label>
                   <Form.Item name={["", ""]}>
-                    <TimePicker format={format} />
+                    <TimePicker format={format} style={{width:"100%"}}/>
                   </Form.Item>
 
                 </Col>

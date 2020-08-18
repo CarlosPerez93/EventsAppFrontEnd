@@ -1,22 +1,24 @@
 import React from 'react'
-import { Card, Col, Button } from 'antd'
+import { Card, Col, Button, Row } from 'antd'
 import { PlusOutlined, EditFilled } from '@ant-design/icons'
 import "./CardMisEventos.css"
 import { Link } from 'react-router-dom'
-export default function CardMisEventos() {
+export default function CardMisEventos({data}) {
     return (
         <Card className="cardEvento" hoverable style={{ backgroundColor: "#F2EFFF", marginTop: "5%" }}>
-            <Col lg={{ span: 6, offset: 2 }} >
-                <p><strong>Id: </strong> n</p>
-                <p><strong>Fecha: </strong> n</p>
-                <p><strong>Lugar: </strong> n</p>
-                <p><strong>Hora: </strong> n</p>
-                <p><strong>Id: </strong> n</p>
+            <Col lg={{ span: 24, offset: 2 }}  style={{textAlign:"left", justifyContent:"flex-start"}}>
+             <Row justify="center">
+             <img src="./calendario.png" style={{width:"60%", marginBottom: "10px"}}/>
+             </Row>
+                <p><strong>Id :  </strong>{data.id}</p>
+    <p><strong>Fecha inicio : </strong>{data.startDate}</p>
+                <p><strong>Asistentes :  </strong> {data.participants} personas</p>
+                <p><strong>Duración :  </strong> {data.duration} Horas</p> 
             </Col>
             <Col lg={{ span: 4, offset: 18 }}>
                 <Link to="/informacionEventos">
 
-                    <Button icon={<EditFilled />} type="primary" shape="round" size="large" style={{ backgroundColor: "#8063FF" }} />
+                    <Button icon={<EditFilled />} type="primary" shape="round" size="large" style={{ backgroundColor: "#8063FF", border:"none" }} />
                 </Link>
             </Col>
         </Card>

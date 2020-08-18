@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import "./CrearServicio.css";
-import { Form, Input, Select, message, Upload, Button } from "antd";
+import { Form, Input, Select, message, Upload, Button, } from "antd";
 import ImgCrop from "antd-img-crop";
 import api from "../../../../../common/api/api";
 import { useHistory } from "react-router-dom";
-import img1 from "../../../../../Assests/Img/Logo.png";
+import img1 from "../../../../../Assests/Img/LogoLR.png";
 export default function CrearServicio() {
   const { TextArea } = Input;
   const { Option } = Select;

@@ -1,5 +1,5 @@
 import React from "react";
-import { Menu, Input, Divider } from "antd";
+import { Menu,  Divider } from "antd";
 import { Link, useHistory } from "react-router-dom";
 import token from "../../localstorage/token";
 import img1 from "../../Assests/Img/Logo.png";
@@ -20,7 +20,7 @@ import {
   StarTwoTone
 } from "@ant-design/icons";
 const { SubMenu } = Menu;
-const { Search } = Input;
+
 
 export default function Navbar({ role, setAuth }) {
   const history = useHistory();

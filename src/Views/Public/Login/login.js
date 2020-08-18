@@ -37,7 +37,7 @@ export default function Login({setAuth}){
     <div className="mainLogin">
 
       <div className="ContainerLogin">
-        <img className="imgLogin" src={img1} al=" a" />
+        <img className="imgLogin" src={img1} alt="aa" />
 
         <Form
           className="formLogin"

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect} from "react";
 // import api from "../../../common/api/api";
 // import token from "../../../localstorage/token";
 import { Carousel, Tabs, Col, Row, Card } from "antd";

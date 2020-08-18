@@ -3,18 +3,13 @@ import { Card, Row, Col, Button, Modal, Select } from "antd";
 import "./CardServicio.css";
 import { PlusOutlined } from "@ant-design/icons";
 import { Link } from "react-router-dom";
-import { useEffect } from "react";
-import api, { Api } from "./../../../../../common/api/api";
+
 
 export default function CardServicio({ data }) {
   const [visible, setvisible] = useState(false);
   const [evento, setEvento] = useState(null);
 
-  const showModal = () => {
-    setvisible({
-      visible: true,
-    });
-  };
+
 
   const handleRegistro = (e) => {
     setvisible(false);

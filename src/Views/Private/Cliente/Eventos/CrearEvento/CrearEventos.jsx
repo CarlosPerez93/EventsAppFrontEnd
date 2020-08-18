@@ -3,13 +3,13 @@ import { Col, Row, Button, Input, Divider, InputNumber, Select, DatePicker, Time
 import "./mainGEvento.css"
 import { useHistory } from 'react-router-dom';
 import api from "../../../../../common/api/api";
-import moment from 'moment';
+
 export default function CrearEventos() {
   const { TextArea } = Input;
   const format = 'HH:mm';
   const [form] = Form.useForm();
   const history = useHistory();
-  const [roles, setRoles] = useState(null);
+  const [event, setEvent] = useState(null);
   function onChange(value) {
     console.log('changed', value);
   }
@@ -44,17 +44,17 @@ export default function CrearEventos() {
 
   useEffect(() => {
     const apidata = async () => {
-      const resultado = await api.get("role/all");
-      setRoles(resultado.data);
+      const resultado = await api.get("event/types");
+      setEvent(resultado.data);
     }
     apidata();
   }, [])
 
   const onFinish = async ({ user }) => {
-    const respu = await api.post("auth/register", user);
+    const respu = await api.post("event/create-event", user);
     console.log(respu);
     if (respu.status === 201) {
-      message.success("Se ha registrado correctamente");
+      message.success("Se ha registrado correctamente el evento");
       history.push("gestionarEvento");
     } else {
       message.error("No se logro registrar correctamente");
@@ -77,12 +77,12 @@ export default function CrearEventos() {
         <Row style={{marginTop:"5%"}}>
           <Col lg={{ span: 12, offset: 0 }} xs={{ span: 10, offset: 1 }}>
             <label ><strong>Nombre</strong></label>
-            <Form.Item name={["", ""]}>
+            <Form.Item name={["event", "name"]}>
               <Input lg={{ span: 15, offset: 2 }} />
             </Form.Item>
             <Divider />
             <label ><strong>Descripción</strong></label>
-            <Form.Item name={["", ""]}>
+            <Form.Item name={["event", "description"]}>
               <TextArea rows={8} />
             </Form.Item>
           </Col>
@@ -90,33 +90,25 @@ export default function CrearEventos() {
             <Row>
               <Col lg={{ span: 12, offset: 0 }} xs={{ span: 10, offset: 1 }}>
                 <label ><strong>N° Participantes</strong> </label>
-                <Form.Item name={["user", ""]}>
+                <Form.Item name={["event", "participants"]}>
                   <InputNumber min={0} max={50} defaultValue={2} onChange={onChange} style={{ width: "85%" }} />
                 </Form.Item>
               </Col>
               <Col lg={{ span: 12, offset: 0 }} xs={{ span: 10, offset: 1 }}>
                 <label ><strong>Tipo de Evento</strong> </label>
-                <Form.Item name={["event", ""]}>
+                <Form.Item name={["event", "typeEvent"]}>
                   <Select style={{ width: "100%" }} >
                     {
-                      roles !== null ? (
+                      event !== null ? (
                         <>
                           {
-                            roles.map((role, index) => {
-                              if (role.id !== 3 && role.id !== 4) {
-
+                            event.map((event, index) => {
                                 return (
-
-                                  <Select.Option value={role.id} key={index}>
-                                    {role.name}
+                                  <Select.Option value={event.id} key={index}>
+                                    {event.name}
                                   </Select.Option>
                                 )
-                              } else {
-                                return (
-
-                                  <></>
-                                )
-                              }
+                
                             })
                           }
                         </>
@@ -134,13 +126,13 @@ export default function CrearEventos() {
               <Row>
                 <Col lg={{ span: 12, offset: 0 }}>
                   <label ><strong>Fecha de Inicio</strong></label>
-                  <Form.Item name={["", ""]}>
+                  <Form.Item name={["event", "startDate"]}>
                     <DatePicker  onChange={onChangeDate} />
                   </Form.Item>
                 </Col>
                 <Col lg={{ span: 12, offset: 0 }}>
                   <label ><strong>Fecha Final</strong></label>
-                  <Form.Item name={["", ""]}>
+                  <Form.Item name={["event", "endtDate"]}>
                     <DatePicker onChange={onChangeDate} />
                   </Form.Item>
 
@@ -149,13 +141,13 @@ export default function CrearEventos() {
               <Row style={{ marginTop: "5%" }}>
                 <Col lg={{ span: 12, offset: 0 }}>
                   <label ><strong>Hora de Inicio</strong></label>
-                  <Form.Item name={["", ""]}>
+                  <Form.Item name={["event", "startHour"]}>
                     <TimePicker format={format} style={{width:"100%"}} />
                   </Form.Item>
                 </Col>
                 <Col lg={{ span: 12, offset: 0 }}>
                   <label ><strong>Hora Final</strong></label>
-                  <Form.Item name={["", ""]}>
+                  <Form.Item name={["event", "endDate"]}>
                     <TimePicker format={format} style={{width:"100%"}}/>
                   </Form.Item>
 

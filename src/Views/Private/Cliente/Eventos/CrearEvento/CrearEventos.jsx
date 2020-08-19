@@ -1,181 +1,133 @@
-import React, { useState, useEffect } from 'react'
-import { Col, Row, Button, Input, Divider, InputNumber, Select, DatePicker, TimePicker, Form, message } from 'antd'
-import "./mainGEvento.css"
-import { useHistory } from 'react-router-dom';
-import api from "../../../../../common/api/api";
-import moment from 'moment';
+import React from "react";
+import {
+  Col,
+  Form,
+  Input,
+  Row,
+  Button,
+  DatePicker,
+  InputNumber,
+  Select,
+  notification,
+  message,
+  Card,
+} from "antd";
+import "./CrearEventos.css";
+import { useEffect } from "react";
+import Api from "./../../../../../common/api/api";
+import { useState } from "react";
+import { useHistory } from "react-router-dom";
+import token from "../../../../../localstorage/token";
+
+const { TextArea } = Input;
 export default function CrearEventos() {
-  const { TextArea } = Input;
-  const format = 'HH:mm';
-  const [form] = Form.useForm();
+  const [types, setTypes] = useState(null);
+  const [date, setDate] = useState(null);
   const history = useHistory();
-  const [roles, setRoles] = useState(null);
-  function onChange(value) {
-    console.log('changed', value);
-  }
 
-  function onChangeDate(date, dateString) {
-    console.log(date, dateString);
-  }
+  const onFinish = async ({ evento }) => {
+    evento.startDate = date;
+    evento.user = await token.decodeJWT().id; // saco el id del token, lo decofico con el metodo que ya existe
 
-  const formItemLayout = {
-    labelCol: {
-      xs: { span: 24 },
-      sm: { span: 8 },
-    },
-    wrapperCol: {
-      xs: { span: 24 },
-      sm: { span: 16 },
-    },
-  };
+    const result = await Api.post("event/create", evento);
+    if (result.data.status === true) {
+      // la operacion se realizado 201 = OK
+      message.success("Se ha realizado correctamente el registro");
+      history.push("/misEventos");
+    }
 
-  const tailFormItemLayout = {
-    wrapperCol: {
-      xs: {
-        span: 24,
-        offset: 0,
-      },
-      sm: {
-        span: 16,
-        offset: 8,
-      },
-    },
+    console.log(evento);
   };
 
   useEffect(() => {
-    const apidata = async () => {
-      const resultado = await api.get("role/all");
-      setRoles(resultado.data);
-    }
-    apidata();
-  }, [])
-
-  const onFinish = async ({ user }) => {
-    const respu = await api.post("auth/register", user);
-    console.log(respu);
-    if (respu.status === 201) {
-      message.success("Se ha registrado correctamente");
-      history.push("gestionarEvento");
-    } else {
-      message.error("No se logro registrar correctamente");
-    }
-  };
+    const dataTypes = async () => {
+      const result = await Api.get("event/types"); // llamado a la API
+      if (result.status === 200) {
+        /// 200 cuando es GET, cuando es POST es -> 201 / 200 = OK
+        setTypes(result.data); /// guardo el data en el estado / comprobar si esta en data o en otro objeto
+      }
+    };
+    dataTypes(); // trae los tipos que se muestran en el select
+  }, []);
 
   return (
-    <Col lg={{ span: 16, offset: 4 }} style={{ marginTop: "3%" }} className="CrearEventoCliente">
-      <Form
-        {...formItemLayout}
-        form={form}
-        name="register"
-        onFinish={onFinish}
-        initialValues={{
-          residence: ["zhejiang", "hangzhou", "xihu"],
-          prefix: "86",
-        }}
-        scrollToFirstError>
-        <h1>Nuevo Evento</h1>
-        <Row style={{marginTop:"5%"}}>
-          <Col lg={{ span: 12, offset: 0 }} xs={{ span: 10, offset: 1 }}>
-            <label ><strong>Nombre</strong></label>
-            <Form.Item name={["", ""]}>
-              <Input lg={{ span: 15, offset: 2 }} />
-            </Form.Item>
-            <Divider />
-            <label ><strong>Descripción</strong></label>
-            <Form.Item name={["", ""]}>
-              <TextArea rows={8} />
-            </Form.Item>
-          </Col>
-          <Col lg={{ span: 12, offset: 0 }} xs={{ span: 10, offset: 1 }}>
-            <Row>
-              <Col lg={{ span: 12, offset: 0 }} xs={{ span: 10, offset: 1 }}>
-                <label ><strong>N° Participantes</strong> </label>
-                <Form.Item name={["user", ""]}>
-                  <InputNumber min={0} max={50} defaultValue={2} onChange={onChange} style={{ width: "85%" }} />
-                </Form.Item>
-              </Col>
-              <Col lg={{ span: 12, offset: 0 }} xs={{ span: 10, offset: 1 }}>
-                <label ><strong>Tipo de Evento</strong> </label>
-                <Form.Item name={["event", ""]}>
-                  <Select style={{ width: "100%" }} >
-                    {
-                      roles !== null ? (
-                        <>
-                          {
-                            roles.map((role, index) => {
-                              if (role.id !== 3 && role.id !== 4) {
-
-                                return (
-
-                                  <Select.Option value={role.id} key={index}>
-                                    {role.name}
-                                  </Select.Option>
-                                )
-                              } else {
-                                return (
-
-                                  <></>
-                                )
-                              }
-                            })
-                          }
-                        </>
-                      )
-                        : <></>
-                    }
-                  </Select>
-                </Form.Item>
-              </Col>
-            </Row>
-
-            <Col lg={{ span: 24, offset: 0 }} style={{ marginTop: "5%" }}>
-              <label><strong>Duración del Evento</strong></label>
-              <Divider />
-              <Row>
-                <Col lg={{ span: 12, offset: 0 }}>
-                  <label ><strong>Fecha de Inicio</strong></label>
-                  <Form.Item name={["", ""]}>
-                    <DatePicker  onChange={onChangeDate} />
-                  </Form.Item>
-                </Col>
-                <Col lg={{ span: 12, offset: 0 }}>
-                  <label ><strong>Fecha Final</strong></label>
-                  <Form.Item name={["", ""]}>
-                    <DatePicker onChange={onChangeDate} />
-                  </Form.Item>
-
-                </Col>
-              </Row>
-              <Row style={{ marginTop: "5%" }}>
-                <Col lg={{ span: 12, offset: 0 }}>
-                  <label ><strong>Hora de Inicio</strong></label>
-                  <Form.Item name={["", ""]}>
-                    <TimePicker format={format} style={{width:"100%"}} />
-                  </Form.Item>
-                </Col>
-                <Col lg={{ span: 12, offset: 0 }}>
-                  <label ><strong>Hora Final</strong></label>
-                  <Form.Item name={["", ""]}>
-                    <TimePicker format={format} style={{width:"100%"}}/>
-                  </Form.Item>
-
-                </Col>
-              </Row>
-
+    <Col
+      lg={{ span: 12, offset: 6 }}
+      xs={{ span: 20, offset: 2 }}
+      style={{ paddingTop: 30 }}
+      className="eventos-create"
+    >
+     <Card>
+     <Col lg={{ span: 20, offset: 2 }} xs={{ span: 22, offset: 1 }}>
+       <h4 style={{textAlign:"center", fontWeight:"bold", fontSize: 20}}>Registro de evento</h4>
+        <hr/>
+        <Form onFinish={onFinish}>
+          <Row>
+            <Col lg={12} xs={{ span: 24 }}>
+              <label>Nombre</label>
+              <Form.Item name={["evento", "name"]}>
+                <Input style={{ width: "90%" }} />
+              </Form.Item>
             </Col>
-
-          </Col>
-
-        </Row>
-        <Col lg={{ span: 20, offset: 1 }} >
-
-          <Form.Item {...tailFormItemLayout} style={{ display: "flex", marginLeft: "50%" }}>
-            <Button type="default" htmlType="submit" style={{ width: "90%", backgroundColor: "#5433e9", marginTop: "5%", marginRight: "20%",color:"white" }}>
-              Confirmar Eveneto
-         </Button>
+            <Col lg={12} xs={{ span: 24 }}>
+              <label>Tipo</label>
+              <Form.Item name={["evento", "type"]}>
+                <Select
+                  placeholder="Selecciona un tipo"
+                  style={{ width: "100%" }}
+                >
+                  {types !== null ? (
+                    types.map((type, index) => {
+                      return (
+                        <Select.Option value={type.id} key={index}>
+                          {type.name}
+                        </Select.Option>
+                      );
+                    })
+                  ) : (
+                    <></>
+                  )}
+                </Select>
+              </Form.Item>
+            </Col>
+          </Row>
+          <label>Descripción</label>
+          <Form.Item name={["evento", "description"]}>
+            <TextArea rows={5} />
           </Form.Item>
-        </Col>
-      </Form>
+          <Row>
+            <Col lg={8} xs={{ span: 24 }}>
+              <label>Fecha de inicio</label>
+              <Form.Item name={["evento", "startDate"]}>
+                <DatePicker
+                  onChange={(date, dateString) => setDate(dateString)}
+                  renderExtraFooter={() => "extra footer"}
+                  placeholder="Seleccione una fecha"
+                  style={{ width: "90%" }}
+                />
+              </Form.Item>
+            </Col>
+            <Col lg={8} xs={{ span: 24 }}>
+              <label>Duración (Horas)</label>
+              <Form.Item name={["evento", "duration"]}>
+                <InputNumber style={{ width: "90%" }} />
+              </Form.Item>
+            </Col>
+            <Col lg={8} xs={{ span: 24 }}>
+              <label>Participantes</label>
+              <Form.Item name={["evento", "participants"]}>
+                <InputNumber style={{ width: "100%" }} />
+              </Form.Item>
+            </Col>
+          </Row>
+          <Row justify="end">
+            <Button htmlType="submit" type="primary">
+              Registrar evento
+            </Button>
+          </Row>
+        </Form>
+      </Col>
+     </Card>
     </Col>
-  )
+  );
 }

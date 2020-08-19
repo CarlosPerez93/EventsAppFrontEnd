@@ -1,55 +1,16 @@
-import React, { useState } from "react";
-import "./CrearServicio.css";
-import { Form, Input, Select, message, Upload, Button, } from "antd";
-import ImgCrop from "antd-img-crop";
+import React, { useState, useEffect } from 'react'
+import { Col, Row, Button, Input, Divider, Select, Upload, Form, message } from 'antd'
+import { UploadOutlined } from '@ant-design/icons';
+
+import { useHistory } from 'react-router-dom';
 import api from "../../../../../common/api/api";
-import { useHistory } from "react-router-dom";
-import img1 from "../../../../../Assests/Img/LogoLR.png";
+
 export default function CrearServicio() {
   const { TextArea } = Input;
-  const { Option } = Select;
-  const history = useHistory();
   const [form] = Form.useForm();
-  const [fileList, setFileList] = useState([
-    {
-      uid: "-1",
-      name: "image.png",
-      status: "done",
-      url:
-        "https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png",
-    },
-  ]);
-
-  const onChange = ({ fileList: newFileList }) => {
-    setFileList(newFileList);
-  };
-
-  const onPreview = async (file) => {
-    let src = file.url;
-    if (!src) {
-      src = await new Promise((resolve) => {
-        const reader = new FileReader();
-        reader.readAsDataURL(file.originFileObj);
-        reader.onload = () => resolve(reader.result);
-      });
-    }
-    const image = new Image();
-    image.src = src;
-    const imgWindow = window.open(src);
-    imgWindow.document.write(image.outerHTML);
-  };
-  const onFinish = async ({ user }) => {
-    const resultado = await api.post("service/createService", user);
-    console.log(resultado);
-    if (resultado === 201) {
-      message.success("se ha agregado el servicio");
-      history.pushState("/");
-    } else {
-      message.error("No se ha registro el servicio ");
-    }
-  };
-  
-
+  const history = useHistory();
+  const [event, setEvent] = useState(null);
+ 
   const formItemLayout = {
     labelCol: {
       xs: { span: 24 },
@@ -74,57 +35,94 @@ export default function CrearServicio() {
     },
   };
 
- 
+  useEffect(() => {
+    const apidata = async () => {
+      const resultado = await api.get("event/types");
+      setEvent(resultado.data);
+    }
+    apidata();
+  }, [])
+
+  const onFinish = async ({ user }) => {
+    const respu = await api.post("event/create-event", user);
+    console.log(respu);
+    if (respu.status === 201) {
+      message.success("Se ha registrado correctamente el evento");
+      history.push("gestionarEvento");
+    } else {
+      message.error("No se logro registrar correctamente");
+    }
+  };
+
   return (
-    <div className="contMainCrearServicio">
-      <img className="logoModal" src={img1} />
-      <h2>Agregar Servicio</h2>
-      <div className="contCrearServicio">
-        <Form
-          className="mainFormCrearservicio"
-          {...formItemLayout}
-          form={form}
-          name="service-create"
-          onFinish={onFinish}
-          initialValues={{
-            residences: ["zhejiang", "hangzhou", "xihu"],
-            prefix: "86",
-          }}
-          scrollToFirstError
-        >
-          <Form.Item name={["user", "title"]} className="NombreCrearServicio">
-            <Input placeholder="Nombre del servicio " />
-          </Form.Item>
+    <Col lg={{ span: 20, offset: 2 }} style={{ marginTop: "3%" }} className="CrearEventoCliente">
+      <Form
+        {...formItemLayout}
+        form={form}
+        name="register"
+        onFinish={onFinish}
+        initialValues={{
+          residence: ["zhejiang", "hangzhou", "xihu"],
+          prefix: "86",
+        }}
+        scrollToFirstError>
+        <h1>Nuevo Evento</h1>
+        <Row style={{ marginTop: "5%" }}>
+          <Col lg={{ span: 10, offset: 2 }} xs={{ span: 10, offset: 1 }}>
+            <label ><strong>Nombre</strong></label>
+            <Form.Item name={["event", "name"]}>
+              <Input lg={{ span: 15, offset: 2 }} />
+            </Form.Item>
 
-          <Form.Item name={["user", "description"]} className="DescrptionCrearServicio">
-            <TextArea
+          </Col>
+          <Col lg={{ span: 10, offset: 2 }} xs={{ span: 10, offset: 1 }}>
+            <label ><strong>Tipo de Evento</strong> </label>
+            <Form.Item name={["event", "typeEvent"]}>
+              <Select style={{ width: "100%" }} >
+                {
+                  event !== null ? (
+                    <>
+                      {
+                        event.map((event, index) => {
+                          return (
+                            <Select.Option value={event.id} key={index}>
+                              {event.name}
+                            </Select.Option>
+                          )
 
-              placeholder="Describa aqui su nuevo servicio"
-            />
+                        })
+                      }
+                    </>
+                  )
+                    : <></>
+                }
+              </Select>
+            </Form.Item>
+          </Col>
+        </Row>
+        <Divider />
+        <Col lg={{ span: 24, offset: 5 }} xs={{ span: 10, offset: 1 }}>
+          <label ><strong>Descripción</strong></label>
+          <Form.Item name={["event", "description"]}>
+            <TextArea rows={8} />
           </Form.Item>
-          <Form.Item name={["user", "imagen"]} className="imagenCrearServicio">
-            <ImgCrop rotate >
-              <Upload
+        </Col>
+        <Divider />
+        <Col lg={{ span: 24, offset: 5 }} xs={{ span: 10, offset: 1 }}>
+          <label ><strong>Subir Foto</strong></label>
+          <Col lg={{span:10, offset:7}} style={{margin:"auto"}}>
+         
+          </Col>
+        </Col>
 
-                action=""
-                listType="picture-card"
-                fileList={fileList}
-                onChange={onChange}
-                onPreview={onPreview}
-              >
-                {fileList.length < 5 && "+ Upload"}
-              </Upload>
-            </ImgCrop>
+        <Col lg={{ span: 20, offset: 1 }} >
+          <Form.Item {...tailFormItemLayout} style={{ display: "flex", marginLeft: "50%" }}>
+            <Button type="default" htmlType="submit" style={{ width: "90%", backgroundColor: "#5433e9", marginTop: "5%", marginRight: "20%", color: "white" }}>
+              Crear Servicio
+         </Button>
           </Form.Item>
-
-          <Form.Item {...tailFormItemLayout} className="contBtnCrearServicio">
-            <Button type="default" htmlType="submit" className="btnCrearServicio" >
-              Agregar Servicio
-          </Button>
-          </Form.Item>
-        </Form>
-        <img src="https://images.pexels.com/photos/382297/pexels-photo-382297.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt=" s" className="imgCrearServicio" />
-      </div>
-    </div>
-  );
+        </Col>
+      </Form >
+    </Col >
+  )
 }

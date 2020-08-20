@@ -8,7 +8,6 @@ import {
   DatePicker,
   InputNumber,
   Select,
-  notification,
   message,
   Card,
 } from "antd";
@@ -30,10 +29,13 @@ export default function CrearEventos() {
     evento.user = await token.decodeJWT().id; // saco el id del token, lo decofico con el metodo que ya existe
 
     const result = await Api.post("event/create", evento);
-    if (result.data.status === true) {
+    if (result.status === 201) {
       // la operacion se realizado 201 = OK
       message.success("Se ha realizado correctamente el registro");
       history.push("/misEventos");
+    }else{
+      message.success("No se ha realizado registro");
+
     }
 
     console.log(evento);
@@ -110,7 +112,7 @@ export default function CrearEventos() {
             <Col lg={8} xs={{ span: 24 }}>
               <label>Duración (Horas)</label>
               <Form.Item name={["evento", "duration"]}>
-                <InputNumber style={{ width: "90%" }} />
+                <InputNumber min={1} style={{ width: "90%" }} />
               </Form.Item>
             </Col>
             <Col lg={8} xs={{ span: 24 }}>

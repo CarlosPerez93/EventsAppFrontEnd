@@ -4,6 +4,7 @@ import HomeEmpresario from "../Private/Empresario/Home/Home.jsx";
 import PerfilEmpresario from "../Private/Empresario/Perfil/Perfil.jsx";
 import AgregarServicioEmpresario from "../Private/Empresario/Servicios/CrearServicio/CrearServicio.jsx";
 import EventosAsignadosEmpresario from "../Private/Empresario/Eventos/EventosAsignados/EventosAsignados.jsx";
+import MisServicios from "./Empresario/Servicios/MisServicios/MisServicios";
 import Navbar from "./../../components/Navbar/Navbar";
 import token from "../../localstorage/token";
 import HomeCliente from "./Cliente/Home/HomeClient";
@@ -78,6 +79,9 @@ function RoutesPrivate({ setAuth }) {
           </Route>
           <Route path="/agregarServicios" exact>
             <AgregarServicioEmpresario />
+          </Route>
+          <Route path="/misServicios" exact>
+            <MisServicios />
           </Route>
         
           <Route path="/eventosAsignados" exact>

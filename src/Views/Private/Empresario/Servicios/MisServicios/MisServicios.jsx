@@ -1,23 +1,23 @@
 import React, { useState } from "react";
 import { Col, Button, Row } from "antd";
 import { PlusOutlined } from "@ant-design/icons";
-import "./MisEventos.css";
-import CardMisEventos from "./CardMisEventos/CardMisEventos";
+import "./MisServicios.css";
+import CardMisServicios from "./CardMisServicios/CardMisServicios";
 import { Link } from "react-router-dom";
 import { useEffect } from "react";
-import Api from "./../../../../../common/api/api";
-import Token from "./../../../../../localstorage/token";
+import Api from "../../../../../common/api/api";
+import Token from "../../../../../localstorage/token";
 
-export default function MisEventos() {
-  const [events, setEvents] = useState(null);
+export default function MisServicios() {
+  const [services, setServices] = useState(null);
 
   useEffect(() => {
     const apiData = async () => {
-      const result = await Api.get("event/all/user", {
+      const result = await Api.get("service/all/user", {
         idUser: Token.decodeJWT().id,
       });
       if (result.status === 200) {
-        setEvents(result.data);
+        setServices(result.data);
       }
     };
     apiData();
@@ -27,11 +27,11 @@ export default function MisEventos() {
     <Col
       lg={{ span: 18, offset: 3 }}
       xs={{ span: 18, offset: 3 }}
-      className="MisEventos"
+      className="MisServicios"
     >
-      <h1>Mis Eventos</h1>
+      <h1>Mis Servicios</h1>
       <Col lg={{ span: 4, offset: 18 }}>
-        <Link to="/gestionarEvento">
+        <Link to="/agregarServicios">
           <Button
             icon={<PlusOutlined />}
             type="primary"
@@ -39,18 +39,18 @@ export default function MisEventos() {
             size="large"
             style={{ backgroundColor: "#8063FF" }}
           >
-            Nuevo Evento
+            Nuevo Servicio
           </Button>
         </Link>
       </Col>
 
       <Row>
 
-        {events !== null ? (
-          events.map((event, index) => {
+        {services !== null ? (
+          services.map((service, index) => {
             return (
               <Col lg={{ span: 6, offset: 1 }} xs={{ span: 6, offset: 2 }}>
-                <CardMisEventos data={event} />
+                <CardMisServicios data={service} />
               </Col>
             )
           })

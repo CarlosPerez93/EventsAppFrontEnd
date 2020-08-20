@@ -9,11 +9,11 @@ import Navbar from "./../../components/Navbar/Navbar";
 import token from "../../localstorage/token";
 import HomeCliente from "./Cliente/Home/HomeClient";
 import CrearEventosCliente from "./Cliente/Eventos/CrearEvento/CrearEventos.jsx";
-import MisEventos from "./Cliente/Eventos/MisEventos/MisEventos";
 import ServiciosCliente from "./Cliente/Servicios/Servicios/Servicios.jsx";
-import CardMisEventos from "./Cliente/Eventos/InfEvento/InfEvento.jsx";
-import PerfilInfo from "../Private/Cliente/PerfilInfo/PerfilInfo";
+import MisEventos from "./Cliente/Eventos/MisEventos/MisEventos";
 import SinEventos from "./Cliente/Eventos/MisEventos/SinEventos/SinEventos.jsx"
+import InfEvento from "./Cliente/Eventos/InfEvento/InfEvento";
+import PerfilInfo from "../Private/Cliente/PerfilInfo/PerfilInfo";
 function RoutesPrivate({ setAuth }) {
   const [role, setRole] = useState(0);
 
@@ -43,8 +43,8 @@ function RoutesPrivate({ setAuth }) {
           <Route path="/gestionarEvento" exact>
             <CrearEventosCliente />
           </Route>
-          <Route path="/informacionEventos" exact>
-            <CardMisEventos />
+          <Route path="/informacionEventos/:id" exact>
+            <InfEvento />
           </Route>
           <Route path="/sinEventos" exact>
             <SinEventos />
@@ -55,7 +55,7 @@ function RoutesPrivate({ setAuth }) {
             <ServiciosCliente />
           </Route>
     
-          <Route path="/infoEmpresario" exact>
+          <Route path="/infoEmpresario/:id" exact>
             <PerfilInfo />
           </Route>
          

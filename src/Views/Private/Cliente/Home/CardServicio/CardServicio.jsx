@@ -1,15 +1,30 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Card, Row, Col, Button, Modal, Select } from "antd";
 import "./CardServicio.css";
 import { PlusOutlined } from "@ant-design/icons";
-import { Link } from "react-router-dom";
-
+import { Link, useHistory } from "react-router-dom";
+import CardMisEventos from "../../Eventos/MisEventos/CardMisEventos/CardMisEventos"
+import Api from "../../../../../common/api/api"
+import Token from "../../../../../localstorage/token"
 
 export default function CardServicio({ data }) {
   const [visible, setvisible] = useState(false);
   const [evento, setEvento] = useState(null);
+  const [iSelect, setIselect] = useState(null);
+  const [events, setEvents] = useState(null);
+  const history = useHistory();
 
-
+  useEffect(() => {
+    const apiData = async () => {
+      const result = await Api.get("event/all/user", {
+        idUser: Token.decodeJWT().id,
+      });
+      if (result.status === 200) {
+        setEvents(result.data);
+      }
+    };
+    apiData();
+  });
 
   const handleRegistro = (e) => {
     setvisible(false);
@@ -18,6 +33,7 @@ export default function CardServicio({ data }) {
 
   return (
     <Card
+      onClick={() => history.push(`/infoEmpresario/${data.empresa.id}`)}
       className="cardServicio"
       hoverable
       style={{
@@ -38,7 +54,7 @@ export default function CardServicio({ data }) {
           }}
         >
           <Link to="/infoEmpresario">
-            <img src="perfil1.png" alt="as" className="imgPerfilSe" />
+            <img src="./perfil1.png" alt="as" className="imgPerfilSe" />
             <h6>
               {data.empresa.profile.firstName}{" "}
               {data.empresa.profile.firstSurname}
@@ -86,36 +102,42 @@ export default function CardServicio({ data }) {
               </Button>,
             ]}
           >
-            <Row justify="start" style={{ marginBottom: "1%" }}>
-              <Col lg={24}>
-                <Select
-                  onChange={(value) => setEvento(value)}
-                  placeholder="Seleccionar Evento"
-                  showSearch
-                  style={{
-                    width: "100%",
-                    display: "flex",
-                    justifyContent: "center",
-                    marginBottom: "2%",
-                  }}
-                >
-                  <Select.Option value="1">Categprias</Select.Option>
-                  <Select.Option>Categprias</Select.Option>
-                  <Select.Option>Categprias</Select.Option>
-                  <Select.Option>Categprias</Select.Option>
-                </Select>
-              </Col>
-            </Row>
+            <Row>
+              <p>{iSelect}</p>
+              <Select onChange={(value) => setIselect(value)} style={{ width: "100%" }}>
 
-            <p>
-              <strong>Nombre: </strong>Evento de 15 años mi hija
+                {events !== null ? (
+                  events.map((event, index) => {
+
+                    return (
+                      <Select.Option value={event.id} key={index}>
+                        {
+                          event.name
+                        }
+                      </Select.Option>
+                    )
+                  })
+                ) : (
+                    <></>
+                  )}
+              </Select>
+
+            </Row>
+            {
+              iSelect !== null && events !== null ? (
+                <div>
+                  <p>
+                    <strong>Nombre: </strong>{events.find((value) => value.id === iSelect).name}</p>
+                  <p>
+                    <strong>Participantes: </strong>{events.find((value) => value.id === iSelect).participants}
             </p>
-            <p>
-              <strong>Participantes: </strong>10
+                  <p>
+                    <strong>Nombre: </strong>{events.find((value) => value.id === iSelect).startDate}
             </p>
-            <p>
-              <strong>Nombre: </strong>10/20/2020
-            </p>
+                </div>
+              ) : <></>
+            }
+
           </Modal>
         </Col>
       </Row>

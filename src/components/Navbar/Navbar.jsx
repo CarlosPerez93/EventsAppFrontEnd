@@ -100,9 +100,7 @@ export default function Navbar({ role, setAuth }) {
                 <Link to="/">Inicio</Link>
               </Menu.Item>
 
-              <Menu.Item icon={<ContactsOutlined />}>
-                <Link to="/">Quienes Somos</Link>
-              </Menu.Item>
+            
 
               <SubMenu
                 title={"@" + token.decodeJWT().username}
@@ -112,9 +110,13 @@ export default function Navbar({ role, setAuth }) {
                 <Menu.Item>
                   <Link to="/agregarServicios">Agregar Servicios</Link>
                 </Menu.Item>
+                
+                <Menu.Item>
+                  <Link to="/misServicios">Mis Servicios</Link>
+                </Menu.Item>
 
                 <Menu.Item>
-                  <Link to="/eventosAsignados">Mis eventos asignados</Link>
+                  <Link to="/eventosAsignados">Asignación de ventos</Link>
                 </Menu.Item>
 
                 <Divider />

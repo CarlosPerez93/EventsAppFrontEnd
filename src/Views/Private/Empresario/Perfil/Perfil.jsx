@@ -6,7 +6,7 @@ import { Button } from "antd";
 export default function Perfil() {
   return (
     <div className="mainPerfil">
-      <img className="logoModal" src={img1} alt="imagen no cargada"/>
+    
 
       <div className="contendorMainPerfil">
         <div className="contenedor1Perfil">

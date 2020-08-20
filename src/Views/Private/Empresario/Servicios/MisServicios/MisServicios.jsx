@@ -13,8 +13,8 @@ export default function MisServicios() {
 
   useEffect(() => {
     const apiData = async () => {
-      const result = await Api.get("service/all/user", {
-        idUser: Token.decodeJWT().id,
+      const result = await Api.get("service/all/empresa", {
+        id: Token.decodeJWT().id,
       });
       if (result.status === 200) {
         setServices(result.data);

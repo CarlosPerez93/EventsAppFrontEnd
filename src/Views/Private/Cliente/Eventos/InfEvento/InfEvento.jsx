@@ -8,6 +8,7 @@ import { useParams } from 'react-router-dom';
 
 export default function InfEvento() {
     const [evento, setEvent] = useState(null);
+    const [servicio, setServicio] = useState(null);
     const {id} = useParams();
 
 
@@ -33,6 +34,7 @@ export default function InfEvento() {
              
             <br />
             <h3>Servicios Agregados</h3>
+
 
         </Col>
     )

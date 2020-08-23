@@ -2,9 +2,9 @@ import React, { useState, useEffect } from "react";
 import "./EventosAsignados.css";
 import { Select, Form, Col, Row } from "antd";
 import api from "../../../../../common/api/api";
-import img1 from "../../../../../Assests/Img/Logo.png";
-import { Modall } from "../../../../../components/Modal/Modal";
-export default function ServiciosAdquiridos() {
+
+
+export default function EventosAsognados() {
 
   const [tipoEvento, setTipoEvento] = useState(null);
 

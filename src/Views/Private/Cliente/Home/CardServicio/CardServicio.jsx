@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from "react";
-import { Card, Row, Col, Button, Modal, Select } from "antd";
+import { Card, Row, Col, Button, Modal, Select, message } from "antd";
 import "./CardServicio.css";
-import { PlusOutlined } from "@ant-design/icons";
-import { Link, useHistory } from "react-router-dom";
-import CardMisEventos from "../../Eventos/MisEventos/CardMisEventos/CardMisEventos"
+import { PlusOutlined, CloseOutlined} from "@ant-design/icons";
+import { useHistory } from "react-router-dom";
+
 import Api from "../../../../../common/api/api"
 import Token from "../../../../../localstorage/token"
 
-export default function CardServicio({ data }) {
+export default function CardServicio({ data, state, id }) {
   const [visible, setvisible] = useState(false);
-  const [evento, setEvento] = useState(null);
+
   const [iSelect, setIselect] = useState(null);
   const [events, setEvents] = useState(null);
   const history = useHistory();
@@ -24,16 +24,38 @@ export default function CardServicio({ data }) {
       }
     };
     apiData();
-  });
 
-  const handleRegistro = (e) => {
-    setvisible(false);
-    console.log(evento, "aa");
+  }, [setEvents]);
+
+  const handleRegistro = async (e) => {
+    const result = await Api.post("eventService/create", {
+      event: iSelect,
+      service: data.id
+    });
+
+    console.log(result);
+    if (result.status === 201) {
+      history.push("/misEventos");
+      setvisible(false);
+      message.success("registro exitoso")
+    } else {
+      message.error("Ya existe registro")
+    }
   };
+
+  const handleEdit = async () =>{
+    const result = await Api.post("eventService/delete", {id});
+      if (result.status === 201){
+        message.success("Registro cancelado exitosamente")
+        history.push("/misEventos")
+      }else{
+        message.error("Servicio asignado, no se puede cancelar")
+      }
+  }
 
   return (
     <Card
-      onClick={() => history.push(`/infoEmpresario/${data.empresa.id}`)}
+
       className="cardServicio"
       hoverable
       style={{
@@ -53,13 +75,14 @@ export default function CardServicio({ data }) {
             alignItems: "center",
           }}
         >
-          <Link to="/infoEmpresario">
-            <img src="./perfil1.png" alt="as" className="imgPerfilSe" />
-            <h6>
-              {data.empresa.profile.firstName}{" "}
-              {data.empresa.profile.firstSurname}
-            </h6>
-          </Link>
+
+          <img onClick={() => history.push(`/infoEmpresario/${data.empresa.id}`)}
+            src="./perfil1.png" alt="as" className="imgPerfilSe" />
+          <h6>
+            {data.empresa.profile.firstName}{" "}
+            {data.empresa.profile.firstSurname}
+          </h6>
+
         </Col>
         <Col
           lg={{ span: 16, offset: 1 }}
@@ -73,7 +96,26 @@ export default function CardServicio({ data }) {
       <Row justify="end">
         <h3>$ {data.prise}</h3>
         <Col>
-          <Button
+          {
+            state ? (
+              <Button
+                onClick={handleEdit}
+                icon={<CloseOutlined />}
+
+                type="primary"
+                shape="round"
+                size="large"
+                style={{
+                  backgroundColor: "red",
+                  border: "none",
+                  width: "50px",
+                  height: "50px",
+                  textAlign: "center",
+                  padding: 0,
+                }}
+              />
+            ): (
+              <Button
             onClick={() => setvisible(true)}
             icon={<PlusOutlined />}
             type="primary"
@@ -88,6 +130,9 @@ export default function CardServicio({ data }) {
               padding: 0,
             }}
           />
+            )
+        }
+
           <Modal
             title="Elije el Evento"
             visible={visible}
@@ -97,6 +142,7 @@ export default function CardServicio({ data }) {
                 key="back"
                 onClick={handleRegistro}
                 style={{ backgroundColor: "#8063FF", color: "white" }}
+
               >
                 Agregar Servicio
               </Button>,
@@ -130,10 +176,10 @@ export default function CardServicio({ data }) {
                     <strong>Nombre: </strong>{events.find((value) => value.id === iSelect).name}</p>
                   <p>
                     <strong>Participantes: </strong>{events.find((value) => value.id === iSelect).participants}
-            </p>
+                  </p>
                   <p>
                     <strong>Nombre: </strong>{events.find((value) => value.id === iSelect).startDate}
-            </p>
+                  </p>
                 </div>
               ) : <></>
             }

@@ -1,10 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { Route } from "react-router-dom";
+import HomeAdministrador from "./Admin/HomeAdmin/HomeAdmin";
+import GestionServicios from "./Admin/GestionServicios/GestionServicios"
+import CrearTipoServicio from "./Admin/GestionServicios/CrearTipoServicio/CrearTipoServicio";
+import EditarTipoServicio from "./Admin/GestionServicios/EditarTipoServicio/EditarTipoServicio";
 import HomeEmpresario from "../Private/Empresario/Home/Home.jsx";
 import PerfilEmpresario from "../Private/Empresario/Perfil/Perfil.jsx";
 import AgregarServicioEmpresario from "../Private/Empresario/Servicios/CrearServicio/CrearServicio.jsx";
 import EventosAsignadosEmpresario from "../Private/Empresario/Eventos/EventosAsignados/EventosAsignados.jsx";
-import MisServicios from "./Empresario/Servicios/MisServicios/MisServicios";
+import MisServiciosEmpresario from "./Empresario/Servicios/MisServicios/MisServicios";
 import Navbar from "./../../components/Navbar/Navbar";
 import token from "../../localstorage/token";
 import HomeCliente from "./Cliente/Home/HomeClient";
@@ -14,6 +18,7 @@ import MisEventos from "./Cliente/Eventos/MisEventos/MisEventos";
 import SinEventos from "./Cliente/Eventos/MisEventos/SinEventos/SinEventos.jsx"
 import InfEvento from "./Cliente/Eventos/InfEvento/InfEvento";
 import PerfilInfo from "../Private/Cliente/PerfilInfo/PerfilInfo";
+import EditarEventos from "../Private/Cliente/Eventos/MisEventos/EditarEventos/EditarEventos"
 function RoutesPrivate({ setAuth }) {
   const [role, setRole] = useState(0);
 
@@ -42,6 +47,9 @@ function RoutesPrivate({ setAuth }) {
 
           <Route path="/gestionarEvento" exact>
             <CrearEventosCliente />
+          </Route>
+          <Route path="/EditarEvento/:id" exact>
+            <EditarEventos />
           </Route>
           <Route path="/informacionEventos/:id" exact>
             <InfEvento />
@@ -81,7 +89,7 @@ function RoutesPrivate({ setAuth }) {
             <AgregarServicioEmpresario />
           </Route>
           <Route path="/misServicios" exact>
-            <MisServicios />
+            <MisServiciosEmpresario />
           </Route>
         
           <Route path="/eventosAsignados" exact>
@@ -92,7 +100,17 @@ function RoutesPrivate({ setAuth }) {
       ) : (
             <>
               <Route path="/" exact>
-                <h1>Admin Home</h1>
+                  <HomeAdministrador/>
+              </Route>
+            
+              <Route path="/gestionServicios" exact>
+                  <GestionServicios/>
+              </Route>
+              <Route path="/crearTipoServicio" exact>
+                  <CrearTipoServicio/>
+              </Route>
+              <Route path="/editarTipoServicio" exact>
+                  <EditarTipoServicio/>
               </Route>
             </>
           )}

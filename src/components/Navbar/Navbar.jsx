@@ -149,10 +149,12 @@ export default function Navbar({ role, setAuth }) {
                 title={"@" + token.decodeJWT().username}
                 className="menuItem"
               >
-                <Divider />
 
                 <Menu.Item>
-                  <Link to="/agregarServicios">Gestionar</Link>
+                  <Link to="/gestiosRoles">Gestionar Rol</Link>
+                </Menu.Item>
+                <Menu.Item>
+                  <Link to="/gestionServicios">Gestionar Servicio</Link>
                 </Menu.Item>
 
                 <Divider />

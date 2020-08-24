@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react'
-import { Col, Row } from 'antd'
+import { Col } from 'antd'
 import CardMisEventos from "../MisEventos/CardMisEventos/CardMisEventos";
 import CardServicios from "../../Home/CardServicio/CardServicio.jsx";
 import Api from "./../../../../../common/api/api";
@@ -23,7 +23,23 @@ export default function InfEvento() {
           }
         };
         dataEvent(); // trae los tipos que se muestran en el select
+
+        console.log("-->"+id)
+        const dataServicio = async () => {
+          const result = await Api.get("eventService/all", {idEvent:id} ); // llamado a la API
+          console.log(result.data.result)
+          if (result.status === 200) {
+            /// 200 cuando es GET, cuando es POST es -> 201 / 200 = OK
+            setServicio(result.data.result); /// guardo el data en el estado / comprobar si esta en data o en otro objeto
+            
+          }
+        };
+        dataServicio(); // trae los tipos que se muestran en el select
+        console.log("X>", servicio)
       }, []);
+
+
+   
 
     return (
         <Col lg={{ span: 18, offset: 3 }} className="infEvento">
@@ -34,7 +50,12 @@ export default function InfEvento() {
              
             <br />
             <h3>Servicios Agregados</h3>
-
+            {
+              servicio && (
+                servicio.map((value)=>{
+                   return <CardServicios id={value.id} state={true} data={value.service}/>
+                }))
+            }
 
         </Col>
     )

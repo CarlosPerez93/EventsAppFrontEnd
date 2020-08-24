@@ -3,10 +3,12 @@ import { Col, Button, Row } from "antd";
 import { PlusOutlined } from "@ant-design/icons";
 import "./MisEventos.css";
 import CardMisEventos from "./CardMisEventos/CardMisEventos";
+
 import { Link } from "react-router-dom";
 import { useEffect } from "react";
 import Api from "./../../../../../common/api/api";
 import Token from "./../../../../../localstorage/token";
+import SinEventos from "./SinEventos/SinEventos";
 
 export default function MisEventos() {
   const [events, setEvents] = useState(null);
@@ -21,44 +23,50 @@ export default function MisEventos() {
       }
     };
     apiData();
-  });
+  }, []);
+  if (events){
+    return (
 
-  return (
-    <Col
-      lg={{ span: 18, offset: 3 }}
-      xs={{ span: 18, offset: 3 }}
-      className="MisEventos"
-    >
-      <h1>Mis Eventos</h1>
-      <Col lg={{ span: 4, offset: 18 }}>
-        <Link to="/gestionarEvento">
-          <Button
-            icon={<PlusOutlined />}
-            type="primary"
-            shape="round"
-            size="large"
-            style={{ backgroundColor: "#8063FF" }}
-          >
-            Nuevo Evento
-          </Button>
-        </Link>
+    
+      <Col
+        lg={{ span: 18, offset: 3 }}
+        xs={{ span: 18, offset: 3 }}
+        className="MisEventos"
+      >
+        <h1>Mis Eventos</h1>
+        <Col lg={{ span: 4, offset: 18 }}>
+          <Link to="/gestionarEvento">
+            <Button
+              icon={<PlusOutlined />}
+              type="primary"
+              shape="round"
+              size="large"
+              style={{ backgroundColor: "#8063FF" }}
+            >
+              Nuevo Evento
+            </Button>
+          </Link>
+        </Col>
+  
+        <Row>
+  
+          {events !== null ? (
+            events.map((event, index) => {
+              return (
+                <Col key={index} lg={{ span: 6, offset: 1 }} xs={{ span: 6, offset: 2 }}>
+                  <CardMisEventos data={event} />
+                </Col>
+              )
+            })
+          ) : (
+              <></>
+            )}
+  
+        </Row>
       </Col>
-
-      <Row>
-
-        {events !== null ? (
-          events.map((event, index) => {
-            return (
-              <Col lg={{ span: 6, offset: 1 }} xs={{ span: 6, offset: 2 }}>
-                <CardMisEventos data={event} />
-              </Col>
-            )
-          })
-        ) : (
-            <></>
-          )}
-
-      </Row>
-    </Col>
-  );
+    );
+  }else{
+    return <SinEventos/>
+  }
+  
 }

@@ -49,7 +49,7 @@ export default function MisServicios() {
         {services !== null ? (
           services.map((service, index) => {
             return (
-              <Col lg={{ span: 7, offset: 1 }} xs={{ span: 6, offset: 2 }}>
+              <Col lg={{ span: 7, offset: 1 }} xs={{ span: 22, offset: 1 }}>
                 <CardMisServicios data={service} />
               </Col>
             )

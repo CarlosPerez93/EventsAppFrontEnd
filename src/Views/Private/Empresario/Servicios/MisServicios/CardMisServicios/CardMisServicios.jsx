@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom'
 export default function CardMisServicios({ data }) {
     return (
         <Card className="cardServicio" hoverable style={{ backgroundColor: "#F2EFFF", marginTop: "5%" }}>
-            <Col lg={{ span: 24, offset: 0 }} style= {{ marginBottom:"35%",height:250, textAlign: "left", justifyContent: "flex-start" }}>
+            <Col lg={{ span: 24, offset: 0 }} xs={{span: 22, offset: 1}} style= {{ marginBottom:"10%", textAlign: "left", justifyContent: "flex-start" }}>
                 <Row justify="center">
                     <img alt="" src="./calendario.png" style={{ width: "60%", marginBottom: "10px" }} />
                 </Row>
@@ -18,12 +18,11 @@ export default function CardMisServicios({ data }) {
                 <p><strong>Presio :  </strong> $ {data.prise} </p>
    
             </Col>
-            <Col lg={{ span: 6, offset: 18 }}>
+            <Row justify="end">
                 <Link to="/eventosAsignados">
-
                     <Button icon={<EditFilled />} type="primary" shape="round" size="large" style={{ backgroundColor: "#8063FF", border: "none" }} />
                 </Link>
-            </Col>
+            </Row>
         </Card>
     )
 }

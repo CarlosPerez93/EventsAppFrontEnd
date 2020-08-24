@@ -2,61 +2,33 @@ import React, { useState, useEffect } from "react";
 import "./EventosAsignados.css";
 import { Select, Form, Col, Row } from "antd";
 import api from "../../../../../common/api/api";
-
+import CardEvento from "../CardEvento/CardEvento";
+import Token from "../../../../../localstorage/token";
 
 export default function EventosAsognados() {
-
-  const [tipoEvento, setTipoEvento] = useState(null);
-
-
+  const [events, setEvents] = useState(null);
 
   useEffect(() => {
     const apidata = async () => {
-      const resultado = await api.get("event/types");
-      setTipoEvento(resultado.data);
-      console.log(resultado);
+      const id = Token.decodeJWT().id;
+      const resultado = await api.get("eventService/all/event", { id });
+      setEvents(resultado.data);
     };
     apidata();
   }, []);
 
   return (
     <Col lg={{ span: 18, offset: 3 }} className="mainEventosAdquiridos">
-
       <h1>Eventos Asignados</h1>
-      <Col lg={{ span: 10 }}>
-        <Form.Item name={["user", "tipoEvento"]} >
-          <Select placeholder="Filtar eventos" style={{ textAlign: "center", width: "50%", }}>
-            {tipoEvento !== null ? (
-              <>
-                {tipoEvento.map((type, index) => {
-                  return (
-                    <Select.Option value={type.id} key={index}>
-                      {type.name}
-                    </Select.Option>
-                  );
-                })}
-              </>
-            ) : (
-                <></>
-              )}
-          </Select>
-        </Form.Item>
-      </Col>
-
       <Row>
-
-        {/* {events !== null ? (
-          events.map((event, index) => {
+        {events &&
+          events.map((event) => {
             return (
-              <Col lg={{ span: 6, offset: 1 }} xs={{ span: 6, offset: 2 }}>
-                <CardMisEventos data={event} />
+              <Col lg={{ span: 6, offset: 1 }} key={event.id}>
+                <CardEvento data={event} />
               </Col>
-            )
-          })
-        ) : (
-            <></>
-          )} */}
-
+            );
+          })}
       </Row>
     </Col>
   );

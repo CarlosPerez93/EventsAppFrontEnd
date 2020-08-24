@@ -1,12 +1,18 @@
-.mainContenedores{
+.mainContenedores {
     display: flex;
     justify-content: space-around;
     text-align: center;
- 
+
 }
-.mainEventosAdquiridos{
+
+.mainEventosAdquiridos {
     padding: 3%;
 }
-.mainEventosAdquiridos h1{
+
+.mainEventosAdquiridos h1 {
     color: blueviolet;
+}
+
+p {
+    padding-bottom: 4px !important;
 }

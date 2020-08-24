@@ -24,6 +24,20 @@ export default function CardEvento({ data }) {
     }
   };
 
+  const handleDelete = async () => {
+    const result =  await Api.post("eventService/delete", {
+     id: data.id,
+   });
+    if (result.status === 201) {
+     message.success("Se ha eliminado correctamente");
+     window.location.reload();
+   } else {
+     message.error("Ups! Hubo un error");
+   }
+ };
+
+ 
+
   return (
     <Card style={{ width: "100%" }} hoverable>
       <Row justify="center">
@@ -59,6 +73,7 @@ export default function CardEvento({ data }) {
           </Col>
           <Col lg={6} xs={12}>
             <Button
+            onClick={handleDelete}
               type="primary"
               shape="circle"
               icon={<CloseOutlined />}

@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { Route } from "react-router-dom";
 import HomeAdministrador from "./Admin/HomeAdmin/HomeAdmin";
+import GestionRoles from "./Admin/GestionRoles/GestionRolEmpresario/GestionRoles";
+import GestionRolCliente from "./Admin/GestionRoles/GestionRolCliente/GestionRolCliente"
 import GestionServicios from "./Admin/GestionServicios/GestionServicios"
 import CrearTipoServicio from "./Admin/GestionServicios/CrearTipoServicio/CrearTipoServicio";
 import EditarTipoServicio from "./Admin/GestionServicios/EditarTipoServicio/EditarTipoServicio";
@@ -57,16 +59,16 @@ function RoutesPrivate({ setAuth }) {
           <Route path="/sinEventos" exact>
             <SinEventos />
           </Route>
-        
+
 
           <Route path="/servicios" exact>
             <ServiciosCliente />
           </Route>
-    
+
           <Route path="/infoEmpresario/:id" exact>
             <PerfilInfo />
           </Route>
-         
+
 
 
 
@@ -91,7 +93,7 @@ function RoutesPrivate({ setAuth }) {
           <Route path="/misServicios" exact>
             <MisServiciosEmpresario />
           </Route>
-        
+
           <Route path="/eventosAsignados" exact>
             <EventosAsignadosEmpresario />
 
@@ -100,17 +102,23 @@ function RoutesPrivate({ setAuth }) {
       ) : (
             <>
               <Route path="/" exact>
-                  <HomeAdministrador/>
+                <HomeAdministrador />
               </Route>
-            
+
               <Route path="/gestionServicios" exact>
-                  <GestionServicios/>
+                <GestionServicios />
               </Route>
               <Route path="/crearTipoServicio" exact>
-                  <CrearTipoServicio/>
+                <CrearTipoServicio />
               </Route>
               <Route path="/editarTipoServicio" exact>
-                  <EditarTipoServicio/>
+                <EditarTipoServicio />
+              </Route>
+              <Route path="/gestionRoles" exact>
+                <GestionRoles/>
+              </Route>
+              <Route path="/gestionRolCliente" exact>
+                <GestionRolCliente/>
               </Route>
             </>
           )}

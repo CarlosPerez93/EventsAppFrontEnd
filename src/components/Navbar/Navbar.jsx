@@ -151,7 +151,10 @@ export default function Navbar({ role, setAuth }) {
               >
 
                 <Menu.Item>
-                  <Link to="/gestiosRoles">Gestionar Rol</Link>
+                  <Link to="/gestionRoles">Gestionar Rol empresario</Link>
+                </Menu.Item>
+                <Menu.Item>
+                  <Link to="/gestionRolCliente">Gestionar Rol cliente</Link>
                 </Menu.Item>
                 <Menu.Item>
                   <Link to="/gestionServicios">Gestionar Servicio</Link>

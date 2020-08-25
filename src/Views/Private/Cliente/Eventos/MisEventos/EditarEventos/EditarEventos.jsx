@@ -16,10 +16,10 @@ import { useEffect } from "react";
 import Api from "../../../../../../common/api/api" ;
 import { useState } from "react";
 import { useHistory, useParams } from "react-router-dom";
-import token from "../../../../../../localstorage/token";
 
-const { TextArea } = Input;
-export default function CrearEventos() {
+
+
+export default function EditarEventos() {
     const [types, setTypes] = useState(null);
     const [eventos, setEventos] = useState(null);
     const [date, setDate] = useState(null);
@@ -31,19 +31,15 @@ export default function CrearEventos() {
         }else{
             evento.startDate = date;
         }
-        evento.id = eventos.id;
-        
-        const result = await Api.post("event/upload", evento);
-        
+        evento.id = eventos.id;     
+        const result = await Api.post("event/upload", evento);    
         if (result.status === 201) {
             // la operacion se realizado 201 = OK
             message.success("Se ha actualizado correctamente");
             history.push("/misEventos");
         } else {
             message.error("No se ha actualizado ");
-
         }
-
         console.log(evento);
     };
 

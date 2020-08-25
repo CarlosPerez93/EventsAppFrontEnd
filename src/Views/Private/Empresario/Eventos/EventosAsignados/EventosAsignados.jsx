@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./EventosAsignados.css";
-import { Select, Form, Col, Row } from "antd";
+import { Col, Row } from "antd";
 import api from "../../../../../common/api/api";
 import CardEvento from "../CardEvento/CardEvento";
 import Token from "../../../../../localstorage/token";

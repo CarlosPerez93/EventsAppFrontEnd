@@ -1,13 +1,13 @@
 import React from "react";
 import { Card, Row, Col, Button, message } from "antd";
-import { PlusOutlined, CloseOutlined, CheckOutlined } from "@ant-design/icons";
+import {  CloseOutlined, CheckOutlined } from "@ant-design/icons";
 import Api from "../../../../../common/api/api";
 import { useHistory } from "react-router-dom";
-import { useEffect } from "react";
+
 
 export default function CardEvento({ data }) {
 
-    const history = useHistory();
+   
 
  
 
@@ -41,7 +41,7 @@ export default function CardEvento({ data }) {
   return (
     <Card style={{ width: "100%" }} hoverable>
       <Row justify="center">
-        <img src="/calendario.png" style={{ width: 140, height: 140 }} />
+        <img src="/calendario.png" alt="img" style={{ width: 140, height: 140 }} />
       </Row>
       <p style={{ fontSize: "1em" }}>
         <strong>Id :</strong> {data.id}

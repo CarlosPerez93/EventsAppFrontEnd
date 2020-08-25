@@ -2,9 +2,13 @@ import React, { useState } from 'react'
 import { Col, Form, Input, Upload, message, Button } from 'antd'
 import { LoadingOutlined, PlusOutlined } from '@ant-design/icons';
 import "./CrearTipoServicio.css"
+import { useHistory } from "react-router-dom";
+import Api from "../../../../../common/api/api"
+import token from "../../../../../localstorage/token"
 export default function CrearTipoServicio() {
     const { TextArea } = Input;
     const [loading, setLoading] = useState(false);
+    const history = useHistory();
     function getBase64(img, callback) {
         const reader = new FileReader();
         reader.addEventListener('load', () => callback(reader.result));
@@ -39,6 +43,7 @@ export default function CrearTipoServicio() {
         }
     };
 
+
     const uploadButton = (
         <div>
             {loading ? <LoadingOutlined /> : <PlusOutlined />}
@@ -46,26 +51,42 @@ export default function CrearTipoServicio() {
         </div>
     );
     const { imageUrl } = loading;
+
+    const onFinish = async ({ service }) => {
+        service.imagen = " ";
+       
+        const result = await Api.post("service/types/create", service);
+        if (result.status === 201) {
+          // la operacion se realizado 201 = OK
+          message.success("Se ha realizado correctamente el registro");
+          history.push("/editarTipoServicio");
+        }else{
+          message.success("No se ha realizado registro");
+    
+        }
+    
+        console.log(service);
+      };
     return (
         <Col lg={{ span: 18, offset: 3 }} xs={{ span: 18, offset: 3 }} style={{ marginTop: "3%" }}>
             <h1>Crear tipo de servicio</h1>
             <hr />
-            <Form style={{ width: "50%", display: "flex", padding: "8%" }}>
+            <Form onFinish={onFinish} style={{ width: "50%", display: "flex", padding: "8%" }}>
 
                 <Col lg={{ span: 24, offset: 2 }} xs={{ span: 10, offset: 2 }}  >
                     <label>Nombre</label>
-                    <Form.Item name={["", ""]}>
+                    <Form.Item name={["service", "name"]}>
                         <Input />
                     </Form.Item>
 
                     <label >Descripción</label>
-                    <Form.Item name={["", "description"]}>
+                    <Form.Item name={["service", "description"]}>
                         <TextArea rows={5} />
                     </Form.Item>
                 </Col>
                 <Col lg={{ span: 24, offset: 8 }} xs={{ span: 24, offset: 8 }}  >
                     <label >Subir foto</label>
-                    <Form.Item name={["", "description"]}>
+                    <Form.Item name={["", ""]}>
 
                         <Upload
                             name="avatar"

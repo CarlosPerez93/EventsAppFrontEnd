@@ -1,10 +1,18 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Col, Form, Input, Upload, message, Button } from 'antd'
 import { LoadingOutlined, PlusOutlined } from '@ant-design/icons';
 import "./EditarTipoServicio.css"
+import  moment  from "moment"
+import Api from "../../../../../common/api/api"
+import { useHistory, useParams } from "react-router-dom";
+
 export default function EditarTipoServicio() {
     const { TextArea } = Input;
     const [loading, setLoading] = useState(false);
+    const  [servicio, setServicio] = useState(null);
+    const history = useHistory();
+    const { id } = useParams();
+
     function getBase64(img, callback) {
         const reader = new FileReader();
         reader.addEventListener('load', () => callback(reader.result));
@@ -46,26 +54,58 @@ export default function EditarTipoServicio() {
         </div>
     );
     const { imageUrl } = loading;
-    return (
-        <Col lg={{ span: 18, offset: 3 }} xs={{ span: 18, offset: 3 }} style={{ marginTop: "3%" }}>
-            <h1>Crear tipo de servicio</h1>
+
+
+    useEffect(()=>{
+        const dataTipeService = async () => {
+            const result = await Api.get("service/type", {id});
+            console.log("--X", result)
+            if (result.status=== 200){
+                setServicio(result.data);
+            }
+        }   
+        dataTipeService();
+
+    }, []);
+    
+    const onFinish = async ({ service }) => {
+      
+        service.id = servicio.id;
+        
+        const result = await Api.post("service/types/upload", service);
+        
+        if (result.status === 201) {
+            // la operacion se realizado 201 = OK
+            message.success("Se ha actualizado correctamente");
+            history.push("/gestionServicios");
+        } else {
+            message.error("No se ha actualizado ");
+
+        }
+        console.log(service);
+    };
+    if(servicio){
+
+        return (
+            <Col lg={{ span: 18, offset: 3 }} xs={{ span: 18, offset: 3 }} style={{ marginTop: "3%" }}>
+            <h1>Editar tipo de servicio</h1>
             <hr />
-            <Form style={{ width: "50%", display: "flex", padding: "8%" }}>
+            <Form onFinish={onFinish} style={{ width: "50%", display: "flex", padding: "8%" }}>
 
                 <Col lg={{ span: 24, offset: 2 }} xs={{ span: 10, offset: 2 }}  >
                     <label>Nombre</label>
-                    <Form.Item name={["", ""]}>
+                    <Form.Item initialValue={servicio.name}  name={["service", "name"]}>
                         <Input />
                     </Form.Item>
 
                     <label >Descripción</label>
-                    <Form.Item name={["", "description"]}>
+                    <Form.Item initialValue={servicio.description} name={["servicio", "description"]}>
                         <TextArea rows={5} />
                     </Form.Item>
                 </Col>
                 <Col lg={{ span: 24, offset: 8 }} xs={{ span: 24, offset: 8 }}  >
                     <label >Subir foto</label>
-                    <Form.Item name={["", "description"]}>
+                    <Form.Item initialValue={servicio.imagen} name={["service", "imagen"]}>
 
                         <Upload
                             name="avatar"
@@ -75,7 +115,7 @@ export default function EditarTipoServicio() {
                             action="https://www.mocky.io/v2/5cc8019d300000980a055e76"
                             beforeUpload={beforeUpload}
                             onChange={handleChange}
-                        >
+                            >
                             {imageUrl ? <img src={imageUrl} alt="avatar" style={{ width: '100%' }} /> : uploadButton}
                         </Upload>
 
@@ -90,4 +130,7 @@ export default function EditarTipoServicio() {
 
         </Col>
     )
+}else{
+    return <h1>no se cargaron datos</h1>
+}
 }

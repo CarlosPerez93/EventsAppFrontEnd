@@ -59,13 +59,6 @@ export const RegistrationForm = () => {
     }
   };
 
-
-
-
-
-
-
-
   return (
     <div className="mainRegistre">
         <div  className="container">
@@ -109,8 +102,6 @@ export const RegistrationForm = () => {
               </Form.Item>
               <Form.Item className="contItem"
                 name={["user", "username"]}
-
-
                 rules={[
                   {
                     required: true,

@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react'
 import { Col, Form, Input, Upload, message, Button } from 'antd'
 import { LoadingOutlined, PlusOutlined } from '@ant-design/icons';
 import "./EditarTipoServicio.css"
-import  moment  from "moment"
 import Api from "../../../../../common/api/api"
 import { useHistory, useParams } from "react-router-dom";
 
@@ -66,7 +65,7 @@ export default function EditarTipoServicio() {
         }   
         dataTipeService();
 
-    }, []);
+    }, [id]);
     
     const onFinish = async ({ service }) => {
       

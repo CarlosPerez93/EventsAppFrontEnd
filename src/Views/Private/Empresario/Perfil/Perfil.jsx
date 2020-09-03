@@ -30,7 +30,7 @@ export default function Perfil() {
             }
         };
         dataService();
-    }, []);
+    }, [id]);
 
     if (user !== null) {
 

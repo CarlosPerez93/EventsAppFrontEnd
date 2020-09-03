@@ -34,7 +34,7 @@ export default function PerfilInfo() {
             console.log("result: ", result.data)
         };
         dataService(); // trae los tipos que se muestran en el select
-    }, []);
+    }, [id]);
     if (user !== null) {
         return (
             <Col lg={{ span: 18, offset: 3 }} className="perfilInfo" >

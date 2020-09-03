@@ -62,7 +62,7 @@ export default function EditarEventos() {
             }
         };
         dataEvent(); // trae los tipos que se muestran en el select
-    }, []);
+    }, [id]);
 
     if (eventos ) {
 

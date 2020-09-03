@@ -2,7 +2,7 @@ import React from "react";
 import { Card, Row, Col, Button, message } from "antd";
 import {  CloseOutlined, CheckOutlined } from "@ant-design/icons";
 import Api from "../../../../../common/api/api";
-import { useHistory } from "react-router-dom";
+
 
 
 export default function CardEvento({ data }) {

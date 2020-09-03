@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react'
-import { Card, Button, Col, Row } from 'antd'
+import React from 'react'
+import { Card, Button, Col} from 'antd'
 import { EditFilled } from '@ant-design/icons'
 import { Link } from 'react-router-dom'
 

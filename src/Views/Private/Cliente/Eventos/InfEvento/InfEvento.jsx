@@ -36,7 +36,7 @@ export default function InfEvento() {
         };
         dataServicio(); // trae los tipos que se muestran en el select
         console.log("X>", servicio)
-      }, []);
+      }, [id, servicio]);
 
 
    

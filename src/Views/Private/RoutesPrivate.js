@@ -114,7 +114,7 @@ function RoutesPrivate({ setAuth }) {
               <Route path="/editarTipoServicio" exact>
                 <EditarTipoServicio />
               </Route>
-              <Route path="/gestionRoles" exact>
+              <Route path="/gestionRolEmpresario" exact>
                 <GestionRoles/>
               </Route>
               <Route path="/gestionRolCliente" exact>

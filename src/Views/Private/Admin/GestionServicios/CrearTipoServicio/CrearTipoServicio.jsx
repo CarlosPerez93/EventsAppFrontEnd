@@ -4,7 +4,7 @@ import { LoadingOutlined, PlusOutlined } from '@ant-design/icons';
 import "./CrearTipoServicio.css"
 import { useHistory } from "react-router-dom";
 import Api from "../../../../../common/api/api"
-import token from "../../../../../localstorage/token"
+
 export default function CrearTipoServicio() {
     const { TextArea } = Input;
     const [loading, setLoading] = useState(false);

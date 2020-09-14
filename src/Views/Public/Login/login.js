@@ -87,7 +87,7 @@ export default function Login({setAuth}){
             <br />
           </Form.Item>
           <div className="link">
-            <Link to="/registre"> O registrate ahora! 
+            <Link to="/register"> O registrate ahora! 
             </Link>
             <Link to="/" className="login-form-forgot"> 
                 Olvido su Contraseña? 

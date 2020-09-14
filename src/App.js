@@ -5,6 +5,7 @@ import RoutesPrivate from "./Views/Private/RoutesPrivate";
 import RoutesPublic from "./Views/Public/RoutesPublic";
 import { BrowserRouter as Router } from "react-router-dom";
 
+
 function App() {
   const [auth, setAuth] = useState(false);
 

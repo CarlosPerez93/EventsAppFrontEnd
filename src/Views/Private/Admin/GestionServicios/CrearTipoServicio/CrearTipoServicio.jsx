@@ -59,7 +59,7 @@ export default function CrearTipoServicio() {
         if (result.status === 201) {
           // la operacion se realizado 201 = OK
           message.success("Se ha realizado correctamente el registro");
-          history.push("/editarTipoServicio");
+          history.push("/gestionServicios");
         }else{
           message.success("No se ha realizado registro");
     

@@ -78,11 +78,11 @@ export default function Navbar({ role, setAuth }) {
 
               <SubMenu title={"@" + token.decodeJWT().username}>
               <Menu.Item>
-                  <Link to="/misEventos">Mis Eventos</Link>
+                  <Link to="/misEventos">Mis eventos</Link>
                 </Menu.Item>
                 <Divider/>
                 <Menu.Item onClick={logout}>
-                  <Link to="/">Cerrar Sesion</Link>
+                  <Link to="/">Cerrar sesion</Link>
                 </Menu.Item>
               </SubMenu>
             </Menu>
@@ -108,20 +108,20 @@ export default function Navbar({ role, setAuth }) {
               >
 
                 <Menu.Item>
-                  <Link to="/agregarServicios">Agregar Servicios</Link>
+                  <Link to="/agregarServicios">Agregar servicios</Link>
                 </Menu.Item>
                 
                 <Menu.Item>
-                  <Link to="/misServicios">Mis Servicios</Link>
+                  <Link to="/misServicios">Mis servicios</Link>
                 </Menu.Item>
 
                 <Menu.Item>
-                  <Link to="/eventosAsignados">Asignación de ventos</Link>
+                  <Link to="/eventosAsignados">Asignación de eventos</Link>
                 </Menu.Item>
 
                 <Divider />
                 <Menu.Item>
-                  <Link to="/perfil">Mi Perfil</Link>
+                  <Link to="/perfil">Mi perfil</Link>
                 </Menu.Item>
 
                 <Divider />
@@ -142,7 +142,7 @@ export default function Navbar({ role, setAuth }) {
             <Menu mode="horizontal" className="menu">
             
               <Menu.Item icon={<HomeOutlined />} className="menuItem">
-                <Link to="/">Inicio Administrador</Link>
+                <Link to="/">Inicio administrador</Link>
               </Menu.Item>
 
               <SubMenu
@@ -151,13 +151,16 @@ export default function Navbar({ role, setAuth }) {
               >
 
                 <Menu.Item>
-                  <Link to="/gestionRolEmpresario">Gestionar Rol empresario</Link>
+                  <Link to="/gestionRoles">Gestionar roles</Link>
                 </Menu.Item>
                 <Menu.Item>
-                  <Link to="/gestionRolCliente">Gestionar Rol cliente</Link>
+                  <Link to="/gestionRolEmpresario">Gestionar rol empresario</Link>
                 </Menu.Item>
                 <Menu.Item>
-                  <Link to="/gestionServicios">Gestionar Servicio</Link>
+                  <Link to="/gestionRolCliente">Gestionar rol cliente</Link>
+                </Menu.Item>
+                <Menu.Item>
+                  <Link to="/gestionServicios">Gestionar servicio</Link>
                 </Menu.Item>
 
                 <Divider />

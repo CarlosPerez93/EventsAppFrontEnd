@@ -6,7 +6,6 @@ import {
     Row,
     Button,
     DatePicker,
-
     Select,
     message,
     Card,
@@ -71,12 +70,12 @@ export default function EditarEventos() {
             <Col
                 lg={{ span: 12, offset: 6 }}
                 xs={{ span: 20, offset: 2 }}
-                style={{ paddingTop: 30 }}
+                style={{ paddingTop: 30}}
                 className="eventos-create"
             >
                 <Card>
                     <Col lg={{ span: 20, offset: 2 }} xs={{ span: 22, offset: 1 }}>
-                        <h4 style={{ textAlign: "center", fontWeight: "bold", fontSize: 20 }}>Registro de evento</h4>
+                        <h4 style={{ textAlign: "center", fontWeight: "bold", fontSize: 20}}>Registro de evento</h4>
                         <hr />
                         <Form onFinish={onFinish}>
                             <Row>

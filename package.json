@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@ant-design/icons": "^4.2.1",
+    "@react-pdf/renderer": "^1.6.11",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
@@ -11,13 +12,17 @@
     "antd-img-crop": "^3.9.0",
     "axios": "^0.19.2",
     "i": "^0.3.6",
+    "jspdf": "^2.1.1",
+    "jspdf-autotable": "^3.5.10",
     "jwt-decode": "^2.2.0",
     "moment": "^2.27.0",
     "npm": "^6.14.7",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-pdf": "^5.0.0",
     "react-router-dom": "^5.2.0",
-    "react-scripts": "^3.4.3"
+    "react-scripts": "^3.4.3",
+    "react-to-print": "^2.10.0"
   },
   "scripts": {
     "start": "react-scripts start",

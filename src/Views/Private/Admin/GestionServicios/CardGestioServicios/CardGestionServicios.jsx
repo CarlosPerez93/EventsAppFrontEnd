@@ -12,7 +12,7 @@ export default function CardGestionServicios({ data }) {
 
     return (
         
-        <Card hoverable style={{ backgroundColor: "#F2EFFF", paddingTop: "0%", textAlign: "center" }}>
+        <Card hoverable style={{ backgroundColor: "#F2EFFF",  height:"250px", textAlign: "center", marginBottom:"10%" }}>
             <Col lg={{span:24, offset:0}}>
             <Link to="/editarTipoServicio" >
                 <Button
@@ -24,12 +24,12 @@ export default function CardGestionServicios({ data }) {
                         {
                             backgroundColor: "#63FF95",
                             border: "none",
-                            position: "absolute",
-                            marginLeft: "325px"
+                            position: "absolute"
+                            
                         }} />
             </Link>
 
-                <img src={`./${data.name}.jpg`} alt="img" width="100%" />
+                <img src={`./${data.name}.jpg`} alt="img" width="100%" height="150px" />
                 <h6 style={{fontSize:"20px"}}>{data.name}</h6>
             </Col>
 

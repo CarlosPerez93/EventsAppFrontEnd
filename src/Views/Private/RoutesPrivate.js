@@ -1,7 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { Route } from "react-router-dom";
 import HomeAdministrador from "./Admin/HomeAdmin/HomeAdmin";
+import PDF1 from "../../components/ReportPDF/BtonReportepdf/pdf"
 import GestionRoles from "./Admin/GestionRoles/GestionRolEmpresario/GestionRoles";
+import CrearRol from "./Admin/GestionRoles/CrearRol/CrearRol";
+import GestionRolesMain from "./Admin/GestionRoles/GestionRolesMain";
 import GestionRolCliente from "./Admin/GestionRoles/GestionRolCliente/GestionRolCliente"
 import GestionServicios from "./Admin/GestionServicios/GestionServicios"
 import CrearTipoServicio from "./Admin/GestionServicios/CrearTipoServicio/CrearTipoServicio";
@@ -114,11 +117,20 @@ function RoutesPrivate({ setAuth }) {
               <Route path="/editarTipoServicio" exact>
                 <EditarTipoServicio />
               </Route>
+              <Route path="/gestionRoles" exact>
+                <GestionRolesMain/>
+              </Route>
+              <Route path="/crearRol" exact>
+                <CrearRol/>
+              </Route>
               <Route path="/gestionRolEmpresario" exact>
                 <GestionRoles/>
               </Route>
               <Route path="/gestionRolCliente" exact>
                 <GestionRolCliente/>
+              </Route>
+              <Route path="/reporte-PDF" exact>
+                <PDF1/>
               </Route>
             </>
           )}

@@ -97,13 +97,13 @@ export const RegistrationForm = () => {
             </div>
 
             <div className="intems">
-              <Form.Item className="contItem" name={["user", "email"]} className="contItem">
+              <Form.Item className="contItem" name={["user", "email"]}>
                 <Input className="Input" placeholder="E-mail" />
               </Form.Item>
               <Form.Item className="contItem"
                 name={["user", "username"]}
                 rules={[
-                  {
+                  { 
                     required: true,
                     message: "por favor ingrese nombre de usuario!",
                     whitespace: true,
@@ -201,7 +201,7 @@ export const RegistrationForm = () => {
             </div>
           </Form>
           <div className="contCarousel">
-            <img className="img" src={img1} />
+            <img className="img" src={img1} alt="img" />
         
             <h3>Confia en nosotros para todos tus eventos!</h3>
           </div>

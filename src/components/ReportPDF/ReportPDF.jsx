@@ -42,8 +42,8 @@ export default function ReportPDF() {
                      reporteClientes !== null ? (
                          reporteClientes.map((reportC, index)=>{
                              return(
-                                 <Col >
-                                    <CardReporteClientes data={reportC} key={index} />
+                                 <Col  key={index}>
+                                    <CardReporteClientes data={reportC} />
                                    <br/>
                                  </Col>
                              )
@@ -55,8 +55,8 @@ export default function ReportPDF() {
                      reporteEmpresa!== null ? (
                          reporteEmpresa.map((reportE, index1)=>{
                              return(
-                                 <Col>
-                                    <CardReporteEmpresas data={reportE} key={index1} />
+                                 <Col  key={index1}>
+                                    <CardReporteEmpresas data={reportE} />
                                     <br/>
                                  </Col>
                              )

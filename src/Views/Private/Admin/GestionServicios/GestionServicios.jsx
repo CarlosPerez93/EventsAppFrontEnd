@@ -36,8 +36,8 @@ export default function GestionServicios() {
                         services !== null ? (
                             services.map((service, index) => {
                                 return (
-                                    <Col lg={{span:10,offset:1}}>
-                                    <CardGestionServicios data={service} key={index} />
+                                    <Col lg={{span:10,offset:1}} key={index}>
+                                    <CardGestionServicios data={service}  />
                                     </Col>
 
                                 )

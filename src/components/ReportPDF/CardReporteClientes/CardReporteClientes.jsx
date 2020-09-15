@@ -1,6 +1,6 @@
 import React from 'react'
 import { Col, Card, Row } from 'antd'
-import BtnReporte from "../BtonReportepdf/BtonReportepdf"
+
 
 
 export default function CardReporteClientes({ data }) {
@@ -37,7 +37,7 @@ export default function CardReporteClientes({ data }) {
                 data !== null ? (
                     data.events.map((reportE, index1) => {
                         return (
-                            <Row>
+                            <Row key={index1}>
 
                                 <Col lg={{ span: 8, offset: 0 }} style={{ textAlign: "justifity", justifyContent: "center", alignItems: "center" }}>
 
@@ -58,7 +58,7 @@ export default function CardReporteClientes({ data }) {
                 ) : (<></>)
             }
 
-            <BtnReporte/>
+          
         </Card>
 
     )

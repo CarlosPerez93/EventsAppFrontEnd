@@ -31,7 +31,7 @@ export default function CardReporteEmpresa({data}) {
             data !== null ? (
                 data.services.map((reportE, index1) => {
                     return (
-                        <Row>
+                        <Row key={index1}>
                             
                             <Col lg={{ span:12, offset: 0 }} style={{ textAlign: "center", justifyContent:"center", alignItems:"center" }}>
 

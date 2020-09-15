@@ -2,6 +2,7 @@ import React from 'react'
 import { Col, Row, Card } from 'antd'
 import { Link } from 'react-router-dom'
 import ReportePDF from "../../../../components/ReportPDF/ReportPDF"
+import BtnReportes from "../../../../components/ReportPDF/BtonReportepdf/BtonReportepdf"
 export default function HomeAdmin({data}) {
    
     return (
@@ -28,6 +29,7 @@ export default function HomeAdmin({data}) {
                 
            </Row>
             <ReportePDF  />
+            <BtnReportes/>
             
        </Col>
     )

@@ -153,17 +153,17 @@ export const RegistrationForm = () => {
             <div className="intemsCheck">
               
             <Form.Item name={["user", "role"]} className="check">
-                  <Select placeholder="tipo usuario" className="select">
+                  <Select placeholder="tipo usuario" className="select" >
                       {
                         roles!==null ? (
                          <>
                             {
                                roles.map((role, index)=>{
-                                 if(role.id!==3 && role.id!==4){
+                                 if(role.id!==3 && role.id!==4 && role.id!==5 && role.id!==7 && role.id!==6){
 
                                    return(
    
-                                     <Select.Option value={role.id} key={index}>
+                                     <Select.Option value={role.id}  key={index}>
                                        {role.name}
                                      </Select.Option>
                                    )
@@ -193,10 +193,10 @@ export const RegistrationForm = () => {
               Tienes cuenta?
           <Link to="/login">
                 {" "}
-                <a href="">
+           
                   {" "}
                   <samp className="a"> Ingresar </samp>{" "}
-                </a>
+          
               </Link>
             </div>
           </Form>

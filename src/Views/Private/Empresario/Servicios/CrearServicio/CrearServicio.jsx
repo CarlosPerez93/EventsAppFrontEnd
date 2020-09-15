@@ -23,7 +23,7 @@ export default function CrearServicio() {
   const history = useHistory();
 
   const onFinish = async ({ servicio }) => {
-    servicio.imagen = " ";
+    servicio.imagen = "";
     servicio.empresa = await token.decodeJWT().id; // saco el id del token, lo decofico con el metodo que ya existe
     const result = await Api.post("service/create", servicio);
     if (result.status === 201) {
@@ -98,7 +98,7 @@ export default function CrearServicio() {
             <label>Precio</label>
             <Form.Item name={["servicio", "prise"]}>
               <InputNumber
-                defaultValue={1000}
+                initialValues={1000}
                 formatter={value => `$ ${value}`.replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
                 parser={value => value.replace(/\$\s?|(,*)/g, '')}
                 onChange={onChange}

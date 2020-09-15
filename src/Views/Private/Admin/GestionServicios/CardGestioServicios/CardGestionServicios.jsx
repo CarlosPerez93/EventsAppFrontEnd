@@ -30,7 +30,7 @@ export default function CardGestionServicios({ data }) {
             </Link>
 
                 <img src={`./${data.name}.jpg`} alt="img" width="100%" height="150px" />
-                <h6 style={{fontSize:"20px"}}>{data.name}</h6>
+                <h6 style={{fontSize:"20px"}}>{data.name} </h6>
             </Col>
 
 

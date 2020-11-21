@@ -1,23 +1,14 @@
 import React from "react";
-import { Menu,  Divider } from "antd";
+import { Menu, Divider, Col } from "antd";
 import { Link, useHistory } from "react-router-dom";
 import token from "../../localstorage/token";
 import img1 from "../../Assests/Img/Logo.png";
 import "./Navbar.css";
 import {
-  AppstoreOutlined,
-  StarFilled,
-  PictureOutlined,
-  AppleOutlined,
-  SoundOutlined,
-  CameraOutlined,
-  SmileOutlined,
-  LoginOutlined,
-  UserAddOutlined,
-  ContactsOutlined,
-  HomeOutlined,
+
  
-  StarTwoTone
+
+ 
 } from "@ant-design/icons";
 const { SubMenu } = Menu;
 
@@ -35,191 +26,135 @@ export default function Navbar({ role, setAuth }) {
     switch (role) {
       case 1:
         return (
-          <div className="mainMenu">
-              <Link to="/" className="imgLogo">
-                <img className="imgLogo2" src={img1} alt="a"/>
-              </Link>
+          <Col lg={{span:24, offset:0}} xs={{span:24, offset:0}} className="mainMenu">
+            <Link to="/" className="imgLogo">
+              <img className="imgLogo2" src={img1} alt="a" />
+            </Link>
             <Menu mode="horizontal" className="menu">
 
-       
 
-              <Menu.Item icon={<HomeOutlined />}>
-                <Link to="/home">Inicio</Link>
+
+              <Menu.Item >
+                <Link className="items"   to="/home">Inicio</Link>
               </Menu.Item>
-            
-              <SubMenu icon={<AppstoreOutlined />} title="Servicios">
-              <Link to="/servicios" >
-                <StarTwoTone/>
-              </Link>
-                <Menu.Item icon={<StarFilled />} title="Decoración">
-                  <Link to="/">Decoracion</Link>
-                </Menu.Item>
+              <Menu.Item >
+                <Link className="items"  to="/servicios">Servicios</Link>
+              </Menu.Item>
 
-                <Menu.Item icon={<PictureOutlined />} title="Lugares ">
-                  <Link to="/">Lugares</Link>
+                          <SubMenu className="items" title={"@" + token.decodeJWT().username}>
+                <Menu.Item>
+                  <Link className="items" to="/misEventos">Mis eventos</Link>
                 </Menu.Item>
-
-                <Menu.Item icon={<AppleOutlined />} title="Bufet">
-                  <Link to="/">Bufet</Link>
-                </Menu.Item>
-
-                <Menu.Item icon={<SoundOutlined />} title="Sonido">
-                  <Link to="/">Sonido</Link>
-                </Menu.Item>
-
-                <Menu.Item icon={<CameraOutlined />} title="Fotografia">
-                  <Link to="/">Fotografia</Link>
-                </Menu.Item>
-
-                <Menu.Item icon={<SmileOutlined />} title="Animacón">
-                  <Link to="/">Animación</Link>
-                </Menu.Item>
-              </SubMenu>
-
-              <SubMenu title={"@" + token.decodeJWT().username}>
-              <Menu.Item>
-                  <Link to="/misEventos">Mis eventos</Link>
-                </Menu.Item>
-                <Divider/>
+                <Divider />
                 <Menu.Item onClick={logout}>
-                  <Link to="/">Cerrar sesion</Link>
+                  <Link className="items" to="/">Cerrar sesion</Link>
                 </Menu.Item>
               </SubMenu>
             </Menu>
-          </div>
+          </Col>
         );
       case 2:
         return (
-          <div className="mainMenu">
-          <Link to="/" className="imgLogo">
-            <img className="imgLogo2" src={img1} alt="a"/>
-          </Link>
+          <Col  lg={{span:24, offset:0}} xs={{span:24, offset:0}} className="mainMenu">
+            <Link to="/" className="imgLogo">
+              <img className="imgLogo2" src={img1} alt="a" />
+            </Link>
             <Menu mode="horizontal" className="menu">
-             
-              <Menu.Item icon={<HomeOutlined />} className="menuItem">
-                <Link to="/">Inicio</Link>
+
+              <Menu.Item >
+                <Link className="items" to="/">Inicio</Link>
               </Menu.Item>
 
-            
+
 
               <SubMenu
                 title={"@" + token.decodeJWT().username}
-                className="menuItem"
+                className="items"
               >
 
                 <Menu.Item>
-                  <Link to="/agregarServicios">Agregar servicios</Link>
-                </Menu.Item>
-                
-                <Menu.Item>
-                  <Link to="/misServicios">Mis servicios</Link>
+                  <Link className="items" to="/agregarServicios">Agregar servicios</Link>
                 </Menu.Item>
 
                 <Menu.Item>
-                  <Link to="/eventosAsignados">Asignación de eventos</Link>
+                  <Link className="items" to="/misServicios">Mis servicios</Link>
                 </Menu.Item>
 
-                <Divider />
                 <Menu.Item>
-                  <Link to="/perfil">Mi perfil</Link>
+                  <Link className="items" to="/eventosAsignados">Asignación de eventos</Link>
                 </Menu.Item>
 
                 <Divider />
                 <Menu.Item>
-                  <Link to="/" onClick={logout}>
+                  <Link className="items" to="/perfil">Mi perfil</Link>
+                </Menu.Item>
+
+                <Divider />
+                <Menu.Item>
+                  <Link className="items" to="/" onClick={logout}>
                     Cerrar sesion
                   </Link>
                 </Menu.Item>
               </SubMenu>
             </Menu>
-          </div>
-        ); case 3:
+          </Col>
+        );
+      case 3:
         return (
-          <div className="mainMenu">
-          <Link to="/" className="imgLogo">
-            <img className="imgLogo2" src={img1} alt="a"/>
-          </Link>
+          <Col  lg={{span:24, offset:0}} xs={{span:24, offset:0}} className="mainMenu">
+            <Link to="/" className="imgLogo">
+              <img className="imgLogo2" src={img1} alt="a" />
+            </Link>
             <Menu mode="horizontal" className="menu">
-            
-              <Menu.Item icon={<HomeOutlined />} className="menuItem">
-                <Link to="/">Inicio administrador</Link>
+
+              <Menu.Item >
+                <Link className="items"  to="/">Inicio administrador</Link>
               </Menu.Item>
 
               <SubMenu
                 title={"@" + token.decodeJWT().username}
-                className="menuItem"
+                className="items" 
               >
 
                 <Menu.Item>
-                  <Link to="/gestionRoles">Gestionar roles</Link>
+                  <Link className="items" to="/gestionRoles">Gestionar roles</Link>
                 </Menu.Item>
                 <Menu.Item>
-                  <Link to="/gestionRolEmpresario">Gestionar rol empresario</Link>
+                  <Link className="items" to="/gestionRolEmpresario">Gestionar rol empresario</Link>
                 </Menu.Item>
                 <Menu.Item>
-                  <Link to="/gestionRolCliente">Gestionar rol cliente</Link>
+                  <Link className="items" to="/gestionRolCliente">Gestionar rol cliente</Link>
                 </Menu.Item>
                 <Menu.Item>
-                  <Link to="/gestionServicios">Gestionar servicio</Link>
+                  <Link className="items" to="/gestionServicios">Gestionar servicio</Link>
                 </Menu.Item>
 
                 <Divider />
                 <Menu.Item>
-                  <Link to="/" onClick={logout}>
+                  <Link className="items" to="/" onClick={logout}>
                     Cerrar sesion
                   </Link>
                 </Menu.Item>
               </SubMenu>
             </Menu>
-          </div>
+          </Col>
         );
       default:
         return (
-          <div className="mainMenu">
-          <Link to="/" className="imgLogo">
-            <img className="imgLogo2" src={img1} alt="a"/>
-          </Link>
+          <Col lg={{span:24, offset:0}} xs={{span:24, offset:0}} className="mainMenu">
+            <Link to="/" className="imgLogo">
+              <img className="imgLogo2" src={img1} alt="a" />
+            </Link>
             <Menu mode="horizontal" className="menu">
 
-              <Menu.Item icon={<HomeOutlined />}>
-                <Link to="/">Inicio</Link>
+              <Menu.Item >
+                <Link className="items" to="/login">Login</Link>
               </Menu.Item>
-              <SubMenu icon={<AppstoreOutlined />} title="Servicios">
-                <Menu.Item icon={<StarFilled />} title="Decoración">
-                  <Link to="/">Decoracion</Link>
-                </Menu.Item>
-
-                <Menu.Item icon={<PictureOutlined />} title="Lugares ">
-                  <Link to="/">Lugares</Link>
-                </Menu.Item>
-
-                <Menu.Item icon={<AppleOutlined />} title="Bufet">
-                  <Link to="/">Bufet</Link>
-                </Menu.Item>
-
-                <Menu.Item icon={<SoundOutlined />} title="Sonido">
-                  <Link to="/">Sonido</Link>
-                </Menu.Item>
-
-                <Menu.Item icon={<CameraOutlined />} title="Fotografia">
-                  <Link to="/">Fotografia</Link>
-                </Menu.Item>
-
-                <Menu.Item icon={<SmileOutlined />} title="Animacón">
-                  <Link to="/">Animación</Link>
-                </Menu.Item>
-              </SubMenu>
-              <Menu.Item icon={<ContactsOutlined />}>
-                <Link to="/">Quienes Somos</Link>
-              </Menu.Item>
-              <Menu.Item icon={<UserAddOutlined />}>
-                <Link to="/register">Registro</Link>
-              </Menu.Item>
-              <Menu.Item icon={<LoginOutlined />}>
-                <Link to="/login">Ingresar</Link>
+              <Menu.Item >
+                <Link className="items" to="/register">Sing Up</Link>
               </Menu.Item>
             </Menu>
-          </div>
+          </Col>
         );
     }
   };

@@ -24,7 +24,7 @@ import img17 from "../../../Assests/Img/Fotografia/Fotog1.jpg";
 import img18 from "../../../Assests/Img/Fotografia/Fotog2.jpg";
 import img19 from "../../../Assests/Img/Fotografia/Fotog3.jpg";
 import img20 from "../../../Assests/Img/Animacion/Animacio1.png";
-import Search from "antd/lib/input/Search";
+
 
 const Home = () => {
   // const [user, setUser] = useState(null);
@@ -42,12 +42,8 @@ const Home = () => {
   const { TabPane } = Tabs;
 
   return (
-    <div className="mainHome">
-      <Search
-        placeholder="Buscar"
-        onSearch={(value) => console.log(value)}
-        style={{ width: "50%" }}
-      />
+    <Col lg={{span:18, offset:3}} className="mainHome">
+    
       <Carousel autoplay>
         <div className="cont">
           <img
@@ -208,7 +204,7 @@ const Home = () => {
       </Row>
 
       <h1>Quienes Somos</h1>
-    </div>
+    </Col>
   );
 };
 export default Home;

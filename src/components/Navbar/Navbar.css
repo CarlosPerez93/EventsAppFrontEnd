@@ -1,57 +1,53 @@
+@import url('https://fonts.googleapis.com/css2?family=Acme&display=swap');
+
 .mainMenu{
+    
     display: flex;
-    background-color: #6243B8;
     justify-content: space-between;
-    padding-left: 5%;
-    padding-right:2%;
+    margin: auto;
+    margin-top: 0.6%;
+    margin-bottom: 0.1%;
     box-sizing: border-box;
+    
 }
 .menu{
-    width: auto;
-    background-color: #6243B8;
-    /* position: fixed; */
-    z-index: 1;
-}
-
-.imgLogo2{
-    /* border: solid 2px black; */
-    width: 120px;
+    width: 20%;
+    border: transparent;
+    
     
 }
 
-
-
-
-
-.ant-menu-horizontal > .ant-menu-item a {
-    color: white;
+.ant-menu-horizontal > .ant-menu-item:hover, .ant-menu-horizontal > .ant-menu-submenu:hover, .ant-menu-horizontal > .ant-menu-item-active, .ant-menu-horizontal > .ant-menu-submenu-active, .ant-menu-horizontal > .ant-menu-item-open, .ant-menu-horizontal > .ant-menu-submenu-open, .ant-menu-horizontal > .ant-menu-item-selected, .ant-menu-horizontal > .ant-menu-submenu-selected {
+    color: transparent;
+    border-bottom: transparent;
 }
 
 
 
 
-.ant-menu {
-    color: white;
-    font-size: 14px;
-
-    text-align: left;
-    list-style: none;
-    outline: none;
-    -webkit-box-shadow: 0 3px 6px -4px rgba(0, 0, 0, 0.12), 0 6px 16px 0 rgba(0, 0, 0, 0.08), 0 9px 28px 8px rgba(0, 0, 0, 0.05);
-    box-shadow: 0 3px 6px -4px rgba(182, 174, 174, 0.12), 0 6px 16px 0 rgba(0, 0, 0, 0.08), 0 9px 28px 8px rgba(0, 0, 0, 0.05);
-    -webkit-transition: background 0.3s, width 0.3s cubic-bezier(0.2, 0, 0, 1) 0s;
-    transition: background 0.3s, width 0.3s cubic-bezier(0.2, 0, 0, 1) 0s;
+.items{
+    font-family: 'Acme', sans-serif;
+    font-size: 120%;
+   
+    border-radius: 1rem;
+    margin: 0;
+    padding: 0;
+    
 }
 
-.anticon {
-    display: inline-block;
-    color:white;
-    font-style: normal;
-    line-height: 0;
-    text-align: center;
-    text-transform: none;
-    vertical-align: -0.125em;
-    text-rendering: optimizeLegibility;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+.imgLogo2{
+    
+    width: 120px;
+    margin-left: 60%;
 }
+
+
+
+
+
+
+
+
+
+
+

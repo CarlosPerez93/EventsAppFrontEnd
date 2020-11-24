@@ -1,95 +1,54 @@
 .mainHome {
   /* border: 2px black solid; */
-  background: white;
   display: flex;
   flex-direction: column;
   align-items: center;
   margin-top: 1%;
+ 
 }
 
 .ant-carousel {
   /* border: 2px black solid; */
-  width: 98%;
-  padding: 2%;
+  width: 100%;
   margin-top: 1%;
-  background: #6243b85b;
-  box-shadow: 11px 11px 59px -10px rgba(0, 0, 0, 0.61);
-  border-radius: 20px;
+  border-radius: 1rem;
 }
 
 .imgs {
   /* border: 2px solid black; */
   width: 98%;
-  height: 550px;
+  height: 500px;
   border-radius: 20px;
   margin: auto;
 }
-.ant-tabs > .ant-tabs-nav,
-.ant-tabs > div > .ant-tabs-nav {
-  /* border: 2px solid black; */
-  color: #6243b8;
-  display: flex;
-  padding-left: 25%;
-  /* width: 80%; */
+
+.search{
+ display: flex;
+  width: 40%;
+  height: 50px;
+  position: relative;
+  margin-top: -3%;
+  border-radius: 20px;
+  
+}
+.anticon svg {
+  display: inline-block;
+  color:  #6243B8;
+  font-size: 200%;
 }
 
-.about h2{
-  font-family: 'Roboto', sans-serif;
-  font-weight: bold; 
+.about{
+  margin-top: 5%;
 }
 
-.card-about{
-  height: 50vh;
-  margin-bottom: 3vh;
-}
 
-.ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
-  /* border: 2px solid black; */
-  color: #6243b8;
-  font-weight: 500;
-}
 
-.tab1 {
-  /* border: 2px solid black; */
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
 
-.containerAvatars {
-  /* border: black 2px solid; */
-  margin-top: 3%;
-  width: 70%;
-}
 
-.mainHome h1 {
-  /* border: black 2px solid; */
-  color: #6243b8;
-  display: flex;
-  justify-content: center;
-  line-height: 1;
-  margin-top: 0%;
-}
 
-.mainHome h2 {
-  font-size: 30px !important;
-  margin: auto;
-}
 
-.mainHome p{
-  margin-top: 2% !important;
-}
 
-.ContainerSomos {
-  /* border: 2px black solid; */
-  display: flex;
-  margin: 0%;
-  padding: 5%;
-  padding-top: 0%;
-  box-sizing: border-box;
-  font-size: 25px;
-  justify-content: space-between;
-}
+
 
 .Mision {
   /* border: 2px black solid; */

@@ -1,8 +1,6 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 // import api from "../../../common/api/api";
-// import token from "../../../localstorage/token";
 import { Carousel, Col, Row, Card } from "antd";
-// import { Link } from "react-router-dom";
 import "./Home.css";
 import img1 from "../../../Assests/Img/1.jpg";
 import img2 from "../../../Assests/Img/2.png";
@@ -12,25 +10,47 @@ import img5 from "../../../Assests/Img/5.png";
 import img6 from "../../../Assests/Img/6.png";
 import img7 from "../../../Assests/Img/7.png";
 import Search from "antd/lib/input/Search";
+import CardProxEvents from "./CardProxEvents/cardProxEvents"
+import api from "../../../common/api/api";
+
 
 
 
 
 const Home = () => {
   // const [user, setUser] = useState(null);
+  const [services, setServices] = useState(null);
 
-  const dataApi = async () => {
-    //  const result = await api.get("user/profile", { id: token.decodeJWT().id });
-    //  setUser(result.data);
-  };
+  const [events, setEvents] = useState();
+
 
   useEffect(() => {
-    dataApi();
-  });
+    const apiData = async () => {
 
+      const result = await api.get("event/all");
+      if (result.status === 200) {
+        setEvents(result.data);
+
+      }
+
+      console.log(result);
+    };
+
+    apiData();
+  }, [setEvents]);
+
+  useEffect(() => {
+    const apiData = async () => {
+      const result = await api.get("service/all");
+      if (result.status === 200) {
+        setServices(result.data);
+      }
+    };
+    apiData();
+  }, [])
 
   return (
-    <Col lg={{ span: 18, offset: 3 }} xs={{ span: 18, offset: 3 }} className="mainHome">
+    <Col lg={{ span: 22, offset: 1 }} xs={{ span: 22, offset: 1 }} className="mainHome">
 
       <Carousel >
         <div className="cont">
@@ -63,12 +83,8 @@ const Home = () => {
       </Carousel>
       <Search className='search' />
 
-      <Col lg={{ span: 6, offset: 2 }} xs={{ span: 6, offset: 2 }}>
-            
-      </Col>
-
       <Row className="about">
-        <Col lg={{ span: 6, offset: 1 }}>
+        <Col lg={{ span: 6, offset: 2 }}>
           <Card style={{ borderRadius: 6 }} className="card-about">
             <h2>Misión</h2>
             <p>
@@ -103,7 +119,44 @@ const Home = () => {
         </Col>
       </Row>
 
+      <h3>Proximos eventos</h3>
 
+      <Row >
+
+        {
+          events && (
+            events.map((event, index) => {
+              return (
+
+                <CardProxEvents key={index} data={event} />
+              )
+
+            })
+
+          )
+        }
+
+      </Row>
+
+      <Col lg={{ span: 24, offset: 0 }} className="footer">
+        <h2>Re-Best</h2>
+        <Row >
+          <Col lg={{ span: 10, offset: 1 }} className="card-footer">
+            <h3>Productos</h3>
+            <h4>Servicios</h4>
+            <h4>Eventos</h4>
+            <h4>Empresarios</h4>
+          </Col>
+          <Col lg={{ span: 10, offset: 1 }} className="card-footer">
+            <h3>Contactenos</h3>
+            <h4>Facebook</h4>
+            <h4>Twiter</h4>
+            <h4>Istagram</h4>
+          </Col>
+
+        </Row>
+          <h2>© 2020 Re-best. Todos los derechos reservados</h2>
+      </Col>
     </Col>
   );
 };

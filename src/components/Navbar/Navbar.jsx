@@ -26,7 +26,7 @@ export default function Navbar({ role, setAuth }) {
     switch (role) {
       case 1:
         return (
-          <Col lg={{span:24, offset:0}} xs={{span:24, offset:0}} className="mainMenu">
+          <Col lg={{span:18, offset:0}} xs={{span:24, offset:0}} className="mainMenu">
             <Link to="/" className="imgLogo">
               <img className="imgLogo2" src={img1} alt="a" />
             </Link>

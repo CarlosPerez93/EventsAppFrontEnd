@@ -50,7 +50,7 @@ const Home = () => {
   }, [])
 
   return (
-    <Col lg={{ span: 22, offset: 1 }} xs={{ span: 22, offset: 1 }} className="mainHome">
+    <Col lg={{ span: 24, offset: 1 }} xs={{ span: 22, offset: 1 }} className="mainHome">
 
       <Carousel >
         <div className="cont">

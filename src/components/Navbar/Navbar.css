@@ -5,15 +5,17 @@
     display: flex;
     justify-content: space-between;
     margin: auto;
-    margin-top: 0.6%;
+    padding: 1%;
     margin-bottom: 0.1%;
     box-sizing: border-box;
+    background-color:  #6243b823;
+    width: 100%;
     
 }
 .menu{
     width: 20%;
     border: transparent;
-    
+    background-color:  #6243b80e;
     
 }
 

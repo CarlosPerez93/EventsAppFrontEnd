@@ -1,8 +1,8 @@
 import React from "react";
-import { Form, Input, Button, Checkbox, message, Avatar, Col, Row } from "antd";
+import { Form, Input, Button, Checkbox, message, Col, Row } from "antd";
 import { UserOutlined } from "@ant-design/icons";
 import "../Login/login.css";
-import img1 from "../../../Assests/Img/login.png";
+
 import { Link, useHistory } from "react-router-dom";
 import api from "../../../common/api/api";
 import token from "../../../localstorage/token";

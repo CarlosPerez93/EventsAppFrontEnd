@@ -10,7 +10,7 @@
     "@testing-library/user-event": "^7.2.1",
     "antd": "^4.4.1",
     "antd-img-crop": "^3.9.0",
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "i": "^0.3.6",
     "jspdf": "^2.1.1",
     "jspdf-autotable": "^3.5.10",

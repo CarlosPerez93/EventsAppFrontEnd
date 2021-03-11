@@ -10,7 +10,7 @@ export default function CardMisEventos({ data }) {
     const history = useHistory();
     return (
         <Card  className="cardEvento" hoverable style={{ backgroundColor: "#F2EFFF", marginTop: "5%" }}>
-            <Col lg={{ span: 24, offset: 2 }} style={{ textAlign: "left", justifyContent: "flex-start" }}>
+            <Col lg={{ span: 24, offset: 0}} style={{ textAlign: "left"}}>
                 <Row justify="center">
                     <img
                     onClick={() => history.push(`/informacionEventos/${data.id}`)}

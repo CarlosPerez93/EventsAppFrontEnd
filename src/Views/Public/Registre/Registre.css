@@ -1,189 +1,93 @@
-.mainRegistre{
-    background-color: rgba(161, 216, 248, 0.178);
+@import url("https://fonts.googleapis.com/css2?family=Acme&display=swap");
+
+
+.container{
+    height: 100vh;
+}
+.ladoI{
+    
+    display: flex;
+}
+.cont2Img{
+    width: 100vh;
+    height: 100vh;
+   
+   
+}
+
+.T1{
+    font-family:  "Acme", sans-serif;
+    position: absolute;
+    color: white;
+    top: 20%;
+}
+
+.T2{
+    font-family:  "Acme", sans-serif;
+    position: absolute;
+    color: white;
+    top: 31%;
+    text-align: center;
+    left: 30%;
+}
+
+.btn1{
+    font-family:  "Acme", sans-serif;
+    position: absolute;
+    top: 70%;
+    left: 35%;
+    width: 30%;
+    background-color: rgb(124, 119, 130);
+    border: transparent;
+    border-radius: 2rem;
+}
+
+.btn1:hover{
+    background-color: rgb(154, 151, 158);
+    border: transparent;
+}
+
+.ladoD{
+    display: flex;
+    
+}
+
+.formReg{
     display: flex;
     flex-direction: column;
     width: 100%;
-    height: 100%;
-    position: fixed;
-    padding-top: 3%;
-    /* border: 2px solid black; */
+    height: 100vh;
+    margin-left: 30%;  
 }
 
-.container{
-    /* border: 2px black solid; */
-    display: flex;
-    margin-left: 10%;
-    margin-top: 3%;
-    width: 80%;
-    padding:  5%;
-    padding-top: 0%;
-    padding-right: 0%;
+.img1{
+    width: 30%;
+    margin-top: 1%;
+    margin-left: 15%;
+    margin-bottom: 2%;
 }
 
-
-
-.avatar{
-    /* border: 2px black solid; */
-    margin-left: 38%;
-    background-color: rgba(205, 253, 255, 0.61);
-    
-}
-
-.avatar:hover{ 
-    background-color: rgba(205, 253, 255, 0.932);
-}
-
-
-.FormR{
-    /* border: 2px black solid; */
-    background: #6243b85b;
-    box-shadow: 11px 11px 59px -10px rgba(0,0,0,0.61);
-    width: 40%;
-    height: 100%;
-    border-radius: 5%;
-    padding: 1%;
-    margin: auto;
-    margin-left: 0%; 
-    position: relative;
-    
-}
-
-
-
-.intems{
-    /* border: 2px black solid; */
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    margin: 0%;
-    padding-left: 10%;
-    padding-right: 10%;
-    /* margin-top: % ; */
-
-}
-
-.intemsCheck{
-    /* border: 2px black solid; */
-    display : flex;
-    justify-content: center ;
-    height: 10%;
-    margin-top: 2%;
-}
-
-.check{
-    /* border: 2px black solid; */
-    width: 50%;
-    padding: 0px;
-    margin: auto;
-    justify-content: center;
-}
-
-.select{
-    text-align: center;
-    /* border: 2px black solid; */
-  
-    background-color: transparent;
-}
-
-.ant-select-single:not(.ant-select-customize-input) .ant-select-selector {
-    position: relative; 
-    border: 1px solid #d9d9d9;
- 
-    -webkit-transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
-    transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
-   
-    height: 32px;
-    /* padding: 0 11px; */
-}
-
-.contItem{
-    /* border: 2px black solid; */
-    margin: 0%;
-    margin-top: 0%;
-    height: 100%;
-}
-
-.Input {
-    /* border: 2px black solid; */
-/* background-color: rgba(255, 255, 255, 0.377) ; */
-width: 130%;
-margin: auto;
-display: flex;
-margin-top:20%;
-border-radius: 25rem;
-font-family: Georgia, 'Times New Roman', Times, serif;
-
+.item{
+    border-radius: 2rem !important;
 }
 
 .btnCont{
-     /* border: black 2px solid; */
-     display: flex;
-     margin-top: 2%;
+    
+    width: 66%;
+    
 }
 
-.ButtonC{
-
-    /* border: 2px black solid !important; */
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    width: 50%;  
-    background-color: #6243B8;
+.btn2{
+    font-family:  "Acme", sans-serif;
+    width: 50%;
+    height: 50%;
+    background-color:#6243b8;
     border: transparent;
-    color: white;
-    /* margin-left: 15%; */
-    /* margin-top: 5%; */
-    display: flex;
-    border-radius: 5rem;
-    justify-content: center;
-    text-align: center;
+    border-radius: 2rem;
 }
 
 .ButtonC:hover{
-    background-color: #8c70d8;
+    background-color: rgba(137, 43, 226, 0.891);
     border: transparent;
-    color:white;
-}
 
-.Label{
-    /* border: solid 2px black; */
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    font-size: 20px;
-    display: flex;
-    justify-content: center;
-    color: black     ;
-}
-
-
-.a{
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-    padding-left: 20%;
-    padding-right: 20%;
-    color: black;
-    font-size: 20px;
-
-}
-
-.img{
-    /* border: black 2px solid; */
-    width: 100%;
-    height: 400px;
-}
-
-.contCarousel{
-    /* border: 2px black solid; */
-    width: 40%;
-
-    margin-right: 10%;
-}
-
-.contCarousel h3{
-    /* border: 2px black solid; */
-    font-size: 20px;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    color: black;
-    display: flex;
-    justify-content: center;
-    margin: 0%;
 }

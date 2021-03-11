@@ -77,7 +77,7 @@ export default function CardServicio({ data, state, id }) {
         >
 
           <img onClick={() => history.push(`/infoEmpresario/${data.empresa.id}`)}
-            src="./perfil1.png" alt="as" className="imgPerfilSe" />
+            src="./yo.jpg" alt="as" className="imgPerfilSe" />
           <h6>
             {data.empresa.profile.firstName}{" "}
             {data.empresa.profile.firstSurname}
@@ -90,7 +90,7 @@ export default function CardServicio({ data, state, id }) {
           style={{ textAlign: "left" }}
         >
           <h6 style={{ textAlign: "left" }}>{data.title}</h6>
-          <p style={{ textJustify: "justify" }}>{data.description}</p>
+          <p style={{  }}>{data.description}</p>
         </Col>
       </Row>
       <Row justify="end">
@@ -128,6 +128,7 @@ export default function CardServicio({ data, state, id }) {
               height: "50px",
               textAlign: "center",
               padding: 0,
+              
             }}
           />
             )

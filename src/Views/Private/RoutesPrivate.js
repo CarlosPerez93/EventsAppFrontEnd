@@ -31,8 +31,8 @@ function RoutesPrivate({ setAuth }) {
     const role = token.decodeJWT().role.id;
     setRole(role);
   }, [setRole]);
-
-  // 1 -> CLIENT 2 -> EMPRESARIO  3 -> Admon
+ 
+  // 1 -> CLIENT 2 -> EMPRESARIO  3 -> Admon  4 -> Invitado
 
   return (
     <>

@@ -53,7 +53,7 @@ export default function MisEventos() {
           {events !== null ? (
             events.map((event, index) => {
               return (
-                <Col key={index} lg={{ span: 6, offset: 1 }} xs={{ span: 6, offset: 2 }}>
+                <Col key={index} lg={{ span: 9, offset: 1 }} xs={{ span: 6, offset: 2 }}>
                   <CardMisEventos data={event} />
                 </Col>
               )

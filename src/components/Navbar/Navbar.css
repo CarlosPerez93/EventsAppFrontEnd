@@ -1,55 +1,43 @@
-@import url('https://fonts.googleapis.com/css2?family=Acme&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Acme&display=swap");
 
-.mainMenu{
-    
-    display: flex;
-    justify-content: space-between;
-    margin: auto;
-    padding: 1%;
-    margin-bottom: 0.1%;
-    box-sizing: border-box;
-    background-color:  #6243b823;
-    width: 100%;
-    
+.mainMenu {
+  display: flex;
+  justify-content: space-between;
+  margin: auto;
+  padding: 1%;
+  margin-bottom: 0.1%;
+  box-sizing: border-box;
+  background-color: #6243b823;
+  width: 100%;
 }
-.menu{
-    width: 20%;
-    border: transparent;
-    background-color:  #6243b80e;
-    
+.menu {
+  width: 21%;
+  border: transparent;
+  background-color: #6243b80e;
 }
 
-.ant-menu-horizontal > .ant-menu-item:hover, .ant-menu-horizontal > .ant-menu-submenu:hover, .ant-menu-horizontal > .ant-menu-item-active, .ant-menu-horizontal > .ant-menu-submenu-active, .ant-menu-horizontal > .ant-menu-item-open, .ant-menu-horizontal > .ant-menu-submenu-open, .ant-menu-horizontal > .ant-menu-item-selected, .ant-menu-horizontal > .ant-menu-submenu-selected {
-    color: transparent;
-    border-bottom: transparent;
+.ant-menu-horizontal > .ant-menu-item:hover,
+.ant-menu-horizontal > .ant-menu-submenu:hover,
+.ant-menu-horizontal > .ant-menu-item-active,
+.ant-menu-horizontal > .ant-menu-submenu-active,
+.ant-menu-horizontal > .ant-menu-item-open,
+.ant-menu-horizontal > .ant-menu-submenu-open,
+.ant-menu-horizontal > .ant-menu-item-selected,
+.ant-menu-horizontal > .ant-menu-submenu-selected {
+  color: transparent;
+  border-bottom: transparent;
 }
 
+.items {
+  font-family: "Acme", sans-serif;
+  font-size: 120%;
 
-
-
-.items{
-    font-family: 'Acme', sans-serif;
-    font-size: 120%;
-   
-    border-radius: 1rem;
-    margin: 0;
-    padding: 0;
-    
+  border-radius: 1rem;
+  margin: 0;
+  padding: 0;
 }
 
-.imgLogo2{
-    
-    width: 120px;
-    margin-left: 60%;
+.imgLogo2 {
+  width: 120px;
+  margin-left: 60%;
 }
-
-
-
-
-
-
-
-
-
-
-

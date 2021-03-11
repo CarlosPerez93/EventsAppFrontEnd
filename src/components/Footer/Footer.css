@@ -1,0 +1,23 @@
+@import url("https://fonts.googleapis.com/css2?family=Acme&display=swap");
+
+.footer {
+  width: 100%;
+  background-color: rgba(23, 18, 79, 1);
+
+  color: #ffffff;
+}
+
+.footer h2 {
+  margin: auto;
+  margin-left: 50%;
+  margin-top: 2% !important;
+  color: #ffffff;
+  font-size: 180%;
+}
+
+.card-footer h2,
+.card-footer h3,
+.card-footer h4 {
+  color: #ffffff;
+  padding-left: 40%;
+}

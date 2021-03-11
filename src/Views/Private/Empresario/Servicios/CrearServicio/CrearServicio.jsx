@@ -30,11 +30,11 @@ export default function CrearServicio() {
       // la operacion se realizado 201 = OK
       message.success("Se ha realizado correctamente el registro");
       history.push("/misServicios");
-      console.log(result)
-    }else{
+      console.log(result);
+    } else {
       message.error("No se ha realizado registro");
     }
-    console.log(servicio);   
+    console.log(servicio);
   };
   useEffect(() => {
     const dataTypes = async () => {
@@ -48,18 +48,19 @@ export default function CrearServicio() {
   }, []);
 
   function onChange(value) {
-    console.log('changed', value);
+    console.log("changed", value);
   }
   return (
     <Col
       lg={{ span: 12, offset: 6 }}
       xs={{ span: 20, offset: 2 }}
       style={{ paddingTop: 30 }}
-    
     >
       <Card>
         <Col lg={{ span: 20, offset: 2 }} xs={{ span: 22, offset: 1 }}>
-          <h4 style={{ textAlign: "center", fontWeight: "bold", fontSize: 20 }}>Registro de Servicios</h4>
+          <h4 style={{ textAlign: "center", fontWeight: "bold", fontSize: 20 }}>
+            Registro de Servicios
+          </h4>
           <hr />
           <Form onFinish={onFinish}>
             <Row>
@@ -85,8 +86,8 @@ export default function CrearServicio() {
                         );
                       })
                     ) : (
-                        <></>
-                      )}
+                      <></>
+                    )}
                   </Select>
                 </Form.Item>
               </Col>
@@ -95,20 +96,30 @@ export default function CrearServicio() {
             <Form.Item name={["servicio", "description"]}>
               <TextArea rows={5} />
             </Form.Item>
+            
+            <Form.Item name={["servicio", "imagen"]}>
+                
+
+            </Form.Item>
+
             <label>Precio</label>
             <Form.Item name={["servicio", "prise"]}>
               <InputNumber
                 initialValues={1000}
-                formatter={value => `$ ${value}`.replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
-                parser={value => value.replace(/\$\s?|(,*)/g, '')}
+                formatter={(value) =>
+                  `$ ${value}`.replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+                }
+                parser={(value) => value.replace(/\$\s?|(,*)/g, "")}
                 onChange={onChange}
               />
             </Form.Item>
+              
+
 
             <Row justify="end">
               <Button htmlType="submit" type="primary">
                 Registrar servicio
-            </Button>
+              </Button>
             </Row>
           </Form>
         </Col>

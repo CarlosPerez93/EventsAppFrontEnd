@@ -1,145 +1,133 @@
-@import url('https://fonts.googleapis.com/css2?family=Acme&display=swap');
-
+@import url("https://fonts.googleapis.com/css2?family=Acme&display=swap");
 
 .mainLogin {
-   
-
-    /* background-image: url("../../Assests/Img/serpentina1.png"); */
-    justify-content: center;
-    width: 100%;
-    height: 100%;
-    position: absolute;
-   
-}
-
-.imgLogin {
-    /* border: 2px rgba(3, 25, 26, 0.219) solid; */
-    height: 90vh;
-   position: absolute;
-
-}
-
-.ContainerLogin{
-    /* border: 2px black solid; */
-    display: flex ;
-    width: 80% ;
-    margin: auto;
-    margin-top: 3%;
-  
-}
-
-.formLogin {
-    /* border: 2px black solid; */
-
-    width: 100%;
-    height: 50vh;
-    display: grid;
-    justify-items: center;
-    padding: 5%;
-    align-items: center;
-}
-
-.formLogin h1{
-    font-family: 'Acme', sans-serif !important;
-    color:  #8c70d8;
-}
-
-.labelLogin {
-    /* border: 2px black solid; */
-    font-family: 'Acme', sans-serif !important;
-    width: 80%;
-    display: flex;
-    justify-content: center;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    font-size: 20px;
-    margin-top: 5%;
-}
-
-.InputLogin {
-    width: 100% ;
-    border-radius: 1rem !important;
-
-}
-
-.remember1{
-    /* border: 2px black solid; */
-    width: 90%;
-    display: flex;
-    justify-content: center;
-    font-family: 'Acme', sans-serif !important;
-    font-family: 'Acme', sans-serif !important;
-    color:  #8c70d8;
-}
-
-.remember{
-    /* border: 2px black solid; */
-    width: 90%;
-    display: flex;
-}
-
-.butonCont {
-    /* border: black 2px solid; */
-    display: grid;
-    padding-right: 15%;
-    margin-top: 1% !important;
-    /* margin: auto; */
-
-}
-
-.Buton{
-    width: 150%;
-    background-color: #6243B8;
-    border: transparent;
-    border-radius: 25rem;
-    color: white;
-    text-align: center;
-    margin-left: 0%;
-    display: flex;
-    justify-content: center;
-    font-family: 'Acme', sans-serif !important;
-}
-
-.ant-col-offset-8 {
-    /* border: 2px black solid; */
-    width: 100%;
-    display: flex;
-    align-items: center;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-
-.Buton:hover{
-    /* border: 2px black solid; */
-    background-color: #8c70d8;
-    border: transparent;
-    color: white;
-}
-
-.link {
-    /* border: 2px black solid; */
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
+  /* background-image: url("../../Assests/Img/serpentina1.png"); */
+  height: 100vh;
  
 }
 
-a{
-    /* border: 2px black solid; */
-    font-family: 'Acme', sans-serif !important;
-    color:  #8c70d8;
-    font-size: 15px;
+.imgLogo1 {
+  width: 25%;
+}
+.imgLogin {
+  /* border: 2px rgba(3, 25, 26, 0.877) solid; */
+  width: 100%;
+  height: 100vh;
+  position: absolute;
 }
 
-a:hover{
-    /* border: 2px black solid; */
-    font-size: 16px;
-    color: rgb(0, 0, 0);
+.ContainerLogin {
+  /* border: 2px black solid; */
+  /* display: flex; */
+  width: 100%;
+  margin: auto;
+  padding-top: 10%;
+  padding-bottom: 10%;
+  height: 100vh;
+}
+
+.formLogin {
+  /* border: 2px black solid; */
+
+  width: 100%;
+  height: 100%;
+  display: grid;
+  justify-items: center;
+  padding: 2%;
+  align-items: center;
+}
+
+.formLogin h1 {
+  font-family: "Acme", sans-serif !important;
+  color: #8c70d8;
+}
+
+.labelLogin {
+  /* border: 2px black solid; */
+  font-family: "Acme", sans-serif !important;
+  width: 70%;
+  display: flex;
+  justify-content: center;
+  font-size: 20px;
+  margin-top: 5%;
+}
+
+
+
+.remember1 {
+  /* border: 2px black solid; */
+  width: 90%;
+  display: flex;
+  justify-content: center;
+  font-family: "Acme", sans-serif !important;
+  font-family: "Acme", sans-serif !important;
+  color: #8c70d8;
+}
+
+.remember {
+  /* border: 2px black solid; */
+  width: 90%;
+  display: flex;
+}
+
+.butonCont {
+  /* border: black 2px solid; */
+  display: grid;
+  padding-right: 15%;
+  margin-top: 1% !important;
+  /* margin: auto; */
+}
+
+.Buton {
+  width: 150%;
+  background-color: #6243b8;
+  border: transparent;
+  border-radius: 25rem;
+  color: white;
+  text-align: center;
+  margin-left: 0%;
+  display: flex;
+  justify-content: center;
+  font-family: "Acme", sans-serif !important;
+}
+
+.ant-col-offset-8 {
+  /* border: 2px black solid; */
+  width: 100%;
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.Buton:hover {
+  /* border: 2px black solid; */
+  background-color: #8c70d8;
+  border: transparent;
+  color: white;
+}
+
+.link {
+  /* border: 2px black solid; */
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+a {
+  /* border: 2px black solid; */
+  font-family: "Acme", sans-serif !important;
+  color: #8c70d8;
+  font-size: 15px;
+}
+
+a:hover {
+  /* border: 2px black solid; */
+  font-size: 16px;
+  color: rgb(0, 0, 0);
 }
 
 .ant-checkbox-checked .ant-checkbox-inner {
-    background-color: rgba(23, 24, 8, 0.473);
-    /* border-color: #1890ff; */
+  background-color: rgba(23, 24, 8, 0.473);
+  /* border-color: #1890ff; */
 }
-
-

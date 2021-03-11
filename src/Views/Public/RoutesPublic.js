@@ -9,18 +9,17 @@ import Navbar from './../../components/Navbar/Navbar';
 function RoutesPublic({setAuth}) {
   return (
     <>
-    <Navbar/>
+    
     <Switch> 
       <Route path="/" exact >
+      <Navbar/>
         <Home/>
       </Route>
       <Route path="/login" exact>
        <Login setAuth={setAuth}/>
         </Route>
       <Route path="/register" component={RegistrationForm} />
-      <Route path="/about">
-        <h1>Quienes somos</h1>
-      </Route>
+     
     </Switch>
     </>
   );

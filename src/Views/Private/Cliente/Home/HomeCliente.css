@@ -1,3 +1,23 @@
-.home-Cliente{
-    padding: 5%;
+@import url("https://fonts.googleapis.com/css2?family=Acme&display=swap");
+
+.home-Cliente {
+  
+}
+
+.serchC {
+  width: 50%;
+  background-color: blueviolet;
+}
+.about{
+  margin-top: 1%;
+}
+
+.card-about{
+  text-align: justify;
+  height: 100%;
+  background:  #6243b842;
+  border-radius: 1rem !important;
+  padding: 5%;
+  margin-top: 5%;
+  box-sizing: border-box;
 }

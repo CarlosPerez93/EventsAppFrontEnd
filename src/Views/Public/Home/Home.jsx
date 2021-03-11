@@ -2,20 +2,17 @@ import React, { useState, useEffect } from "react";
 // import api from "../../../common/api/api";
 import { Carousel, Col, Row, Card } from "antd";
 import "./Home.css";
-import img1 from "../../../Assests/Img/1.jpg";
-import img2 from "../../../Assests/Img/2.png";
-import img3 from "../../../Assests/Img/3.png";
-import img4 from "../../../Assests/Img/4.png";
-import img5 from "../../../Assests/Img/5.png";
-import img6 from "../../../Assests/Img/6.png";
-import img7 from "../../../Assests/Img/7.png";
+// import img1 from "../../../Assests/Img/1.jpg";
+// import img2 from "../../../Assests/Img/2.png";
+// import img3 from "../../../Assests/Img/3.png";
+// import img4 from "../../../Assests/Img/4.png";
+// import img5 from "../../../Assests/Img/5.png";
+// import img6 from "../../../Assests/Img/6.png";
+// import img7 from "../../../Assests/Img/7.png";
 import Search from "antd/lib/input/Search";
-import CardProxEvents from "./CardProxEvents/cardProxEvents"
+import CardProxEvents from "./CardProxEvents/cardProxEvents";
 import api from "../../../common/api/api";
-
-
-
-
+import Footer from "../../../components/Footer/Footer";
 
 const Home = () => {
   // const [user, setUser] = useState(null);
@@ -23,14 +20,11 @@ const Home = () => {
 
   const [events, setEvents] = useState();
 
-
   useEffect(() => {
     const apiData = async () => {
-
       const result = await api.get("event/all");
       if (result.status === 200) {
         setEvents(result.data);
-
       }
 
       console.log(result);
@@ -47,52 +41,31 @@ const Home = () => {
       }
     };
     apiData();
-  }, [])
+  }, []);
 
   return (
-    <Col lg={{ span: 24, offset: 1 }} xs={{ span: 22, offset: 1 }} className="mainHome">
-
-      <Carousel >
+    <Col
+      lg={{ span: 24, offset: 1 }}
+      xs={{ span: 22, offset: 1 }}
+      className="mainHome"
+    >
+      <Carousel>
         <div className="cont">
-          <img
-            className="imgs"
-            src={img1}
-            style={{ resize: "cover" }}
-            alt=" "
-          />
-        </div>
-
-        <div className="cont">
-          <img className="imgs" src={img2} alt=" " />
-        </div>
-        <div className="cont">
-          <img className="imgs" src={img3} alt=" " />
-        </div>
-        <div className="cont">
-          <img className="imgs" src={img4} alt=" " />
-        </div>
-        <div className="cont">
-          <img className="imgs" src={img5} alt=" " />
-        </div>
-        <div className="cont">
-          <img className="imgs" src={img6} alt=" " />
-        </div>
-        <div className="cont">
-          <img className="imgs" src={img7} alt=" " />
+          <img className="imgs" src="./6.png" alt=" " />
         </div>
       </Carousel>
-      <Search className='search' />
+      <Search className="search" />
 
       <Row className="about">
         <Col lg={{ span: 6, offset: 2 }}>
           <Card style={{ borderRadius: 6 }} className="card-about">
             <h2>Misión</h2>
             <p>
-              Re-BesT nace con la misión de satisfacer las necesidades de nuestros
-              clientes a la hora de buscar un servicio personalizado de excelente
-              calidad para la organización de todo tipo de eventos, teniendo en
-              cuenta cada detalle para que sea inolvidable.
-          </p>
+              Re-BesT nace con la misión de satisfacer las necesidades de
+              nuestros clientes a la hora de buscar un servicio personalizado de
+              excelente calidad para la organización de todo tipo de eventos,
+              teniendo en cuenta cada detalle para que sea inolvidable.
+            </p>
           </Card>
         </Col>
         <Col lg={{ span: 6, offset: 1 }}>
@@ -100,9 +73,10 @@ const Home = () => {
             <h2>Visión</h2>
             <p>
               Nuestra empresa Re-BesT, busca liderar el mercado nacional de
-              empresas organizadoras de eventos, innovando nuestros servicios con
-              el propósito de satisfacer las exigencias de nuestros clientes.
-          </p>
+              empresas organizadoras de eventos, innovando nuestros servicios
+              con el propósito de satisfacer las exigencias de nuestros
+              clientes.
+            </p>
           </Card>
         </Col>
         <Col lg={{ span: 6, offset: 1 }}>
@@ -112,51 +86,25 @@ const Home = () => {
               Cumplimiento, respeto, calidad, creatividad, confianza, serán
               nuestros principios para tener éxito, atender los eventos con
               puntualidad, estar al tanto de los cambios para implementarlos en
-              los servicios que ofrecemos, tratar a todos por igual, que nuestros
-              eventos sean recordados por nuestros clientes y nos recomienden.
-          </p>
+              los servicios que ofrecemos, tratar a todos por igual, que
+              nuestros eventos sean recordados por nuestros clientes y nos
+              recomienden.
+            </p>
           </Card>
         </Col>
       </Row>
 
       <h3>Proximos eventos</h3>
 
-      <Row >
-
-        {
-          events && (
+  
+        <Col lg={{span:12, offset:0}} style={{display:"flex"}}>
+          {events &&
             events.map((event, index) => {
-              return (
-
-                <CardProxEvents key={index} data={event} />
-              )
-
-            })
-
-          )
-        }
-
-      </Row>
-
-      <Col lg={{ span: 24, offset: 0 }} className="footer">
-        <h2>Re-Best</h2>
-        <Row >
-          <Col lg={{ span: 10, offset: 1 }} className="card-footer">
-            <h3>Productos</h3>
-            <h4>Servicios</h4>
-            <h4>Eventos</h4>
-            <h4>Empresarios</h4>
-          </Col>
-          <Col lg={{ span: 10, offset: 1 }} className="card-footer">
-            <h3>Contactenos</h3>
-            <h4>Facebook</h4>
-            <h4>Twiter</h4>
-            <h4>Istagram</h4>
-          </Col>
-
-        </Row>
-          <h2>© 2020 Re-best. Todos los derechos reservados</h2>
-      </Col>
+              return <CardProxEvents key={index} data={event} />;
+            })}
+        </Col>
+            <br/>
+      <Footer />
     </Col>
   );
 };

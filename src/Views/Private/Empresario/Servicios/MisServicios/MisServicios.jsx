@@ -3,6 +3,7 @@ import { Col, Button, Row } from "antd";
 import { PlusOutlined } from "@ant-design/icons";
 import "./MisServicios.css";
 import CardMisServicios from "./CardMisServicios/CardMisServicios";
+import Footer from "../../../../../components/Footer/Footer"
 import { Link } from "react-router-dom";
 import { useEffect } from "react";
 import Api from "../../../../../common/api/api";
@@ -30,7 +31,7 @@ export default function MisServicios() {
       className="MisServicios"
     >
       <h1>Mis Servicios</h1>
-      <Col lg={{ span: 4, offset: 18 }}>
+      <Col lg={{ span: 4, offset: 20 }}>
         <Link to="/agregarServicios">
           <Button
             icon={<PlusOutlined />}
@@ -43,22 +44,27 @@ export default function MisServicios() {
           </Button>
         </Link>
       </Col>
-
       <Row>
-
         {services !== null ? (
           services.map((service, index) => {
             return (
-              <Col lg={{ span: 7, offset: 1 }} xs={{ span: 22, offset: 1 }} key={index}>
+              <Col
+              lg={{ span: 10, offset: 1 }}
+              xs={{ span: 22, offset: 1 }}
+              key={index}
+              style={{ marginBottom:"2%"}}
+              >
                 <CardMisServicios data={service} />
               </Col>
-            )
+            );
           })
-        ) : (
+          ) : (
             <></>
-          )}
-
+            )}
+            
       </Row>
+      
+      <Footer />
     </Col>
   );
 }

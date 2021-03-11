@@ -1,15 +1,14 @@
 import React from "react";
 import { Form, Input, Button, Checkbox, message, Col, Row } from "antd";
-import { UserOutlined } from "@ant-design/icons";
 import "../Login/login.css";
-
 import { Link, useHistory } from "react-router-dom";
 import api from "../../../common/api/api";
 import token from "../../../localstorage/token";
+
 export default function Login({ setAuth }) {
   const history = useHistory();
   const layout = {
-    labelCol: { span: 8 },
+    labelCol: { span: 24 },
     wrapperCol: { span: 16 },
   };
   const tailLayout = {
@@ -37,9 +36,7 @@ export default function Login({ setAuth }) {
     <Col lg={{ span: 24 }} className="mainLogin">
       <Row>
 
-        <Col lg={{span:14}} className="ContainerLogin">
-
-
+        <Col lg={{ span: 14 }}>
           <Form
             className="formLogin"
             {...layout}
@@ -47,9 +44,12 @@ export default function Login({ setAuth }) {
             initialValues={{ remember: true }}
             onFinish={onFinish}
             onFinishFailed={onFinishFailed}
-            >
+          >
+            <Link to="/">
+              <img src="./Logo.png" className="imgLogo1" />
+            </Link>
             <h1>Iniciar Sesion</h1>
-           
+
             <Form.Item
               className="labelLogin"
               name={["user", "username"]}
@@ -85,23 +85,21 @@ export default function Login({ setAuth }) {
             <Form.Item {...tailLayout} className="butonCont">
               <Button type="primary" htmlType="submit" className="Buton">
                 Iniciar Sesión
-            </Button>
+              </Button>
               <br />
             </Form.Item>
-            <Col lg={{span:16}} className="link">
-              <Link to="/register"> O registrate ahora!
-            </Link>
+            <Col lg={{ span: 12 }} className="link">
+              <Link to="/register"> O registrate ahora!</Link>
               <Link to="/" className="login-form-forgot">
                 Olvido su Contraseña?
-            </Link>
+              </Link>
             </Col>
           </Form>
-
         </Col>
-        <Col lg={{span:10}}>
+        <Col lg={{ span: 10 }}>
           <img className="imgLogin" src={"/login1.png"} alt="aa" />
         </Col>
       </Row>
     </Col>
   );
-};
+}

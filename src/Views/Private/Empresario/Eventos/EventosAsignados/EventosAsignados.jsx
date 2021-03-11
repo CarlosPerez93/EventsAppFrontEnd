@@ -29,6 +29,19 @@ export default function EventosAsognados() {
               </Col>
             );
           })}
+        {/* {events !== null ? (
+          events.map((event) => {
+            return (
+              <Col lg={{ span: 6, offset: 1 }} key={event.id}>
+                <CardEvento data={event} />
+              </Col>
+            );
+          })
+        ) : (
+          <>
+            <h1>aaaa</h1>
+          </>
+        )} */}
       </Row>
     </Col>
   );

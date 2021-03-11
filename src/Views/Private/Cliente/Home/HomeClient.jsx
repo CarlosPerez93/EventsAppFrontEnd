@@ -1,7 +1,8 @@
 import React from "react";
-import { Input, Col, Row, Select } from "antd";
+import { Input, Col, Row, Select, Carousel, Card } from "antd";
 import "./HomeCliente.css";
 import CardServicio from "./CardServicio/CardServicio";
+import Footer from "../../../../components/Footer/Footer"
 import { useEffect } from "react";
 import api from "../../../../common/api/api";
 import { useState } from "react";
@@ -28,18 +29,25 @@ export default function Home() {
   }, []);
 
   return (
-    <Col className="home-Cliente" lg={{ span: 16, offset: 4 }}>
-      <Search
+    <Col className="home-Cliente" lg={{ span: 24, offset: 2 }}>
+
+      {/* <Search
         size="large"
         enterButton="Buscar"
         placeholder="Buscar Servicios..."
         dat
         onSearch={(value) => console.log(value)}
-      />
-      <br />
-      <br />
-      <Row justify="end" style={{ marginBottom: "2%" }}>
-        <Col lg={6}>
+        className="serchC"
+      /> */}
+      <Carousel>
+        <div className="cont">
+          <img className="imgs" src="./6.png" alt=" " />
+        </div>
+      </Carousel>
+
+
+      <Row style={{ marginBottom: "2%", marginTop: "1%" }}>
+        <Col lg={{ span: 6, offset: 15 }}>
           <Select
             showSearch
             style={{ width: "100%", color: "black" }}
@@ -56,28 +64,38 @@ export default function Home() {
                 );
               })
             ) : (
-              <></>
-            )}
+                <></>
+              )}
           </Select>
         </Col>
       </Row>
 
-      <Col>
-        {services !== null ? (
-          services.map((service, index) => {
-            return typeSelect !== null &&
-              service.typeService.id === typeSelect ? (
-              <CardServicio data={service} />
-            ) : typeSelect === null ? (
-              <CardServicio data={service} />
-            ) : (
+
+
+      <Row>
+
+        <Col lg={{ span: 19, offset: 1 }} >
+
+          {services !== null ? (
+            services.map((service, index) => {
+              return typeSelect !== null &&
+                service.typeService.id === typeSelect ? (
+
+                  <CardServicio data={service} />
+                ) : typeSelect === null ? (
+                  <CardServicio data={service} />
+                ) : (
+                    <></>
+                  );
+            })
+          ) : (
               <></>
-            );
-          })
-        ) : (
-          <></>
-        )}
-      </Col>
+            )}
+        </Col>
+
+      </Row>
+
+      <Footer />
     </Col>
   );
 }

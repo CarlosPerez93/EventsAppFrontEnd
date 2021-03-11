@@ -1,3 +1,9 @@
 .perfilInfo h1{
     color: rgba(0, 0, 0, 0.404);
 }
+
+.perfilInfo img{
+    width: 20%;
+    height: 20%;
+    border-radius: 50%;
+}
